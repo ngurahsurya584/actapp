@@ -14,6 +14,7 @@
 		8A3098882BE8D4A200F27593 /* actappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098872BE8D4A200F27593 /* actappTests.swift */; };
 		8A3098922BE8D4A200F27593 /* actappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098912BE8D4A200F27593 /* actappUITests.swift */; };
 		8A3098942BE8D4A200F27593 /* actappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098932BE8D4A200F27593 /* actappUITestsLaunchTests.swift */; };
+		8A88FB9B2BEA093200FF0204 /* GoalSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88FB9A2BEA093200FF0204 /* GoalSettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		8A30988D2BE8D4A200F27593 /* actappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = actappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A3098912BE8D4A200F27593 /* actappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actappUITests.swift; sourceTree = "<group>"; };
 		8A3098932BE8D4A200F27593 /* actappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actappUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8A88FB9A2BEA093200FF0204 /* GoalSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		8A30986A2BE8D4A000F27593 = {
 			isa = PBXGroup;
 			children = (
+				8AF888D72BEA2C9600597EB9 /* components */,
 				8A3098752BE8D4A000F27593 /* actapp */,
 				8A3098862BE8D4A200F27593 /* actappTests */,
 				8A3098902BE8D4A200F27593 /* actappUITests */,
@@ -96,6 +99,7 @@
 			children = (
 				8A3098762BE8D4A000F27593 /* actappApp.swift */,
 				8A3098782BE8D4A000F27593 /* ContentView.swift */,
+				8A88FB9A2BEA093200FF0204 /* GoalSettingView.swift */,
 				8A30987A2BE8D4A200F27593 /* Assets.xcassets */,
 				8A30987C2BE8D4A200F27593 /* Preview Content */,
 			);
@@ -125,6 +129,13 @@
 				8A3098932BE8D4A200F27593 /* actappUITestsLaunchTests.swift */,
 			);
 			path = actappUITests;
+			sourceTree = "<group>";
+		};
+		8AF888D72BEA2C9600597EB9 /* components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A3098792BE8D4A000F27593 /* ContentView.swift in Sources */,
+				8A88FB9B2BEA093200FF0204 /* GoalSettingView.swift in Sources */,
 				8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
