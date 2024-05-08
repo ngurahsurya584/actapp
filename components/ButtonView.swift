@@ -9,7 +9,24 @@ import SwiftUI
 
 struct ButtonView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Button("Press Me") {
+                        print("Button pressed!")
+                    }
+                    .buttonStyle(BlackButton())
+        }
+    }
+}
+
+struct BlackButton: ButtonStyle {
+    func makeBody(configuration: 
+        
+        Configuration) -> some View {
+        configuration.label
+            .padding().frame(maxWidth:350)
+            .background(Color(red: 0, green: 0, blue: 0))
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 
