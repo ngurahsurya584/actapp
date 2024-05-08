@@ -2,7 +2,7 @@
 //  TimeSettingView.swift
 //  actapp
 //
-//  Created by I Gusti Ngurah Surya Ardika Dinataputra on 07/05/24.
+//  Created by I Gusti Surya Ardika Dinataputra on 07/05/24.
 //
 
 import SwiftUI
@@ -24,7 +24,9 @@ struct TimeSettingView: View {
                                 .frame(width: 150, height: 10)
             }.padding(.bottom, 50)
             
-            Text("When can ").font(.largeTitle).bold()
+            Text("When can ").font(.largeTitle)
+                .bold()
+                .foregroundStyle(.red)
             +
             Text("***Grass*** ")
                 .font(.largeTitle)
