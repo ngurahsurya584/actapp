@@ -1,5 +1,5 @@
 //
-//  CardsOpeningView.swift
+//  CardsAllFilledView.swift
 //  actapp
 //
 //  Created by I Gusti Ngurah Surya Ardika Dinataputra on 12/05/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardsOpeningView: View {
+struct CardsAllFilledView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack{
@@ -70,15 +70,41 @@ struct CardsOpeningView: View {
                 
                 Text("Learn to stop struggling and start living with your pain").font(.caption).foregroundStyle(.gray).padding(.trailing, 45)
                 
-                Spacer().frame(height:85)
+                Spacer()
                 
-                VStack{
-                    Image(systemName: "app.connected.to.app.below.fill").scaleEffect(3).foregroundStyle(.gray)
-                    Spacer().frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    Text("Start reflection to add your hooks").foregroundStyle(.gray).bold()
-                }.overlay(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).stroke(.gray).frame(width: 351, height: 219, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/))
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing:20){
+                        Spacer().frame(width: 0)
+                        ZStack{
+                            Button(action:{
+                                print("tapped")
+                            }){
+                                VStack{
+                                    Spacer()
+                                    Text("Anger").foregroundStyle(.black).fontWeight(.semibold)
+                                    Text("Scalding hot, dense, red bubble in my chest").font(.caption).multilineTextAlignment(.center).foregroundStyle(.gray)
+                                }
+                            }.buttonStyle(CardButton())
+                            
+                        }
+                        
+                        ZStack{
+                            Button(action:{
+                                print("tapped")
+                            }){
+                                VStack{
+                                    Spacer()
+                                    Text("Anger").foregroundStyle(.black).fontWeight(.semibold)
+                                    Text("Scalding hot, dense, red bubble in my chest").font(.caption).multilineTextAlignment(.center).foregroundStyle(.gray)
+                                }
+                            }.buttonStyle(CardButton())
+                            
+                        }
+                        
+                    }
+                }
                 
-                Spacer().frame(height:100)
+                Spacer().frame(height:20)
                 
                 HStack{
                     Spacer()
@@ -125,13 +151,10 @@ struct CardsOpeningView: View {
                 }
                 
             }
-            
-            
-            
         }
     }
 }
 
 #Preview {
-    CardsOpeningView()
+    CardsAllFilledView()
 }

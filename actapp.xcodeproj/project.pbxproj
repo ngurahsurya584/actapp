@@ -13,6 +13,10 @@
 		8A0404632BEB5952002202F0 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404622BEB5952002202F0 /* OverviewView.swift */; };
 		8A04049F2BF060B5002202F0 /* CardsOpeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04049E2BF060B5002202F0 /* CardsOpeningView.swift */; };
 		8A0404A12BF06AFB002202F0 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404A02BF06AFB002202F0 /* CardsView.swift */; };
+		8A0404A62BF0C8B0002202F0 /* CardsAllFilledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404A52BF0C8B0002202F0 /* CardsAllFilledView.swift */; };
+		8A0404AA2BF0D2E6002202F0 /* CardsDetailsValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404A92BF0D2E6002202F0 /* CardsDetailsValueView.swift */; };
+		8A0404AC2BF0D307002202F0 /* CardsDetailsPainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404AB2BF0D307002202F0 /* CardsDetailsPainView.swift */; };
+		8A0404AE2BF0D3E0002202F0 /* CardsDetailsTechniqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404AD2BF0D3E0002202F0 /* CardsDetailsTechniqueView.swift */; };
 		8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098762BE8D4A000F27593 /* actappApp.swift */; };
 		8A30987B2BE8D4A200F27593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A30987A2BE8D4A200F27593 /* Assets.xcassets */; };
 		8A30987E2BE8D4A200F27593 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A30987D2BE8D4A200F27593 /* Preview Assets.xcassets */; };
@@ -47,6 +51,10 @@
 		8A0404622BEB5952002202F0 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		8A04049E2BF060B5002202F0 /* CardsOpeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsOpeningView.swift; sourceTree = "<group>"; };
 		8A0404A02BF06AFB002202F0 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+		8A0404A52BF0C8B0002202F0 /* CardsAllFilledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsAllFilledView.swift; sourceTree = "<group>"; };
+		8A0404A92BF0D2E6002202F0 /* CardsDetailsValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsDetailsValueView.swift; sourceTree = "<group>"; };
+		8A0404AB2BF0D307002202F0 /* CardsDetailsPainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsDetailsPainView.swift; sourceTree = "<group>"; };
+		8A0404AD2BF0D3E0002202F0 /* CardsDetailsTechniqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsDetailsTechniqueView.swift; sourceTree = "<group>"; };
 		8A3098732BE8D4A000F27593 /* actapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = actapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A3098762BE8D4A000F27593 /* actappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actappApp.swift; sourceTree = "<group>"; };
 		8A30987A2BE8D4A200F27593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,6 +130,10 @@
 			isa = PBXGroup;
 			children = (
 				8A04049E2BF060B5002202F0 /* CardsOpeningView.swift */,
+				8A0404A52BF0C8B0002202F0 /* CardsAllFilledView.swift */,
+				8A0404A92BF0D2E6002202F0 /* CardsDetailsValueView.swift */,
+				8A0404AB2BF0D307002202F0 /* CardsDetailsPainView.swift */,
+				8A0404AD2BF0D3E0002202F0 /* CardsDetailsTechniqueView.swift */,
 			);
 			path = cards;
 			sourceTree = "<group>";
@@ -327,10 +339,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A0404602BEB58F0002202F0 /* NightJournalingView.swift in Sources */,
+				8A0404AA2BF0D2E6002202F0 /* CardsDetailsValueView.swift in Sources */,
 				8A04049F2BF060B5002202F0 /* CardsOpeningView.swift in Sources */,
 				8A88FB9B2BEA093200FF0204 /* GoalSettingView.swift in Sources */,
 				8A0404A12BF06AFB002202F0 /* CardsView.swift in Sources */,
+				8A0404A62BF0C8B0002202F0 /* CardsAllFilledView.swift in Sources */,
 				8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */,
+				8A0404AC2BF0D307002202F0 /* CardsDetailsPainView.swift in Sources */,
+				8A0404AE2BF0D3E0002202F0 /* CardsDetailsTechniqueView.swift in Sources */,
 				8A04045D2BEB58D5002202F0 /* DayJournalingView.swift in Sources */,
 				8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */,
 				8A0404572BEA8B6F002202F0 /* TimeSettingView.swift in Sources */,
