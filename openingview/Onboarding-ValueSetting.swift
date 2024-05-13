@@ -17,6 +17,11 @@ struct Onboarding_ValueSetting: View {
     var body: some View {
         
         VStack {
+            Spacer()
+            Spacer()
+            Spacer()
+            Spacer()
+            Spacer()
             VStack(alignment: .leading) {
                 Text("Let’s explore your ")
                     .font(.title).bold().fontDesign(.rounded)
@@ -28,7 +33,7 @@ struct Onboarding_ValueSetting: View {
                     .fontWeight(.semibold)
             }
             
-            VStack (alignment: .leading){
+            VStack{
                 ForEach(0..<isChecked.count, id: \.self) { index in
                     HStack {
                         HStack {
@@ -38,12 +43,11 @@ struct Onboarding_ValueSetting: View {
                                 .fontWeight(.light)
                         }
                         Spacer()
-                        Spacer()
                         StarView(checked: self.$isStarChecked[index]) // Bintang untuk setiap item
                         
                     }
-                    .padding(.vertical, 8)
-                    
+                    Spacer()
+                    Spacer()
                 }
             }
 
@@ -83,12 +87,8 @@ struct StarView: View {
     }
 }
 
-#if DEBUG
-struct Onboarding_ValueSetting_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
         Onboarding_ValueSetting()
     }
-}
-#endif
 
 

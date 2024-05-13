@@ -1,16 +1,9 @@
-//
-//  Onboarding-ReminderSetting.swift
-//  actapp
-//
-//  Created by Pedro Nicolas Cristiansen Hutabarat on 10/05/24.
-//
-
 import SwiftUI
 
 struct Onboarding_ReminderSetting: View {
     
-    @State private var Morning = Date.now
-    @State private var Night = Date.now
+    @State private var Morning = Date()
+    @State private var Night = Date()
     
     var body: some View {
         VStack {
@@ -35,20 +28,25 @@ struct Onboarding_ReminderSetting: View {
             Text ("MORNING")
                 .font(.callout).fontDesign(.default)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            VStack{
-                
-                DatePicker("", selection: $Morning, displayedComponents: .hourAndMinute).datePickerStyle(.wheel).labelsHidden()
+            VStack {
+                DatePicker("", selection: $Morning, displayedComponents: [.hourAndMinute, .hourAndMinute])
+                    .datePickerStyle(.wheel)
+                    .labelsHidden()
                     .frame(width: 296, height: 185)
-            
+                    .environment(\.locale, Locale(identifier: "en_US"))
             }
+
             Spacer()
             Spacer()
             Text ("NIGHT")
                 .font(.callout).fontDesign(.default)
                 .frame(maxWidth: .infinity, alignment: .leading)
             VStack{
-                DatePicker("", selection: $Night, displayedComponents: .hourAndMinute).datePickerStyle(.wheel).frame(width: 296, height: 185)
-                
+                DatePicker("", selection: $Night, displayedComponents: [.hourAndMinute, .hourAndMinute])
+                    .datePickerStyle(.wheel)
+                    .frame(width: 296, height: 185)
+                    .labelsHidden()
+                    .environment(\.locale, Locale(identifier: "en_US"))
             }
             Spacer()
             Spacer()
@@ -56,14 +54,14 @@ struct Onboarding_ReminderSetting: View {
             Spacer()
             Spacer()
             Button("Next") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(BlackButton())
+                print("Button pressed!")
+            }
+            .buttonStyle(BlackButton())
         }
         .padding()
     }
 }
 
 #Preview {
-    Onboarding_ReminderSetting()
-}
+        Onboarding_ReminderSetting()
+    }
