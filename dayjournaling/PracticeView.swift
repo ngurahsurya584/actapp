@@ -8,8 +8,27 @@
 import SwiftUI
 
 struct PracticeView: View {
+    @State private var emotion: String = ""
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        VStack {
+            Text("NOTICE AND NAME")
+            Text("A storm is brewing inside…")
+            Text("Name the unkind emotions that you have")
+            Text("Separate each feeling by space")
+            TextField(
+                "Stressed",
+                text: $emotion
+            )
+            .padding()
+            .overlay(VStack{Divider().offset(x: 0, y: 15)})
+        }
+        
+        HStack {
+            
+        }
+        
     }
 }
 

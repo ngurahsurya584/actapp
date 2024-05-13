@@ -36,6 +36,18 @@ struct BlackButton: ButtonStyle {
     }
 }
 
+struct WhiteButton: ButtonStyle {
+    func makeBody(configuration: 
+        
+        Configuration) -> some View {
+        configuration.label
+            .padding().frame(maxWidth:350)
+            .background(Color(red: 255, green: 255, blue: 255))
+            .foregroundStyle(.black)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
+
 #Preview {
     ButtonView(buttonText: "Next")
 }
