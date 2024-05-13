@@ -42,8 +42,8 @@ struct WhiteButton: ButtonStyle {
         Configuration) -> some View {
         configuration.label
             .padding().frame(maxWidth:350)
-            .background(Color(red: 0, green: 0, blue: 0))
-            .foregroundStyle(.white)
+            .background(Color(red: 255, green: 255, blue: 255))
+            .foregroundStyle(.black)
             .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
