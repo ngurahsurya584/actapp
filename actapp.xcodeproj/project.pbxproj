@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B54522BF0FCB8001E3F95 /* PracticeCardView.swift */; };
 		0A6B54552BF10AC1001E3F95 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B54542BF10AC1001E3F95 /* PracticeView.swift */; };
+		0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownView.swift */; };
 		8A0404572BEA8B6F002202F0 /* TimeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404562BEA8B6F002202F0 /* TimeSettingView.swift */; };
 		8A04045D2BEB58D5002202F0 /* DayJournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04045C2BEB58D5002202F0 /* DayJournalingView.swift */; };
 		8A0404602BEB58F0002202F0 /* NightJournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04045F2BEB58F0002202F0 /* NightJournalingView.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		0A6B54522BF0FCB8001E3F95 /* PracticeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeCardView.swift; sourceTree = "<group>"; };
 		0A6B54542BF10AC1001E3F95 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
+		0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingSlowingDownView.swift; sourceTree = "<group>"; };
 		8A0404562BEA8B6F002202F0 /* TimeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingView.swift; sourceTree = "<group>"; };
 		8A04045C2BEB58D5002202F0 /* DayJournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayJournalingView.swift; sourceTree = "<group>"; };
 		8A04045F2BEB58F0002202F0 /* NightJournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightJournalingView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				8A04045C2BEB58D5002202F0 /* DayJournalingView.swift */,
 				0A6B54542BF10AC1001E3F95 /* PracticeView.swift */,
+				0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownView.swift */,
 			);
 			path = dayjournaling;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */,
 				8A04045D2BEB58D5002202F0 /* DayJournalingView.swift in Sources */,
 				8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */,
+				0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownView.swift in Sources */,
 				8A0404572BEA8B6F002202F0 /* TimeSettingView.swift in Sources */,
 				0A6B54552BF10AC1001E3F95 /* PracticeView.swift in Sources */,
 				8A0404632BEB5952002202F0 /* OverviewView.swift in Sources */,
