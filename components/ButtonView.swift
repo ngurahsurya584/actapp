@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ButtonView: View {
+    let buttonText: String
+    
+    init(buttonText: String) {
+        self.buttonText = buttonText
+    }
+    
     var body: some View {
         VStack{
-            Button("Press Me") {
+            Button(buttonText) {
                         print("Button pressed!")
                     }
                     .buttonStyle(BlackButton())
@@ -31,5 +37,5 @@ struct BlackButton: ButtonStyle {
 }
 
 #Preview {
-    ButtonView()
+    ButtonView(buttonText: "Next")
 }
