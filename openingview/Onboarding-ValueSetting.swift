@@ -31,16 +31,16 @@ struct Onboarding_ValueSetting: View {
             VStack (alignment: .leading){
                 ForEach(0..<isChecked.count, id: \.self) { index in
                     HStack {
-                        Spacer()
-                        Spacer()
-                        CheckBoxView(checked: self.$isChecked[index]) // CheckBox untuk setiap item
-                        Text(self.values[index])
-                            .font(.body)
-                            .fontWeight(.light)
+                        HStack {
+                            CheckBoxView(checked: self.$isChecked[index]) // CheckBox untuk setiap item
+                            Text(self.values[index])
+                                .font(.body)
+                                .fontWeight(.light)
+                        }
                         Spacer()
                         Spacer()
                         StarView(checked: self.$isStarChecked[index]) // Bintang untuk setiap item
-                        Spacer()
+                        
                     }
                     .padding(.vertical, 8)
                     
