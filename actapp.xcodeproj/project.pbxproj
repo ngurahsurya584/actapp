@@ -19,6 +19,13 @@
 		8A3098942BE8D4A200F27593 /* actappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098932BE8D4A200F27593 /* actappUITestsLaunchTests.swift */; };
 		8A88FB9B2BEA093200FF0204 /* GoalSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88FB9A2BEA093200FF0204 /* GoalSettingView.swift */; };
 		8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF888D82BEA3B1600597EB9 /* ButtonView.swift */; };
+		9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA52BED349B0041D509 /* SplashScreenView.swift */; };
+		9F392EA82BED35640041D509 /* Onboarding-ActIntroduction1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA72BED35640041D509 /* Onboarding-ActIntroduction1View.swift */; };
+		9F392EAA2BED387C0041D509 /* Onboarding-ActIntroduction2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA92BED387C0041D509 /* Onboarding-ActIntroduction2View.swift */; };
+		9F392EAC2BED39150041D509 /* Onboarding-ActIntroduction3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EAB2BED39150041D509 /* Onboarding-ActIntroduction3View.swift */; };
+		9F392EAE2BED46140041D509 /* Onboarding-AllSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EAD2BED46140041D509 /* Onboarding-AllSetView.swift */; };
+		9F392EB02BED48F50041D509 /* Onboarding-ValueSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EAF2BED48F50041D509 /* Onboarding-ValueSetting.swift */; };
+		9F392EB22BED492B0041D509 /* Onboarding-ReminderSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EB12BED492B0041D509 /* Onboarding-ReminderSetting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +61,13 @@
 		8A3098932BE8D4A200F27593 /* actappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actappUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8A88FB9A2BEA093200FF0204 /* GoalSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingView.swift; sourceTree = "<group>"; };
 		8AF888D82BEA3B1600597EB9 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		9F392EA52BED349B0041D509 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		9F392EA72BED35640041D509 /* Onboarding-ActIntroduction1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding-ActIntroduction1View.swift"; sourceTree = "<group>"; };
+		9F392EA92BED387C0041D509 /* Onboarding-ActIntroduction2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding-ActIntroduction2View.swift"; sourceTree = "<group>"; };
+		9F392EAB2BED39150041D509 /* Onboarding-ActIntroduction3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding-ActIntroduction3View.swift"; sourceTree = "<group>"; };
+		9F392EAD2BED46140041D509 /* Onboarding-AllSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding-AllSetView.swift"; sourceTree = "<group>"; };
+		9F392EAF2BED48F50041D509 /* Onboarding-ValueSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding-ValueSetting.swift"; sourceTree = "<group>"; };
+		9F392EB12BED492B0041D509 /* Onboarding-ReminderSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboarding-ReminderSetting.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +100,13 @@
 			children = (
 				8A0404562BEA8B6F002202F0 /* TimeSettingView.swift */,
 				8A88FB9A2BEA093200FF0204 /* GoalSettingView.swift */,
+				9F392EA52BED349B0041D509 /* SplashScreenView.swift */,
+				9F392EA72BED35640041D509 /* Onboarding-ActIntroduction1View.swift */,
+				9F392EA92BED387C0041D509 /* Onboarding-ActIntroduction2View.swift */,
+				9F392EAB2BED39150041D509 /* Onboarding-ActIntroduction3View.swift */,
+				9F392EAF2BED48F50041D509 /* Onboarding-ValueSetting.swift */,
+				9F392EB12BED492B0041D509 /* Onboarding-ReminderSetting.swift */,
+				9F392EAD2BED46140041D509 /* Onboarding-AllSetView.swift */,
 			);
 			path = openingview;
 			sourceTree = "<group>";
@@ -314,11 +335,18 @@
 			files = (
 				8A0404602BEB58F0002202F0 /* NightJournalingView.swift in Sources */,
 				8A88FB9B2BEA093200FF0204 /* GoalSettingView.swift in Sources */,
+				9F392EAE2BED46140041D509 /* Onboarding-AllSetView.swift in Sources */,
+				9F392EB02BED48F50041D509 /* Onboarding-ValueSetting.swift in Sources */,
 				8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */,
 				8A04045D2BEB58D5002202F0 /* DayJournalingView.swift in Sources */,
+				9F392EB22BED492B0041D509 /* Onboarding-ReminderSetting.swift in Sources */,
+				9F392EA82BED35640041D509 /* Onboarding-ActIntroduction1View.swift in Sources */,
+				9F392EAC2BED39150041D509 /* Onboarding-ActIntroduction3View.swift in Sources */,
 				8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */,
 				8A0404572BEA8B6F002202F0 /* TimeSettingView.swift in Sources */,
 				8A0404632BEB5952002202F0 /* OverviewView.swift in Sources */,
+				9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */,
+				9F392EAA2BED387C0041D509 /* Onboarding-ActIntroduction2View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
