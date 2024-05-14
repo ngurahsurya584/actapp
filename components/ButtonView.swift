@@ -14,7 +14,7 @@ struct ButtonView: View {
             Button("Press me") {
                         print("Button pressed!")
                     }
-                    .buttonStyle(BlackButton())
+                    .buttonStyle(GrayButton())
         }
     }
 }

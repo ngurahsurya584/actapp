@@ -11,7 +11,7 @@ struct GroundingSlowingDownView: View {
     let isSessionFinished = true
     
     var body: some View {
-        
+
         VStack {
             VStack {
                 VStack(spacing: 10) {
@@ -45,10 +45,16 @@ struct GroundingSlowingDownView: View {
             }
             .padding()
         }
+        .frame(
+            minWidth: 0,
+            maxWidth: .infinity,
+            minHeight: 0,
+            maxHeight: .infinity
+        )
         .foregroundColor(.white)
         .background(.black)
     }
-    
+
 }
 
 #Preview {
