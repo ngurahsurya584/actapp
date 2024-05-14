@@ -8,25 +8,20 @@
 import SwiftUI
 
 struct ButtonView: View {
-    let buttonText: String
-    
-    init(buttonText: String) {
-        self.buttonText = buttonText
-    }
-    
+
     var body: some View {
         VStack{
-            Button(buttonText) {
+            Button("Press me") {
                         print("Button pressed!")
                     }
-                    .buttonStyle(BlackButton())
+                    .buttonStyle(GrayButton())
         }
     }
 }
 
 struct BlackButton: ButtonStyle {
-    func makeBody(configuration: 
-        
+    func makeBody(configuration:
+
         Configuration) -> some View {
         configuration.label
             .padding().frame(maxWidth:350)
@@ -37,17 +32,28 @@ struct BlackButton: ButtonStyle {
 }
 
 struct WhiteButton: ButtonStyle {
-    func makeBody(configuration: 
-        
+    func makeBody(configuration:
+
         Configuration) -> some View {
         configuration.label
-            .padding().frame(maxWidth:350)
-            .background(Color(red: 255, green: 255, blue: 255))
+            .padding().frame(maxWidth: .infinity)
+            .background(Color(red: 255/255, green: 255/255, blue: 255/255))
             .foregroundStyle(.black)
             .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 
+struct GrayButton: ButtonStyle {
+    func makeBody(configuration:
+
+        Configuration) -> some View {
+        configuration.label
+            .padding().frame(maxWidth:350)
+            .background(Color(red: 242/255, green: 242/255, blue: 247/255))
+            .foregroundStyle(.black)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
 #Preview {
-    ButtonView(buttonText: "Next")
+    ButtonView()
 }
