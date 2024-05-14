@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ButtonView: View {
-
+    
     var body: some View {
         VStack{
             Button("Press me") {
@@ -20,8 +20,8 @@ struct ButtonView: View {
 }
 
 struct BlackButton: ButtonStyle {
-    func makeBody(configuration:
-
+    func makeBody(configuration: 
+        
         Configuration) -> some View {
         configuration.label
             .padding().frame(maxWidth:350)
@@ -31,9 +31,23 @@ struct BlackButton: ButtonStyle {
     }
 }
 
+struct BlackButtonSmall: ButtonStyle {
+    func makeBody(configuration:
+        
+        Configuration) -> some View {
+        configuration.label
+            .padding()
+            .fontWeight(.bold)
+            .frame(height: 30)
+            .background(Color(red: 0, green: 0, blue: 0))
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+    }
+}
+
 struct WhiteButton: ButtonStyle {
     func makeBody(configuration:
-
+        
         Configuration) -> some View {
         configuration.label
             .padding().frame(maxWidth: .infinity)
@@ -43,9 +57,27 @@ struct WhiteButton: ButtonStyle {
     }
 }
 
+struct WhiteButtonSmall: ButtonStyle {
+    func makeBody(configuration:
+        
+        Configuration) -> some View {
+        configuration.label
+            .padding()
+            .fontWeight(.bold)
+            .frame(height: 30)
+            .background(Color(red: 255/255, green: 255/255, blue: 255/255))
+            .foregroundStyle(.black)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+            .overlay(
+                RoundedRectangle(cornerRadius: 50)
+                    .stroke(Color.black, lineWidth: 1)
+            )
+    }
+}
+
 struct GrayButton: ButtonStyle {
     func makeBody(configuration:
-
+        
         Configuration) -> some View {
         configuration.label
             .padding().frame(maxWidth:350)
