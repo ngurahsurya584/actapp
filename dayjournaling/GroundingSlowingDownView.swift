@@ -8,27 +8,43 @@
 import SwiftUI
 
 struct GroundingSlowingDownView: View {
+    let isSessionFinished = true
+    
     var body: some View {
         
         VStack {
-            VStack(spacing: 10) {
-                Text("Slow down and reconnect with your body")
-                    .fontWeight(.bold)
+            VStack {
+                VStack(spacing: 10) {
+                    Text("Slow down and reconnect with your body")
+                        .font(.system(size: 18))
+                        .fontWeight(.semibold)
+                    
+                    Text("Slowly breath in")
+                        .fontWeight(.bold)
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                }
+                .padding(.top, 30)
+                
+                Spacer()
+                
+                if isSessionFinished {
+                    HStack {
+                        Button("Back") {
+                                    print("Button pressed!")
+                                }
+                        .buttonStyle(WhiteButton())
+                        .frame(maxWidth: 80)
 
-                Text("Slowly breath in")
-                    .fontWeight(.bold)
-                    .font(.title)
+                        Button("Next") {
+                                    print("Button pressed!")
+                                }
+                        .buttonStyle(WhiteButton())
+                    }
+                }
             }
-            .padding(.top, 20)
-
-            Spacer()
+            .padding()
         }
-        .frame(
-          minWidth: 0,
-          maxWidth: .infinity,
-          minHeight: 0,
-          maxHeight: .infinity
-        )
         .foregroundColor(.white)
         .background(.black)
     }

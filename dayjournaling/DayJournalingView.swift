@@ -2,8 +2,11 @@ import SwiftUI
 
 struct DayJournalingView: View {
     let name = "Jennie"
-    
+    let isFinishedPractice = true
+
     var body: some View {
+        let ctaButtonText = isFinishedPractice ? "Practice again" : "Start practice"
+        
         VStack(spacing: 20) {
             VStack(spacing: 20) {
                 Color.gray
@@ -19,16 +22,22 @@ struct DayJournalingView: View {
                     .fontWeight(.semibold)
                 
                 PracticeCardView(practiceHeading: "TODAY’S PRACTICE", titleText: "Grounding", subtitleText: "< 1 mins", descText: "Practice to slow down and engage with the world.")
+                .padding(.top, 12)
 
                 PracticeCardView(practiceHeading: "TODAY’S CHALLENGE", titleText: "Spreading Kindness", subtitleText: "Match with your value: Kind", descText: "Practice to slow down and engage with the world.")
+                .padding(.top, 12)
                 
-                ButtonView(buttonText: "Start practice")
-                    .padding(.top, 10)
+                Button("\(ctaButtonText)") {
+                            print("Button pressed!")
+                        }
+                .buttonStyle(BlackButton())
+                .padding(.top, 12)
             }
-            .frame(maxWidth: 350)
+            .padding()
             
             Spacer()
         }
+        .ignoresSafeArea(.all)
     }
 }
 

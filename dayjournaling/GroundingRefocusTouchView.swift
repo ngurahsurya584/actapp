@@ -1,0 +1,83 @@
+//
+//  GroundingRefocusTouchView.swift
+//  actapp
+//
+//  Created by Channy Lim on 13/05/24.
+//
+
+import SwiftUI
+
+struct GroundingRefocusTouchView: View {
+    @State private var text: String = ""
+    @FocusState private var isFocused: Bool
+
+    var body: some View {
+        VStack {
+            Rectangle()
+                .stroke(Color.black, lineWidth: 2)
+                .fill(Color.gray)
+                .frame(width: 393, height: 274)
+                .frame(maxWidth: .infinity, alignment: .center)
+            Spacer()
+            VStack(alignment: .leading, spacing: 12) {
+                Text("REFOCUS AND ENGAGE")
+                    .font(.caption2).fontWeight(.semibold).foregroundColor(Color.gray)
+                Text("Describe what were you doing just now")
+                    .font(.title).fontWeight(.bold).foregroundColor(Color.black)
+                Text("e.g.:I’m writing a proposal for my manager to review.")
+                    .font(.body).fontWeight(.semibold).foregroundColor(Color.gray)
+            }
+            .padding(.horizontal)
+            Spacer()
+
+            ZStack(alignment: .topLeading) {
+                if text.isEmpty {
+                    Text("Enter text here...")
+                        .foregroundColor(.gray)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 12)
+                        .zIndex(1)
+                }
+                
+                TextEditor(text: $text)
+                    .padding(.horizontal, 3)
+                    .padding(.vertical, 5)
+                    .frame(width: 352, height: 255)
+                    .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.gray, lineWidth: 1)
+                    )
+                    .focused($isFocused)
+                    .onTapGesture {
+                        isFocused = true
+                    }
+
+            }
+            .frame(width: 352, height: 255)
+
+            HStack {
+                Button("Back") {
+                    print("Button pressed!")
+                }
+                .buttonStyle(GrayButton())
+
+                .frame(width: 80)
+
+                Button("Next") {
+                    print("Button pressed!")
+                }
+                .buttonStyle(BlackButton())
+
+            }
+            .padding()
+
+            Spacer()
+        }
+        .ignoresSafeArea(.all)
+}
+}
+
+#Preview {
+    GroundingRefocusTouchView()
+}
