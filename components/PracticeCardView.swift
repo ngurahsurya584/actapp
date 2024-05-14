@@ -21,9 +21,10 @@ struct PracticeCardView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 10) {
             Text("\(practiceHeading)")
-                .font(.system(size: 11, weight: .semibold))
+                .font(.caption2)
+                .fontWeight(.semibold)
                 .foregroundColor(.gray)
             
             HStack() {
@@ -36,7 +37,7 @@ struct PracticeCardView: View {
                     LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .leading, endPoint: .trailing)
                         .opacity(0.5)
                 )
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 2) {
                     Text("\(titleText)").font(.headline)
                     Text("\(subtitleText)").font(.subheadline).foregroundColor(.gray)
                     Text("\(descText)")
@@ -49,7 +50,6 @@ struct PracticeCardView: View {
             .background(Color(red: 216/255, green: 216/255, blue: 216/255))
             .cornerRadius(14)
         }
-        .padding(.top, 10)
     }
 }
 
