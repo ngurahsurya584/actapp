@@ -45,6 +45,19 @@
 		9F537BD22BF280240054D49C /* Unhooking - Refocusing and Engaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F537BD12BF280240054D49C /* Unhooking - Refocusing and Engaging.swift */; };
 		9F537BD42BF282850054D49C /* Unhooking - Noticing Pain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F537BD32BF282850054D49C /* Unhooking - Noticing Pain.swift */; };
 		9FDA83EF2BF34051009961DD /* Unhooking - Affirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA83EE2BF34051009961DD /* Unhooking - Affirmation.swift */; };
+		9FDA84292BF4551C009961DD /* Today - Night.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84282BF4551C009961DD /* Today - Night.swift */; };
+		9FDA842B2BF45706009961DD /* ActingOnYourValues - Affirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA842A2BF45706009961DD /* ActingOnYourValues - Affirmation.swift */; };
+		9FDA842D2BF457E9009961DD /* Transmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA842C2BF457E9009961DD /* Transmission.swift */; };
+		9FDA842F2BF45E66009961DD /* BeingKind - Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA842E2BF45E66009961DD /* BeingKind - Notice.swift */; };
+		9FDA84312BF45F1B009961DD /* BeingKind - InSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84302BF45F1B009961DD /* BeingKind - InSession.swift */; };
+		9FDA84332BF4631A009961DD /* BeingKind - Finished.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84322BF4631A009961DD /* BeingKind - Finished.swift */; };
+		9FDA84352BF46444009961DD /* BeingKind - Affirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84342BF46444009961DD /* BeingKind - Affirmation.swift */; };
+		9FDA84372BF464F3009961DD /* Transmission - 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84362BF464F3009961DD /* Transmission - 2.swift */; };
+		9FDA84392BF465D0009961DD /* MakingRoom - InSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84382BF465D0009961DD /* MakingRoom - InSession.swift */; };
+		9FDA843B2BF4680F009961DD /* MakingRoom - Finished.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA843A2BF4680F009961DD /* MakingRoom - Finished.swift */; };
+		9FDA843D2BF468DF009961DD /* MakingRoom - Affirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA843C2BF468DF009961DD /* MakingRoom - Affirmation.swift */; };
+		9FDA843F2BF469C0009961DD /* MakingRoom - ImaginingYourPain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA843E2BF469C0009961DD /* MakingRoom - ImaginingYourPain.swift */; };
+		9FDA84412BF49196009961DD /* ActingOnYourValues - Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84402BF49196009961DD /* ActingOnYourValues - Default.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +119,19 @@
 		9F537BD12BF280240054D49C /* Unhooking - Refocusing and Engaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unhooking - Refocusing and Engaging.swift"; sourceTree = "<group>"; };
 		9F537BD32BF282850054D49C /* Unhooking - Noticing Pain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unhooking - Noticing Pain.swift"; sourceTree = "<group>"; };
 		9FDA83EE2BF34051009961DD /* Unhooking - Affirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unhooking - Affirmation.swift"; sourceTree = "<group>"; };
+		9FDA84282BF4551C009961DD /* Today - Night.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Today - Night.swift"; sourceTree = "<group>"; };
+		9FDA842A2BF45706009961DD /* ActingOnYourValues - Affirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActingOnYourValues - Affirmation.swift"; sourceTree = "<group>"; };
+		9FDA842C2BF457E9009961DD /* Transmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transmission.swift; sourceTree = "<group>"; };
+		9FDA842E2BF45E66009961DD /* BeingKind - Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeingKind - Notice.swift"; sourceTree = "<group>"; };
+		9FDA84302BF45F1B009961DD /* BeingKind - InSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeingKind - InSession.swift"; sourceTree = "<group>"; };
+		9FDA84322BF4631A009961DD /* BeingKind - Finished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeingKind - Finished.swift"; sourceTree = "<group>"; };
+		9FDA84342BF46444009961DD /* BeingKind - Affirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeingKind - Affirmation.swift"; sourceTree = "<group>"; };
+		9FDA84362BF464F3009961DD /* Transmission - 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transmission - 2.swift"; sourceTree = "<group>"; };
+		9FDA84382BF465D0009961DD /* MakingRoom - InSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MakingRoom - InSession.swift"; sourceTree = "<group>"; };
+		9FDA843A2BF4680F009961DD /* MakingRoom - Finished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MakingRoom - Finished.swift"; sourceTree = "<group>"; };
+		9FDA843C2BF468DF009961DD /* MakingRoom - Affirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MakingRoom - Affirmation.swift"; sourceTree = "<group>"; };
+		9FDA843E2BF469C0009961DD /* MakingRoom - ImaginingYourPain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MakingRoom - ImaginingYourPain.swift"; sourceTree = "<group>"; };
+		9FDA84402BF49196009961DD /* ActingOnYourValues - Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActingOnYourValues - Default.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +199,19 @@
 			isa = PBXGroup;
 			children = (
 				8A04045F2BEB58F0002202F0 /* NightJournalingView.swift */,
+				9FDA84282BF4551C009961DD /* Today - Night.swift */,
+				9FDA84402BF49196009961DD /* ActingOnYourValues - Default.swift */,
+				9FDA842A2BF45706009961DD /* ActingOnYourValues - Affirmation.swift */,
+				9FDA842C2BF457E9009961DD /* Transmission.swift */,
+				9FDA842E2BF45E66009961DD /* BeingKind - Notice.swift */,
+				9FDA84302BF45F1B009961DD /* BeingKind - InSession.swift */,
+				9FDA84322BF4631A009961DD /* BeingKind - Finished.swift */,
+				9FDA84342BF46444009961DD /* BeingKind - Affirmation.swift */,
+				9FDA84362BF464F3009961DD /* Transmission - 2.swift */,
+				9FDA84382BF465D0009961DD /* MakingRoom - InSession.swift */,
+				9FDA843A2BF4680F009961DD /* MakingRoom - Finished.swift */,
+				9FDA843E2BF469C0009961DD /* MakingRoom - ImaginingYourPain.swift */,
+				9FDA843C2BF468DF009961DD /* MakingRoom - Affirmation.swift */,
 			);
 			path = nightjournaling;
 			sourceTree = "<group>";
@@ -401,15 +440,24 @@
 				8A0404602BEB58F0002202F0 /* NightJournalingView.swift in Sources */,
 				9F537BCE2BF27D190054D49C /* Unhooking - Locating Pain.swift in Sources */,
 				8A0404AA2BF0D2E6002202F0 /* CardsDetailsValueView.swift in Sources */,
+				9FDA843B2BF4680F009961DD /* MakingRoom - Finished.swift in Sources */,
+				9FDA842D2BF457E9009961DD /* Transmission.swift in Sources */,
 				8A04049F2BF060B5002202F0 /* CardsOpeningView.swift in Sources */,
 				8A0404A12BF06AFB002202F0 /* CardsView.swift in Sources */,
 				8A0404A62BF0C8B0002202F0 /* CardsAllFilledView.swift in Sources */,
+				9FDA84312BF45F1B009961DD /* BeingKind - InSession.swift in Sources */,
 				0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */,
+				9FDA84332BF4631A009961DD /* BeingKind - Finished.swift in Sources */,
+				9FDA842F2BF45E66009961DD /* BeingKind - Notice.swift in Sources */,
+				9FDA842B2BF45706009961DD /* ActingOnYourValues - Affirmation.swift in Sources */,
+				9FDA84412BF49196009961DD /* ActingOnYourValues - Default.swift in Sources */,
 				9F537BD02BF27F800054D49C /* Unhooking - Naming Pain.swift in Sources */,
 				9F537BD42BF282850054D49C /* Unhooking - Noticing Pain.swift in Sources */,
+				9FDA843F2BF469C0009961DD /* MakingRoom - ImaginingYourPain.swift in Sources */,
 				9F537BCC2BF26FD10054D49C /* Unhooking - Writing Thoughts.swift in Sources */,
 				9FDA83EF2BF34051009961DD /* Unhooking - Affirmation.swift in Sources */,
 				8A88FB9B2BEA093200FF0204 /* GoalSettingView.swift in Sources */,
+				9FDA843D2BF468DF009961DD /* MakingRoom - Affirmation.swift in Sources */,
 				0A8417922BF27E10001E707D /* GroundingRefocusTouchView.swift in Sources */,
 				9F392EAE2BED46140041D509 /* Onboarding-AllSetView.swift in Sources */,
 				0A84178D2BF2779B001E707D /* GroundingAffirmationView.swift in Sources */,
@@ -417,6 +465,7 @@
 				8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */,
 				8A0404AC2BF0D307002202F0 /* CardsDetailsPainView.swift in Sources */,
 				9F537BD22BF280240054D49C /* Unhooking - Refocusing and Engaging.swift in Sources */,
+				9FDA84352BF46444009961DD /* BeingKind - Affirmation.swift in Sources */,
 				8A0404AE2BF0D3E0002202F0 /* CardsDetailsTechniqueView.swift in Sources */,
 				8A04045D2BEB58D5002202F0 /* DayJournalingView.swift in Sources */,
 				0A8417962BF28043001E707D /* GroundingRefocusSightView.swift in Sources */,
@@ -427,7 +476,10 @@
 				0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownView.swift in Sources */,
 				8A0404572BEA8B6F002202F0 /* TimeSettingView.swift in Sources */,
 				0A6B54552BF10AC1001E3F95 /* PracticeView.swift in Sources */,
+				9FDA84392BF465D0009961DD /* MakingRoom - InSession.swift in Sources */,
 				8A0404632BEB5952002202F0 /* OverviewView.swift in Sources */,
+				9FDA84292BF4551C009961DD /* Today - Night.swift in Sources */,
+				9FDA84372BF464F3009961DD /* Transmission - 2.swift in Sources */,
 				0A8417942BF27F76001E707D /* GroundingEmotionalStormView.swift in Sources */,
 				9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */,
 				9F392EAA2BED387C0041D509 /* Onboarding-ActIntroduction2View.swift in Sources */,
