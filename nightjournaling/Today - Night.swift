@@ -1,11 +1,18 @@
+//
+//  Today - Night.swift
+//  actapp
+//
+//  Created by Pedro Nicolas Cristiansen Hutabarat on 15/05/24.
+//
+
 import SwiftUI
 
-struct DayJournalingView: View {
+struct Today___Night: View {
     let name = "Jennie"
     let isFinishedPractice = true
 
     var body: some View {
-        let ctaButtonText = isFinishedPractice ? "Practice again" : "Start practice"
+        let ctaButtonText = isFinishedPractice ? "Start reflection" : "Start practice"
         
         VStack(spacing: 20) {
             VStack(spacing: 20) {
@@ -17,12 +24,14 @@ struct DayJournalingView: View {
                 Text("Hi (name),")
                     .font(.title2)
 
-                Text("Start your day!")
+                Text("How was your day?")
                     .font(.title)
                     .fontWeight(.semibold)
 
-                PracticeCardView(practiceHeading: "TODAY’S PRACTICE", titleText: "Grounding", subtitleText: "< 1 mins", descText: "Practice to slow down and engage with the world.")
-                .padding(.top, 12)
+                HStack{
+                    PracticeCardView(practiceHeading: "TONIGHT’S ROUTINE", titleText: "Acting on your values", subtitleText: "3 mins", descText: "Practice to slow down and engage with the world.")
+                        .padding(.top, 12)
+                }
 
                 PracticeCardView(practiceHeading: "TODAY’S CHALLENGE", titleText: "Spreading Kindness", subtitleText: "Match with your value: Kind", descText: "Practice to slow down and engage with the world.")
                 .padding(.top, 12)
@@ -42,5 +51,5 @@ struct DayJournalingView: View {
 }
 
 #Preview {
-    DayJournalingView()
+    Today___Night()
 }
