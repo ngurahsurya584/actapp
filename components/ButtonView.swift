@@ -36,7 +36,8 @@ struct BlackButtonSmall: ButtonStyle {
         
         Configuration) -> some View {
         configuration.label
-            .padding()
+            .padding(.vertical)
+            .padding(.horizontal, 10)
             .fontWeight(.bold)
             .frame(height: 30)
             .background(Color(red: 0, green: 0, blue: 0))
@@ -62,7 +63,8 @@ struct WhiteButtonSmall: ButtonStyle {
         
         Configuration) -> some View {
         configuration.label
-            .padding()
+            .padding(.vertical)
+            .padding(.horizontal, 10)
             .fontWeight(.bold)
             .frame(height: 30)
             .background(Color(red: 255/255, green: 255/255, blue: 255/255))
