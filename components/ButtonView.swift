@@ -88,6 +88,19 @@ struct GrayButton: ButtonStyle {
             .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
+
+
+struct ButtonBlack: ViewModifier{
+    
+    func body(content: Content) -> some View{
+        content
+            .foregroundStyle(.white)
+            .frame(maxWidth:.infinity, maxHeight:48)
+            .background(.black)
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+    }
+}
+
 #Preview {
     ButtonView()
 }
