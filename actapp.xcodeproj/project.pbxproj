@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B54522BF0FCB8001E3F95 /* PracticeCardView.swift */; };
-		0A6B54552BF10AC1001E3F95 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B54542BF10AC1001E3F95 /* PracticeView.swift */; };
 		0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownView.swift */; };
 		0A84178D2BF2779B001E707D /* GroundingAffirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A84178C2BF2779B001E707D /* GroundingAffirmationView.swift */; };
 		0A8417922BF27E10001E707D /* GroundingRefocusTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417912BF27E10001E707D /* GroundingRefocusTouchView.swift */; };
 		0A8417942BF27F76001E707D /* GroundingEmotionalStormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */; };
 		0A8417962BF28043001E707D /* GroundingRefocusSightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417952BF28043001E707D /* GroundingRefocusSightView.swift */; };
+		0A8417982BF36ABC001E707D /* GroundingEmotionEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417972BF36ABC001E707D /* GroundingEmotionEmptyView.swift */; };
 		0A84179A2BF49AA6001E707D /* BeingKind - AffirmationCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417992BF49AA6001E707D /* BeingKind - AffirmationCopy.swift */; };
 		8A0404572BEA8B6F002202F0 /* TimeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404562BEA8B6F002202F0 /* TimeSettingView.swift */; };
 		8A04045D2BEB58D5002202F0 /* DayJournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04045C2BEB58D5002202F0 /* DayJournalingView.swift */; };
@@ -80,12 +80,12 @@
 
 /* Begin PBXFileReference section */
 		0A6B54522BF0FCB8001E3F95 /* PracticeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeCardView.swift; sourceTree = "<group>"; };
-		0A6B54542BF10AC1001E3F95 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingSlowingDownView.swift; sourceTree = "<group>"; };
 		0A84178C2BF2779B001E707D /* GroundingAffirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingAffirmationView.swift; sourceTree = "<group>"; };
 		0A8417912BF27E10001E707D /* GroundingRefocusTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingRefocusTouchView.swift; sourceTree = "<group>"; };
 		0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingEmotionalStormView.swift; sourceTree = "<group>"; };
 		0A8417952BF28043001E707D /* GroundingRefocusSightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingRefocusSightView.swift; sourceTree = "<group>"; };
+		0A8417972BF36ABC001E707D /* GroundingEmotionEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingEmotionEmptyView.swift; sourceTree = "<group>"; };
 		0A8417992BF49AA6001E707D /* BeingKind - AffirmationCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeingKind - AffirmationCopy.swift"; sourceTree = "<group>"; };
 		8A0404562BEA8B6F002202F0 /* TimeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingView.swift; sourceTree = "<group>"; };
 		8A04045C2BEB58D5002202F0 /* DayJournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayJournalingView.swift; sourceTree = "<group>"; };
@@ -181,12 +181,12 @@
 			isa = PBXGroup;
 			children = (
 				8A04045C2BEB58D5002202F0 /* DayJournalingView.swift */,
-				0A6B54542BF10AC1001E3F95 /* PracticeView.swift */,
 				0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownView.swift */,
 				0A84178C2BF2779B001E707D /* GroundingAffirmationView.swift */,
 				0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */,
 				0A8417952BF28043001E707D /* GroundingRefocusSightView.swift */,
 				0A8417912BF27E10001E707D /* GroundingRefocusTouchView.swift */,
+				0A8417972BF36ABC001E707D /* GroundingEmotionEmptyView.swift */,
 				9F537BCB2BF26FD10054D49C /* Unhooking - Writing Thoughts.swift */,
 				9F537BCD2BF27D190054D49C /* Unhooking - Locating Pain.swift */,
 				9F537BD32BF282850054D49C /* Unhooking - Noticing Pain.swift */,
@@ -447,6 +447,7 @@
 				9FDA842D2BF457E9009961DD /* Transmission.swift in Sources */,
 				8A04049F2BF060B5002202F0 /* CardsOpeningView.swift in Sources */,
 				8A0404A12BF06AFB002202F0 /* CardsView.swift in Sources */,
+				0A8417982BF36ABC001E707D /* GroundingEmotionEmptyView.swift in Sources */,
 				8A0404A62BF0C8B0002202F0 /* CardsAllFilledView.swift in Sources */,
 				9FDA84312BF45F1B009961DD /* BeingKind - InSession.swift in Sources */,
 				0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */,
