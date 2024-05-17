@@ -12,161 +12,162 @@ struct ActingOnYourValues___Default: View {
     @FocusState private var isFocused: Bool
     
     var body: some View {
-        VStack{
-            Spacer()
-            Text("Let’s reflect on your day")
-                .font(.title2)
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-            Spacer()
+        NavigationStack{
             VStack{
-                Text("Which value(s) did you demonstrate today that you’re proud of?")
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.center)
-            }
-            Spacer()
-            VStack{
-                WrappingHStack(horizontalSpacing: 10) {
-                    
-                    Button("Chair") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(BlackButtonSmall())
-                    Button("Pen") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(WhiteButtonSmall())
-                    Button("Pencil") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(WhiteButtonSmall())
-                    Button("Table") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(WhiteButtonSmall())
-                    Button("Laptop") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(WhiteButtonSmall())
-                    Button("Sock") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(BlackButtonSmall())
-                    
+                Spacer()
+                Text("Let’s reflect on your day")
+                    .font(.title2)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                Spacer()
+                VStack{
+                    Text("Which value(s) did you demonstrate today that you’re proud of?")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
                 }
-                .font(.callout)
-                .padding(.horizontal, 45)
-                
-            }
-            Spacer()
-            ZStack(alignment: .topLeading) {
-                if text.isEmpty {
-                    Text("Describe what did you do in detail, e.g.: This morning, I finished the proposal that my manager asked and got praised for my meticulous writing, etc.")
-                        .foregroundColor(.gray)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 12)
-                        .zIndex(1)
-                }
-                
-                TextEditor(text: $text)
-                    .padding(.horizontal, 3)
-                    .padding(.vertical, 5)
-                    .frame(width: 352, height: 120)
-                    .cornerRadius(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.gray, lineWidth: 1)
-                    )
-                    .focused($isFocused)
-                    .onTapGesture {
-                        isFocused = true
+                Spacer()
+                VStack{
+                    WrappingHStack(horizontalSpacing: 10) {
+                        
+                        Button("Chair") {
+                            print("Button pressed!")
+                        }
+                        .buttonStyle(BlackButtonSmall())
+                        Button("Pen") {
+                            print("Button pressed!")
+                        }
+                        .buttonStyle(WhiteButtonSmall())
+                        Button("Pencil") {
+                            print("Button pressed!")
+                        }
+                        .buttonStyle(WhiteButtonSmall())
+                        Button("Table") {
+                            print("Button pressed!")
+                        }
+                        .buttonStyle(WhiteButtonSmall())
+                        Button("Laptop") {
+                            print("Button pressed!")
+                        }
+                        .buttonStyle(WhiteButtonSmall())
+                        Button("Sock") {
+                            print("Button pressed!")
+                        }
+                        .buttonStyle(BlackButtonSmall())
+                        
                     }
-                
-            }
-            Spacer()
-            VStack{
-                Text("Which value(s) do you want to focus on improving tomorrow?")
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.center)
-            }
-            Spacer()
-            VStack{
-                WrappingHStack(horizontalSpacing: 10) {
-                    
-                    Button("Chair") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(BlackButtonSmall())
-                    Button("Pen") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(WhiteButtonSmall())
-                    Button("Pencil") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(WhiteButtonSmall())
-                    Button("Table") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(WhiteButtonSmall())
-                    Button("Laptop") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(WhiteButtonSmall())
-                    Button("Sock") {
-                        print("Button pressed!")
-                    }
-                    .buttonStyle(BlackButtonSmall())
+                    .font(.callout)
+                    .padding(.horizontal, 45)
                     
                 }
-                .font(.callout)
-                .padding(.horizontal, 45)
-                
-            }
-            Spacer()
-            ZStack(alignment: .topLeading) {
-                if text.isEmpty {
-                    Text("Describe what will you do in detail, e. g. : Tomorrow, I will act on my values of being caring by checking on my collegues at least once a day etc.")
-                        .foregroundColor(.gray)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 12)
-                        .zIndex(1)
-                }
-                
-                TextEditor(text: $text)
-                    .padding(.horizontal, 3)
-                    .padding(.vertical, 5)
-                    .frame(width: 352, height: 120)
-                    .cornerRadius(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.gray, lineWidth: 1)
-                    )
-                    .focused($isFocused)
-                    .onTapGesture {
-                        isFocused = true
+                Spacer()
+                ZStack(alignment: .topLeading) {
+                    if text.isEmpty {
+                        Text("Describe what did you do in detail, e.g.: This morning, I finished the proposal that my manager asked and got praised for my meticulous writing, etc.")
+                            .foregroundColor(.gray)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 12)
+                            .zIndex(1)
                     }
+                    
+                    TextEditor(text: $text)
+                        .padding(.horizontal, 3)
+                        .padding(.vertical, 5)
+                        .frame(width: 352, height: 120)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray, lineWidth: 1)
+                        )
+                        .focused($isFocused)
+                        .onTapGesture {
+                            isFocused = true
+                        }
+                    
+                }
+                Spacer()
+                VStack{
+                    Text("Which value(s) do you want to focus on improving tomorrow?")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                }
+                Spacer()
+                VStack{
+                    WrappingHStack(horizontalSpacing: 10) {
+                        
+                        Button("Chair") {
+                            print("Button pressed!")
+                        }
+                        .buttonStyle(BlackButtonSmall())
+                        Button("Pen") {
+                            print("Button pressed!")
+                        }
+                        .buttonStyle(WhiteButtonSmall())
+                        Button("Pencil") {
+                            print("Button pressed!")
+                        }
+                        .buttonStyle(WhiteButtonSmall())
+                        Button("Table") {
+                            print("Button pressed!")
+                        }
+                        .buttonStyle(WhiteButtonSmall())
+                        Button("Laptop") {
+                            print("Button pressed!")
+                        }
+                        .buttonStyle(WhiteButtonSmall())
+                        Button("Sock") {
+                            print("Button pressed!")
+                        }
+                        .buttonStyle(BlackButtonSmall())
+                        
+                    }
+                    .font(.callout)
+                    .padding(.horizontal, 45)
+                    
+                }
+                Spacer()
+                ZStack(alignment: .topLeading) {
+                    if text.isEmpty {
+                        Text("Describe what will you do in detail, e. g. : Tomorrow, I will act on my values of being caring by checking on my collegues at least once a day etc.")
+                            .foregroundColor(.gray)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 12)
+                            .zIndex(1)
+                    }
+                    
+                    TextEditor(text: $text)
+                        .padding(.horizontal, 3)
+                        .padding(.vertical, 5)
+                        .frame(width: 352, height: 120)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray, lineWidth: 1)
+                        )
+                        .focused($isFocused)
+                        .onTapGesture {
+                            isFocused = true
+                        }
+                    
+                }
+                Spacer()
+                HStack {
+                    NavigationLink( destination: Today___Night()){
+                        Text("Back")
+                            .modifier(ButtonGray())
+                            .frame(width: 80)
+                    }
+                    NavigationLink( destination: ActingOnYourValues___Affirmation()){
+                        Text("Next")
+                            .modifier(ButtonBlack())
+                    }
+                    
+                }
                 
             }
-            Spacer()
-            HStack {
-                Button("Back") {
-                    print("Button pressed!")
-                }
-                .buttonStyle(GrayButton())
-                
-                .frame(width: 80)
-                
-                Button("Next") {
-                    print("Button pressed!")
-                }
-                .buttonStyle(BlackButton())
-                
-            }
-            
+            .padding()
         }
-        .padding()
+        .navigationBarBackButtonHidden(true)
     }
 }
 

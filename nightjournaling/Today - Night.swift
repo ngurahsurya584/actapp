@@ -13,40 +13,44 @@ struct Today___Night: View {
 
     var body: some View {
         let ctaButtonText = isFinishedPractice ? "Start reflection" : "Start practice"
-        
-        VStack(spacing: 20) {
-            VStack(spacing: 20) {
-                Color.gray
-            }
-            .frame(width: 393, height: 295)
-
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Hi (name),")
-                    .font(.title2)
-
-                Text("How was your day?")
-                    .font(.title)
-                    .fontWeight(.semibold)
-
-                HStack{
-                    PracticeCardView(practiceHeading: "TONIGHT’S ROUTINE", titleText: "Acting on your values", subtitleText: "3 mins", descText: "Practice to slow down and engage with the world.")
-                        .padding(.top, 12)
-                }
-
-                PracticeCardView(practiceHeading: "TODAY’S CHALLENGE", titleText: "Spreading Kindness", subtitleText: "Match with your value: Kind", descText: "Practice to slow down and engage with the world.")
-                .padding(.top, 12)
-                
-                Button("\(ctaButtonText)") {
-                            print("Button pressed!")
-                        }
-                .buttonStyle(BlackButton())
-                .padding(.top, 12)
-            }
-            .padding()
+        NavigationStack{
             
-            Spacer()
+            VStack(spacing: 20) {
+                VStack(spacing: 20) {
+                    Color.gray
+                }
+                .frame(width: 393, height: 295)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Hi (name),")
+                        .font(.title2)
+                    
+                    Text("How was your day?")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                    
+                    HStack{
+                        PracticeCardView(practiceHeading: "TONIGHT’S ROUTINE", titleText: "Acting on your values", subtitleText: "3 mins", descText: "Practice to slow down and engage with the world.")
+                            .padding(.top, 12)
+                    }
+                    
+                    PracticeCardView(practiceHeading: "TODAY’S CHALLENGE", titleText: "Spreading Kindness", subtitleText: "Match with your value: Kind", descText: "Practice to slow down and engage with the world.")
+                        .padding(.top, 12)
+                    
+                    NavigationLink( destination: ActingOnYourValues___Default()){
+                        Text("\(ctaButtonText)")
+                            .modifier(ButtonBlack())
+                            .padding(.top, 12)
+                    }
+                    
+                }
+                .padding()
+                
+                Spacer()
+            }
+            .ignoresSafeArea(.all)
         }
-        .ignoresSafeArea(.all)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
