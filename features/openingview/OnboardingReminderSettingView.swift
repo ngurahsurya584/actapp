@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Onboarding_ReminderSetting: View {
+struct OnboardingReminderSettingView: View {
     
     @State private var Morning = reMorning()
     @State private var Night = reNight()
@@ -61,7 +61,7 @@ struct Onboarding_ReminderSetting: View {
 //                }
 //                .buttonStyle(BlackButton())
                 NavigationLink( destination:
-                    Onboarding_AllSetView()){
+                    OnboardingAllSetView()){
                     Text("Next")
                         .modifier(ButtonBlack())
                     
@@ -95,5 +95,5 @@ func reNight() -> Date{
 }
 
 #Preview {
-        Onboarding_ReminderSetting()
+        OnboardingReminderSettingView()
     }

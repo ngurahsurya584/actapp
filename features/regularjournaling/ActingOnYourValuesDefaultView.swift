@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ActingOnYourValues___Default: View {
+struct ActingOnYourValuesDefaultView: View {
     @State private var text: String = ""
     @FocusState private var isFocused: Bool
     
@@ -152,12 +152,12 @@ struct ActingOnYourValues___Default: View {
                 }
                 Spacer()
                 HStack {
-                    NavigationLink( destination: Today___Night()){
+                    NavigationLink( destination: JournalingHomeView()){
                         Text("Back")
                             .modifier(ButtonGray())
                             .frame(width: 80)
                     }
-                    NavigationLink( destination: ActingOnYourValues___Affirmation()){
+                    NavigationLink( destination: ActingOnYourValuesAffirmationView()){
                         Text("Next")
                             .modifier(ButtonBlack())
                     }
@@ -226,5 +226,5 @@ private struct WrappingHStack: Layout {
 }
 
 #Preview {
-    ActingOnYourValues___Default()
+    ActingOnYourValuesDefaultView()
 }

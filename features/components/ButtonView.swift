@@ -111,28 +111,6 @@ struct ButtonBlack: ViewModifier {
 }
 
 
-struct ButtonWhite: ViewModifier{
-    
-    func body(content: Content) -> some View{
-        content
-            .foregroundStyle(.black)
-            .padding().frame(maxWidth:350)
-            .background(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-    }
-}
-
-struct ButtonGray: ViewModifier {
-
-        func body(content: Content) -> some View{
-            content
-                .foregroundStyle(.black)
-                .padding().frame(maxWidth:350)
-                .background(Color(red: 242/255, green: 242/255, blue: 247/255))
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-    }
-}
-
 struct ButtonGray: ViewModifier {
     func body(content: Content) -> some View {
         content

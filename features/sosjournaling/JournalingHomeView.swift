@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DayJournalingView: View {
+struct JournalingHomeView: View {
     let name = "Jennie"
     let isFinishedPractice = true
 
@@ -43,5 +43,5 @@ struct DayJournalingView: View {
 }
 
 #Preview {
-    DayJournalingView()
+    JournalingHomeView()
 }
