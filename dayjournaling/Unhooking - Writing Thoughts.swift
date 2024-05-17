@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Unhooking___Writing_Thoughts: View {
+struct UnhookingWritingThoughtsView: View {
     @State private var text: String = ""
     @FocusState private var isFocused: Bool
     
@@ -85,6 +85,6 @@ struct Unhooking___Writing_Thoughts: View {
 }
 
 #Preview {
-        Unhooking___Writing_Thoughts()
+        UnhookingWritingThoughtsView()
     }
 

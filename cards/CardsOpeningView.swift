@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardsOpeningView: View {
     
-  
+    @ObservedObject var value : ValuePerson
     
     var body: some View {
         
@@ -32,34 +32,27 @@ struct CardsOpeningView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing:20){
                             Spacer().frame(width: 0)
-                            ZStack{
-                                Button(action:{
-                                    print("tapped")
-                                }){
-                                    VStack{
-                                        Spacer()
-                                        Text("Kind").foregroundStyle(.black).fontWeight(.semibold)
-                                        Text("I want to be kinder to myself and other people").font(.caption).multilineTextAlignment(.center).foregroundStyle(.gray)
-                                    }
-                                }.buttonStyle(CardButton())
-                                
-                            }
                             
                             ZStack{
-                                Button(action:{
-                                    print("tapped")
-                                }){
-                                    VStack{
-                                        Spacer()
-                                        Text("Kind").foregroundStyle(.black).fontWeight(.semibold)
-                                        Text("I want to be kinder to myself and other people").font(.caption).multilineTextAlignment(.center).foregroundStyle(.gray)
+                                ForEach(value.isChecked, id: \.self){i in
+                                    if i == true {
+                                        Button(action:{
+                                            print("tapped")
+                                        }){
+                                            VStack{
+                                                Spacer()
+                                                Text("Kind").foregroundStyle(.black).fontWeight(.semibold)
+                                                Text("I want to be kinder to myself and other people").font(.caption).multilineTextAlignment(.center).foregroundStyle(.gray)
+                                            }
+                                        }.buttonStyle(CardButton())
                                     }
-                                }.buttonStyle(CardButton())
-                                
+                                        
+                                    
                             }
-                            
                         }
+                            
                     }
+                }
                     Spacer().frame(height:20)
                     
                     
@@ -140,5 +133,6 @@ struct CardsOpeningView: View {
 }
 
 #Preview {
-    CardsOpeningView()
+    CardsOpeningView(value: ValuePerson())
+       
 }

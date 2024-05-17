@@ -30,6 +30,7 @@
 		8A3098882BE8D4A200F27593 /* actappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098872BE8D4A200F27593 /* actappTests.swift */; };
 		8A3098922BE8D4A200F27593 /* actappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098912BE8D4A200F27593 /* actappUITests.swift */; };
 		8A3098942BE8D4A200F27593 /* actappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098932BE8D4A200F27593 /* actappUITestsLaunchTests.swift */; };
+		8A88EB7B2BF5DFC00068A9A6 /* ValueModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB7A2BF5DFC00068A9A6 /* ValueModels.swift */; };
 		8A88FB9B2BEA093200FF0204 /* GoalSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88FB9A2BEA093200FF0204 /* GoalSettingView.swift */; };
 		8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF888D82BEA3B1600597EB9 /* ButtonView.swift */; };
 		9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA52BED349B0041D509 /* SplashScreenView.swift */; };
@@ -91,6 +92,7 @@
 		8A30988D2BE8D4A200F27593 /* actappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = actappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A3098912BE8D4A200F27593 /* actappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actappUITests.swift; sourceTree = "<group>"; };
 		8A3098932BE8D4A200F27593 /* actappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actappUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8A88EB7A2BF5DFC00068A9A6 /* ValueModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueModels.swift; sourceTree = "<group>"; };
 		8A88FB9A2BEA093200FF0204 /* GoalSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingView.swift; sourceTree = "<group>"; };
 		8AF888D82BEA3B1600597EB9 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		9F392EA52BED349B0041D509 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		8A30986A2BE8D4A000F27593 = {
 			isa = PBXGroup;
 			children = (
+				8A88EB792BF5DC530068A9A6 /* models */,
 				8A04049D2BF06090002202F0 /* cards */,
 				8A0404612BEB58F7002202F0 /* overview */,
 				8A04045E2BEB58DD002202F0 /* nightjournaling */,
@@ -256,6 +259,14 @@
 				8A3098932BE8D4A200F27593 /* actappUITestsLaunchTests.swift */,
 			);
 			path = actappUITests;
+			sourceTree = "<group>";
+		};
+		8A88EB792BF5DC530068A9A6 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				8A88EB7A2BF5DFC00068A9A6 /* ValueModels.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 		8AF888D72BEA2C9600597EB9 /* components */ = {
@@ -403,6 +414,7 @@
 				8A0404AA2BF0D2E6002202F0 /* CardsDetailsValueView.swift in Sources */,
 				8A04049F2BF060B5002202F0 /* CardsOpeningView.swift in Sources */,
 				8A0404A12BF06AFB002202F0 /* CardsView.swift in Sources */,
+				8A88EB7B2BF5DFC00068A9A6 /* ValueModels.swift in Sources */,
 				8A0404A62BF0C8B0002202F0 /* CardsAllFilledView.swift in Sources */,
 				0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */,
 				9F537BD02BF27F800054D49C /* Unhooking - Naming Pain.swift in Sources */,

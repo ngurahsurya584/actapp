@@ -4,11 +4,10 @@ struct Onboarding_ReminderSetting: View {
     
     @State private var Morning = reMorning()
     @State private var Night = reNight()
-    @State private var showReminderSettingView = false
     
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             VStack {
                 Spacer()
                 Spacer()
@@ -56,10 +55,9 @@ struct Onboarding_ReminderSetting: View {
                 Spacer()
                 Spacer()
                 Spacer()
-                Button("Next") {
-                    showReminderSettingView = true
+                NavigationLink(destination: CardsOpeningView(value: ValuePerson())){
+                    Text("skuy")
                 }
-                .buttonStyle(BlackButton())
             }
             .padding()
         }
