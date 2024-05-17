@@ -242,11 +242,7 @@
 		8A30986A2BE8D4A000F27593 = {
 			isa = PBXGroup;
 			children = (
-				8A04049D2BF06090002202F0 /* cards */,
-				8A0404612BEB58F7002202F0 /* overview */,
-				8A04045E2BEB58DD002202F0 /* nightjournaling */,
-				8A04045B2BEB589B002202F0 /* dayjournaling */,
-				8A04045A2BEB1326002202F0 /* openingview */,
+				8A88EB7C2BF74EAE0068A9A6 /* features */,
 				8AF888D72BEA2C9600597EB9 /* components */,
 				8A3098752BE8D4A000F27593 /* actapp */,
 				8A3098862BE8D4A200F27593 /* actappTests */,
@@ -298,6 +294,18 @@
 				8A3098932BE8D4A200F27593 /* actappUITestsLaunchTests.swift */,
 			);
 			path = actappUITests;
+			sourceTree = "<group>";
+		};
+		8A88EB7C2BF74EAE0068A9A6 /* features */ = {
+			isa = PBXGroup;
+			children = (
+				8A04049D2BF06090002202F0 /* cards */,
+				8A0404612BEB58F7002202F0 /* overview */,
+				8A04045E2BEB58DD002202F0 /* nightjournaling */,
+				8A04045B2BEB589B002202F0 /* dayjournaling */,
+				8A04045A2BEB1326002202F0 /* openingview */,
+			);
+			path = features;
 			sourceTree = "<group>";
 		};
 		8AF888D72BEA2C9600597EB9 /* components */ = {
