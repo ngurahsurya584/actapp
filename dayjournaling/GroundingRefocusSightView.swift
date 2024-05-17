@@ -9,81 +9,90 @@ import SwiftUI
 
 struct GroundingRefocusSightView: View {
     var body: some View {
-        VStack {
-            Spacer()
-
-            Text("Now, let’s refocus and engage with the world around you ").font(.title2).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/).multilineTextAlignment(.center)
-                .padding(.horizontal)
-            Spacer()
-            ForEach(0..<4) { _ in
-                VStack(spacing: 16) {
-                    Text("What are the 5 things you can see now?").font(.headline).fontWeight(.semibold)
-                    WrappingHStack(horizontalSpacing: 5) {
-                        
-                        Button(action: {
-                            print("Button pressed!")
-                        }) {
-                            Image(systemName: "plus")
+        NavigationStack{
+            VStack {
+                Spacer()
+                
+                Text("Now, let’s refocus and engage with the world around you ").font(.title2).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/).multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                Spacer()
+                ForEach(0..<4) { _ in
+                    VStack(spacing: 16) {
+                        Text("What are the 5 things you can see now?").font(.headline).fontWeight(.semibold)
+                        WrappingHStack(horizontalSpacing: 5) {
+                            
+                            Button(action: {
+                                print("Button pressed!")
+                            }) {
+                                Image(systemName: "plus")
+                            }
+                            .buttonStyle(WhiteButtonSmall())
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 50)
+                                    .stroke(Color.black, lineWidth: 1)
+                            )
+                            Button("Chair") {
+                                print("Button pressed!")
+                            }
+                            .buttonStyle(WhiteButtonSmall())
+                            Button("Pen") {
+                                print("Button pressed!")
+                            }
+                            .buttonStyle(BlackButtonSmall())
+                            Button("Pencil") {
+                                print("Button pressed!")
+                            }
+                            .buttonStyle(BlackButtonSmall())
+                            Button("Table") {
+                                print("Button pressed!")
+                            }
+                            .buttonStyle(BlackButtonSmall())
+                            Button("Table") {
+                                print("Button pressed!")
+                            }
+                            .buttonStyle(BlackButtonSmall())
+                            Button("Table") {
+                                print("Button pressed!")
+                            }
+                            .buttonStyle(BlackButtonSmall())
+                            Button("Table") {
+                                print("Button pressed!")
+                            }
+                            .buttonStyle(BlackButtonSmall())
+                            
                         }
-                        .buttonStyle(WhiteButtonSmall())
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 50)
-                                .stroke(Color.black, lineWidth: 1)
-                        )
-                        Button("Chair") {
-                            print("Button pressed!")
-                        }
-                        .buttonStyle(WhiteButtonSmall())
-                        Button("Pen") {
-                            print("Button pressed!")
-                        }
-                        .buttonStyle(BlackButtonSmall())
-                        Button("Pencil") {
-                            print("Button pressed!")
-                        }
-                        .buttonStyle(BlackButtonSmall())
-                        Button("Table") {
-                            print("Button pressed!")
-                        }
-                        .buttonStyle(BlackButtonSmall())
-                        Button("Table") {
-                            print("Button pressed!")
-                        }
-                        .buttonStyle(BlackButtonSmall())
-                        Button("Table") {
-                            print("Button pressed!")
-                        }
-                        .buttonStyle(BlackButtonSmall())
-                        Button("Table") {
-                            print("Button pressed!")
-                        }
-                        .buttonStyle(BlackButtonSmall())
-                        
+                        .font(.callout)
                     }
-                    .font(.callout)
+                    
+                    Spacer()
                 }
                 
                 Spacer()
-            }
-            
-            Spacer()
-
-            HStack {
-                Button("Back") {
-                    print("Button pressed!")
+                
+                HStack {
+                    NavigationLink( destination:
+                                        GroundingRefocusSightView()){
+                        Text("Back")
+                            .modifier(ButtonGray())
+                            .frame(maxWidth: 80)
+                    }
+                    
+                    //                Button("Next") {
+                    //                    print("Button pressed!")
+                    //                }
+                    //                .buttonStyle(BlackButton())
+                    NavigationLink( destination:
+                                        GroundingRefocusTouchView()){
+                        Text("Next")
+                            .modifier(ButtonBlack())
+                        
+                    }
+                    
                 }
-                .buttonStyle(GrayButton())
-
-                .frame(width: 80)
-
-                Button("Next") {
-                    print("Button pressed!")
-                }
-                .buttonStyle(BlackButton())
-
             }
+            .padding()
+            .navigationBarBackButtonHidden(true)
         }
-        .padding()
     }
 }
 

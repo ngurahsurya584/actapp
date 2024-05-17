@@ -20,85 +20,94 @@ struct GroundingEmotionEmptyView: View {
     ]
     
     var body: some View {
-        ScrollView {
-            Rectangle()
-                .stroke(Color.black, lineWidth: 2)
-                .fill(Color.gray)
-                .frame(width: 393, height: 274)
-                .frame(maxWidth: .infinity, alignment: .center)
-            Spacer()
-            VStack(alignment: .leading, spacing: 12) {
-                Text("NOTICE AND NAME")
-                    .font(.caption2).fontWeight(.semibold).foregroundColor(Color.gray)
-                Text("A storm is brewing inside…")
-                    .font(.title2)
-                Text("Choose the unkind emotion(s) you’re feeling right now")
-                    .font(.title).fontWeight(.bold).foregroundColor(Color.black)
-            }
-            .padding(.horizontal)
-            .padding(.top, 20)
-            .padding(.bottom, 12)
-            
-            VStack {
-                let keys = Array(feelings.keys)
-                ForEach(keys, id: \.self) { key in
-                    let index = keys.firstIndex(of: key) ?? 0
-                    HStack {
+        NavigationStack{
+            ScrollView {
+                Rectangle()
+                    .stroke(Color.black, lineWidth: 2)
+                    .fill(Color.gray)
+                    .frame(width: 393, height: 274)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                Spacer()
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("NOTICE AND NAME")
+                        .font(.caption2).fontWeight(.semibold).foregroundColor(Color.gray)
+                    Text("A storm is brewing inside…")
+                        .font(.title2)
+                    Text("Choose the unkind emotion(s) you’re feeling right now")
+                        .font(.title).fontWeight(.bold).foregroundColor(Color.black)
+                }
+                .padding(.horizontal)
+                .padding(.top, 20)
+                .padding(.bottom, 12)
+                
+                VStack {
+                    let keys = Array(feelings.keys)
+                    ForEach(keys, id: \.self) { key in
+                        let index = keys.firstIndex(of: key) ?? 0
                         HStack {
-                            CheckBoxView(checked: self.$isChecked[index])
-                            Text(key)
+                            HStack {
+                                CheckBoxView(checked: self.$isChecked[index])
+                                Text(key)
+                                    .font(.body)
+                                    .fontWeight(.light)
+                            }
+                            Spacer()
+                            chevronView(checked: self.isSelected(key: key))
+                                .onTapGesture {
+                                    self.toggleSelection(for: key)
+                                }
+                        }
+                        if self.isSelected(key: key) {
+                            Text(self.feelings[key] ?? "")
                                 .font(.body)
+                                .foregroundColor(Color(red: 142/255, green: 142/255, blue: 147/255))
                                 .fontWeight(.light)
+                                .padding(.top, 6)
+                                .padding(.leading, 16)
+                                .overlay(
+                                    Divider()
+                                        .background(Color.gray),
+                                    alignment: .top
+                                )
+                                .padding(.top, 6)
+                                .padding(.horizontal, -1)
                         }
                         Spacer()
-                        chevronView(checked: self.isSelected(key: key))
-                            .onTapGesture {
-                                self.toggleSelection(for: key)
-                            }
                     }
-                    if self.isSelected(key: key) {
-                        Text(self.feelings[key] ?? "")
-                            .font(.body)
-                            .foregroundColor(Color(red: 142/255, green: 142/255, blue: 147/255))
-                            .fontWeight(.light)
-                            .padding(.top, 6)
-                            .padding(.leading, 16)
-                            .overlay(
-                                Divider()
-                                    .background(Color.gray),
-                                alignment: .top
-                            )
-                            .padding(.top, 6)
-                            .padding(.horizontal, -1)
+                }
+                .padding(.horizontal)
+                .padding(.horizontal)
+                .padding(.leading, 10)
+                
+                HStack {
+                    NavigationLink( destination:
+                                        GroundingRefocusSightView()){
+                        Text("Back")
+                            .modifier(ButtonGray())
+                            .frame(maxWidth: 80)
                     }
-                    Spacer()
+                    
+                    //                Button("Next") {
+                    //                    print("Button pressed!")
+                    //                }
+                    //                .buttonStyle(BlackButton())
+                    NavigationLink( destination:
+                        GroundingSlowingDownView()){
+                        Text("Next")
+                            .modifier(ButtonBlack())
+                        
+                    }
+                    
                 }
+                .padding()
+                .navigationBarBackButtonHidden(true)
+                
+                Spacer()
+                Spacer()
+                Spacer()
             }
-            .padding(.horizontal)
-            .padding(.horizontal)
-            .padding(.leading, 10)
-            
-            HStack {
-                Button("Back") {
-                    print("Button pressed!")
-                }
-                .buttonStyle(GrayButton())
-
-                .frame(width: 80)
-
-                Button("Next") {
-                    print("Button pressed!")
-                }
-                .buttonStyle(BlackButton())
-
-            }
-            .padding()
-            
-            Spacer()
-            Spacer()
-            Spacer()
+            .ignoresSafeArea(.all)
         }
-        .ignoresSafeArea(.all)
     }
     
     private func isChecked(for key: String) -> Binding<Bool> {
