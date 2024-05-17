@@ -1,5 +1,5 @@
 //
-//  Onboarding-ActIntroduction2View.swift
+//  Onboarding-ActIntroduction1View.swift
 //  actapp
 //
 //  Created by Pedro Nicolas Cristiansen Hutabarat on 09/05/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Onboarding_ActIntroduction2View: View {
+struct OnboardingFirstIntroView: View {
     var body: some View {
         NavigationStack{
             VStack {
@@ -17,13 +17,13 @@ struct Onboarding_ActIntroduction2View: View {
                 Spacer()
                 Spacer()
                 VStack(alignment: .leading) {
-                    Text("Stress is ")
+                    Text("We’re here to help ")
                         .font(.title).bold().fontDesign(.rounded)
-                    + Text("normal")
+                    + Text("You")
                         .font(.title).bold().italic()
                         .fontDesign( .serif)
                     Spacer()
-                    Text("Stress is often accompanied by powerful thoughts and feelings and that’s normal. But problems can occur if we get “hooked” by them.")
+                    Text("Stress can happen to anyone and you are not alone. We will help you to learn and practice the skills for dealing with stress.")
                         .font(.body)
                         .fontWeight(.semibold)
                 }
@@ -34,16 +34,21 @@ struct Onboarding_ActIntroduction2View: View {
                     Rectangle()
                         .stroke(.black, lineWidth: 2)
                         .fill(.gray)
-                        .frame(width: 393, height: 462)
+                        .frame(width: 393, height: 484)
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
                 Spacer()
                 Spacer()
                 Spacer()
                 
-                NavigationLink( destination: Onboarding_ActIntroduction3View()){
+                //            Button("Next") {
+                //                        print("Button pressed!")
+                //                    }
+                //                    .buttonStyle(BlackButton())
+                NavigationLink( destination: Onboarding_ActIntroduction2View()){
                     Text("Next")
                         .modifier(ButtonBlack())
+                    
                 }
                 
             }
@@ -53,5 +58,5 @@ struct Onboarding_ActIntroduction2View: View {
 }
 
 #Preview {
-    Onboarding_ActIntroduction2View()
+    OnboardingFirstIntroView()
 }

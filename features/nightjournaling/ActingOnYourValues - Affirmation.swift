@@ -55,10 +55,6 @@ struct ActingOnYourValues___Affirmation: View {
                             .modifier(ButtonGray())
                             .frame(width: 80)
                     }
-                    NavigationLink( destination: Transmission()){
-                        Text("Finish")
-                            .modifier(ButtonBlack())
-                    }
                 }
                 
             }

@@ -1,5 +1,5 @@
 //
-//  Onboarding-AllSetView.swift
+//  Onboarding-ActIntroduction3View.swift
 //  actapp
 //
 //  Created by Pedro Nicolas Cristiansen Hutabarat on 10/05/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Onboarding_AllSetView: View {
+struct OnboardingIntroSecondView: View {
     var body: some View {
         NavigationStack{
             VStack {
@@ -17,10 +17,15 @@ struct Onboarding_AllSetView: View {
                 Spacer()
                 Spacer()
                 VStack(alignment: .leading) {
-                    Text("You’re all set!")
+                    Text("What does ")
+                        .font(.title).bold().fontDesign(.rounded)
+                    + Text("hooked ")
+                        .font(.title).bold().italic()
+                        .fontDesign( .serif)
+                    + Text("mean?")
                         .font(.title).bold().fontDesign(.rounded)
                     Spacer()
-                    Text("Enjoy this journey on learning how to what matters in times of stress.")
+                    Text("When something is on a hook, it cannot get away. The hook traps it. In the same way, we can get hooked by our difficult thoughts and feelings that they pull us away from our “values”.")
                         .font(.body)
                         .fontWeight(.semibold)
                 }
@@ -31,24 +36,17 @@ struct Onboarding_AllSetView: View {
                     Rectangle()
                         .stroke(.black, lineWidth: 2)
                         .fill(.gray)
-                        .frame(width: 393, height: 504)
+                        .frame(width: 393, height: 438)
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
                 Spacer()
                 Spacer()
                 Spacer()
                 
-//                Button("Let's begin") {
-//                    print("Button pressed!")
-//                }
-//                .buttonStyle(BlackButton())
-                NavigationLink( destination:
-                    DayJournalingView()){
-                    Text("Let's begin")
+                NavigationLink( destination: OnboardingValueSettingView()){
+                    Text("Next")
                         .modifier(ButtonBlack())
-                    
                 }
-                
                 
             }
             .padding()
@@ -57,5 +55,5 @@ struct Onboarding_AllSetView: View {
 }
 
 #Preview {
-    Onboarding_AllSetView()
+    OnboardingIntroSecondView()
 }

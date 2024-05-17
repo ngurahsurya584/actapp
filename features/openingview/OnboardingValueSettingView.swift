@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Onboarding_ValueSetting: View {
+struct OnboardingValueSettingView: View {
     
     
     let values = ["Persistent", "Hard work", "Continued development", "Supportive", "Career progression", "Customer service", "Cooperation", "Creativity", "Collaboration", "Patient"]
@@ -65,7 +65,7 @@ struct Onboarding_ValueSetting: View {
                 Spacer()
                 Spacer()
                
-                NavigationLink( destination: Onboarding_ReminderSetting()){
+                NavigationLink( destination: OnboardingReminderSettingView()){
                     Text("Next")
                         .modifier(ButtonBlack())
                     
@@ -95,7 +95,7 @@ struct CheckBoxView: View {
 }
 
 #Preview {
-        Onboarding_ValueSetting()
+        OnboardingValueSettingView()
     }
 
 

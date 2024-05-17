@@ -1,5 +1,5 @@
 //
-//  Onboarding-ActIntroduction3View.swift
+//  Onboarding-AllSetView.swift
 //  actapp
 //
 //  Created by Pedro Nicolas Cristiansen Hutabarat on 10/05/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Onboarding_ActIntroduction3View: View {
+struct OnboardingAllSetView: View {
     var body: some View {
         NavigationStack{
             VStack {
@@ -17,15 +17,10 @@ struct Onboarding_ActIntroduction3View: View {
                 Spacer()
                 Spacer()
                 VStack(alignment: .leading) {
-                    Text("What does ")
-                        .font(.title).bold().fontDesign(.rounded)
-                    + Text("hooked ")
-                        .font(.title).bold().italic()
-                        .fontDesign( .serif)
-                    + Text("mean?")
+                    Text("You’re all set!")
                         .font(.title).bold().fontDesign(.rounded)
                     Spacer()
-                    Text("When something is on a hook, it cannot get away. The hook traps it. In the same way, we can get hooked by our difficult thoughts and feelings that they pull us away from our “values”.")
+                    Text("Enjoy this journey on learning how to what matters in times of stress.")
                         .font(.body)
                         .fontWeight(.semibold)
                 }
@@ -36,17 +31,24 @@ struct Onboarding_ActIntroduction3View: View {
                     Rectangle()
                         .stroke(.black, lineWidth: 2)
                         .fill(.gray)
-                        .frame(width: 393, height: 438)
+                        .frame(width: 393, height: 504)
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
                 Spacer()
                 Spacer()
                 Spacer()
                 
-                NavigationLink( destination: Onboarding_ValueSetting()){
-                    Text("Next")
+//                Button("Let's begin") {
+//                    print("Button pressed!")
+//                }
+//                .buttonStyle(BlackButton())
+                NavigationLink( destination:
+                    DayJournalingView()){
+                    Text("Let's begin")
                         .modifier(ButtonBlack())
+                    
                 }
+                
                 
             }
             .padding()
@@ -55,5 +57,5 @@ struct Onboarding_ActIntroduction3View: View {
 }
 
 #Preview {
-    Onboarding_ActIntroduction3View()
+    OnboardingAllSetView()
 }
