@@ -23,6 +23,8 @@
 		8A3098882BE8D4A200F27593 /* actappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098872BE8D4A200F27593 /* actappTests.swift */; };
 		8A3098922BE8D4A200F27593 /* actappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098912BE8D4A200F27593 /* actappUITests.swift */; };
 		8A3098942BE8D4A200F27593 /* actappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098932BE8D4A200F27593 /* actappUITestsLaunchTests.swift */; };
+		8A88EB802BF7A5FD0068A9A6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB7F2BF7A5FD0068A9A6 /* MainView.swift */; };
+		8A88EB822BF7B4230068A9A6 /* DecideFirstTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB812BF7B4230068A9A6 /* DecideFirstTimeView.swift */; };
 		8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF888D82BEA3B1600597EB9 /* ButtonView.swift */; };
 		9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA52BED349B0041D509 /* SplashScreenView.swift */; };
 		9F392EAA2BED387C0041D509 /* OnboardingIntroFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA92BED387C0041D509 /* OnboardingIntroFirstView.swift */; };
@@ -71,6 +73,8 @@
 		8A30988D2BE8D4A200F27593 /* actappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = actappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A3098912BE8D4A200F27593 /* actappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actappUITests.swift; sourceTree = "<group>"; };
 		8A3098932BE8D4A200F27593 /* actappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actappUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8A88EB7F2BF7A5FD0068A9A6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8A88EB812BF7B4230068A9A6 /* DecideFirstTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecideFirstTimeView.swift; sourceTree = "<group>"; };
 		8AF888D82BEA3B1600597EB9 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		9F392EA52BED349B0041D509 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		9F392EA92BED387C0041D509 /* OnboardingIntroFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroFirstView.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 				9F392EAF2BED48F50041D509 /* OnboardingValueSettingView.swift */,
 				9F392EB12BED492B0041D509 /* OnboardingReminderSettingView.swift */,
 				9F392EAD2BED46140041D509 /* OnboardingAllSetView.swift */,
+				8A88EB812BF7B4230068A9A6 /* DecideFirstTimeView.swift */,
 			);
 			path = openingview;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 				0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */,
 				0A8417952BF28043001E707D /* GroundingRefocusSightView.swift */,
 				0A8417912BF27E10001E707D /* GroundingRefocusTouchView.swift */,
+				8A88EB7F2BF7A5FD0068A9A6 /* MainView.swift */,
 			);
 			path = sosjournaling;
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A0404A12BF06AFB002202F0 /* CardsView.swift in Sources */,
+				8A88EB802BF7A5FD0068A9A6 /* MainView.swift in Sources */,
 				0A8417982BF36ABC001E707D /* GroundingEmotionEmptyView.swift in Sources */,
 				0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */,
 				9FDA842B2BF45706009961DD /* ActingOnYourValuesAffirmationView.swift in Sources */,
@@ -376,6 +383,7 @@
 				8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */,
 				0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownView.swift in Sources */,
 				8A0404632BEB5952002202F0 /* OverviewView.swift in Sources */,
+				8A88EB822BF7B4230068A9A6 /* DecideFirstTimeView.swift in Sources */,
 				0A8417942BF27F76001E707D /* GroundingEmotionalStormView.swift in Sources */,
 				9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */,
 				9F392EAA2BED387C0041D509 /* OnboardingIntroFirstView.swift in Sources */,

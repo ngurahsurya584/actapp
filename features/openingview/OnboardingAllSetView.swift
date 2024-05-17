@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingAllSetView: View {
+    @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
     var body: some View {
         NavigationStack{
             VStack {
@@ -43,11 +44,15 @@ struct OnboardingAllSetView: View {
 //                }
 //                .buttonStyle(BlackButton())
                 NavigationLink( destination:
-                    JournalingHomeView()){
+                    MainView()){
                     Text("Let's begin")
                         .modifier(ButtonBlack())
                     
-                }
+                   
+                    
+                }.simultaneousGesture(TapGesture().onEnded {
+                    isWelcomeScreenOver = true
+                })
                 
                 
             }
