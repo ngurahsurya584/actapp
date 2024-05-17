@@ -111,7 +111,6 @@ struct GroundingEmotionEmptyView: View {
     }
     
     private func isChecked(for key: String) -> Binding<Bool> {
-         let index = Array(feelings.keys.sorted()).firstIndex(of: key) ?? 0
          return Binding<Bool>(
              get: { self.selectedKey == key },
              set: { _ in self.toggleSelection(for: key) }
