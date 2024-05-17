@@ -34,7 +34,7 @@ struct GroundingAffirmationView: View {
                     //                .buttonStyle(BlackButton())
                     //                .frame(maxWidth: .infinity)
                     NavigationLink( destination:
-                                        DayJournalingView()){
+                                        JournalingHomeView()){
                         Text("Finish")
                             .modifier(ButtonBlack())
                         

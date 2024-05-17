@@ -43,7 +43,7 @@ struct OnboardingAllSetView: View {
 //                }
 //                .buttonStyle(BlackButton())
                 NavigationLink( destination:
-                    DayJournalingView()){
+                    JournalingHomeView()){
                     Text("Let's begin")
                         .modifier(ButtonBlack())
                     

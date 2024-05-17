@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ActingOnYourValues___Affirmation: View {
+struct ActingOnYourValuesAffirmationView: View {
     var body: some View {
         NavigationStack{
             
@@ -50,7 +50,7 @@ struct ActingOnYourValues___Affirmation: View {
                 //            }
                 
                 HStack {
-                    NavigationLink( destination: ActingOnYourValues___Default()){
+                    NavigationLink( destination: ActingOnYourValuesDefaultView()){
                         Text("Back")
                             .modifier(ButtonGray())
                             .frame(width: 80)
@@ -65,5 +65,5 @@ struct ActingOnYourValues___Affirmation: View {
 }
 
 #Preview {
-    ActingOnYourValues___Affirmation()
+    ActingOnYourValuesAffirmationView()
 }
