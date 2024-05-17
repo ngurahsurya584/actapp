@@ -11,7 +11,7 @@ import SwiftUI
 struct actappApp: App {
     var body: some Scene {
         WindowGroup {
-            TimeSettingView()
+            GroundingEmotionEmptyView()
         }
     }
 }

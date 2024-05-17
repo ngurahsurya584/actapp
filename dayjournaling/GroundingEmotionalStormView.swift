@@ -9,28 +9,38 @@ import SwiftUI
 
 struct GroundingEmotionalStormView: View {
     var body: some View {
-        VStack{
-            VStack(spacing: 20) {
-                Color.gray
-            }
-            .frame(width: 393, height: 724)  
-            
-            HStack {
-                Button("Back") {
-                    print("Button pressed!")
+        NavigationStack{
+            VStack{
+                VStack(spacing: 20) {
+                    Color.gray
                 }
-                .buttonStyle(GrayButton())
-                .frame(maxWidth: 80)
+                .frame(width: 393, height: 724)  
                 
-                Button("Next") {
-                    print("Button pressed!")
+                HStack {
+                    NavigationLink( destination:
+                                        GroundingRefocusSightView()){
+                        Text("Back")
+                            .modifier(ButtonGray())
+                            .frame(maxWidth: 80)
+                    }
+                    
+//                    Button("Next") {
+//                        print("Button pressed!")
+//                    }
+//                    .buttonStyle(BlackButton())
+//                    .frame(maxWidth: .infinity)
+                    NavigationLink( destination:
+                        GroundingSlowingDownView()){
+                        Text("Next")
+                            .modifier(ButtonBlack())
+                        
+                    }
                 }
-                .buttonStyle(BlackButton())
-                .frame(maxWidth: .infinity)
+                .padding()
+                .navigationBarBackButtonHidden(true)
             }
-            .padding()
+            .ignoresSafeArea(.all)
         }
-        .ignoresSafeArea(.all)
     }
 }
 

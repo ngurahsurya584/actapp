@@ -34,6 +34,7 @@ struct DayJournalingView: View {
                 .padding(.top, 12)
             }
             .padding()
+            .navigationBarBackButtonHidden(true)
             
             Spacer()
         }
