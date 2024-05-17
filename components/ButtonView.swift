@@ -90,14 +90,66 @@ struct GrayButton: ButtonStyle {
 }
 
 
-struct ButtonBlack: ViewModifier{
+//struct ButtonBlack: ViewModifier{
+//    
+//    func body(content: Content) -> some View{
+//        content
+//            .foregroundStyle(.white)
+//            .frame(maxWidth:.infinity, maxHeight:48)
+//            .background(.black)
+//            .clipShape(RoundedRectangle(cornerRadius: 12))
+//    }
+//}
+struct ButtonBlack: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(.white)
+            .padding().frame(maxWidth:350)
+            .background(.black)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
+
+
+struct ButtonWhite: ViewModifier{
     
     func body(content: Content) -> some View{
         content
-            .foregroundStyle(.white)
+            .foregroundStyle(.black)
+            .padding().frame(maxWidth:350)
+            .background(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
+
+struct ButtonGray: ViewModifier {
+
+        func body(content: Content) -> some View{
+            content
+                .foregroundStyle(.black)
+                .padding().frame(maxWidth:350)
+                .background(Color(red: 242/255, green: 242/255, blue: 247/255))
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
+
+struct ButtonGray: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(.black)
             .frame(maxWidth:.infinity, maxHeight:48)
-            .background(.black)
-            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .background(Color(red: 242/255, green: 242/255, blue: 247/255))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
+
+struct ButtonWhite: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(.black)
+            .frame(maxWidth:.infinity, maxHeight:48)
+            .background(Color(red: 255/255, green: 255/255, blue: 255/255))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 

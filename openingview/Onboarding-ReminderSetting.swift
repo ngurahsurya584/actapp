@@ -56,10 +56,17 @@ struct Onboarding_ReminderSetting: View {
                 Spacer()
                 Spacer()
                 Spacer()
-                Button("Next") {
-                    showReminderSettingView = true
+//                Button("Next") {
+//                    showReminderSettingView = true
+//                }
+//                .buttonStyle(BlackButton())
+                NavigationLink( destination:
+                    Onboarding_AllSetView()){
+                    Text("Next")
+                        .modifier(ButtonBlack())
+                    
                 }
-                .buttonStyle(BlackButton())
+                
             }
             .padding()
         }

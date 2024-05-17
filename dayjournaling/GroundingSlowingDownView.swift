@@ -12,47 +12,57 @@ struct GroundingSlowingDownView: View {
     
     var body: some View {
 
-        VStack {
+        NavigationStack{
             VStack {
-                VStack(spacing: 10) {
-                    Text("Slow down and reconnect with your body")
-                        .font(.system(size: 18))
-                        .fontWeight(.semibold)
+                VStack {
+                    VStack(spacing: 10) {
+                        Text("Slow down and reconnect with your body")
+                            .font(.system(size: 18))
+                            .fontWeight(.semibold)
+                        
+                        Text("Slowly breath in")
+                            .fontWeight(.bold)
+                            .font(.title)
+                            .multilineTextAlignment(.center)
+                    }
+                    .padding(.top, 30)
                     
-                    Text("Slowly breath in")
-                        .fontWeight(.bold)
-                        .font(.title)
-                        .multilineTextAlignment(.center)
-                }
-                .padding(.top, 30)
-                
-                Spacer()
-                
-                if isSessionFinished {
-                    HStack {
-                        Button("Back") {
-                                    print("Button pressed!")
-                                }
-                        .buttonStyle(WhiteButton())
-                        .frame(maxWidth: 80)
-
-                        Button("Next") {
-                                    print("Button pressed!")
-                                }
-                        .buttonStyle(WhiteButton())
+                    Spacer()
+                    
+                    if isSessionFinished {
+                        HStack {
+                            NavigationLink( destination:
+                                                GroundingRefocusSightView()){
+                                Text("Back")
+                                    .modifier(ButtonWhite())
+                                    .frame(maxWidth: 80)
+                            }
+                            
+//                            Button("Next") {
+//                                print("Button pressed!")
+//                            }
+//                            .buttonStyle(WhiteButton())
+                            NavigationLink( destination:
+                                GroundingRefocusSightView()){
+                                Text("Next")
+                                    .modifier(ButtonWhite())
+                                
+                            }
+                        }
                     }
                 }
+                .padding()
+                .navigationBarBackButtonHidden(true)
             }
-            .padding()
+            .frame(
+                minWidth: 0,
+                maxWidth: .infinity,
+                minHeight: 0,
+                maxHeight: .infinity
+            )
+            .foregroundColor(.white)
+            .background(.black)
         }
-        .frame(
-            minWidth: 0,
-            maxWidth: .infinity,
-            minHeight: 0,
-            maxHeight: .infinity
-        )
-        .foregroundColor(.white)
-        .background(.black)
     }
 
 }
