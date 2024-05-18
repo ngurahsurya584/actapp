@@ -14,8 +14,9 @@
 		0A8417942BF27F76001E707D /* GroundingEmotionalStormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */; };
 		0A8417962BF28043001E707D /* GroundingRefocusSightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417952BF28043001E707D /* GroundingRefocusSightView.swift */; };
 		0A8417982BF36ABC001E707D /* GroundingEmotionEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417972BF36ABC001E707D /* GroundingEmotionEmptyView.swift */; };
+		0A84179C2BF8FEE7001E707D /* InsightsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A84179B2BF8FEE7001E707D /* InsightsDetailView.swift */; };
 		8A04045D2BEB58D5002202F0 /* JournalingHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04045C2BEB58D5002202F0 /* JournalingHomeView.swift */; };
-		8A0404632BEB5952002202F0 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404622BEB5952002202F0 /* OverviewView.swift */; };
+		8A0404632BEB5952002202F0 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404622BEB5952002202F0 /* InsightsView.swift */; };
 		8A0404A12BF06AFB002202F0 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404A02BF06AFB002202F0 /* CardsView.swift */; };
 		8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098762BE8D4A000F27593 /* actappApp.swift */; };
 		8A30987B2BE8D4A200F27593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A30987A2BE8D4A200F27593 /* Assets.xcassets */; };
@@ -59,8 +60,9 @@
 		0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingEmotionalStormView.swift; sourceTree = "<group>"; };
 		0A8417952BF28043001E707D /* GroundingRefocusSightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingRefocusSightView.swift; sourceTree = "<group>"; };
 		0A8417972BF36ABC001E707D /* GroundingEmotionEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingEmotionEmptyView.swift; sourceTree = "<group>"; };
+		0A84179B2BF8FEE7001E707D /* InsightsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsDetailView.swift; sourceTree = "<group>"; };
 		8A04045C2BEB58D5002202F0 /* JournalingHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingHomeView.swift; sourceTree = "<group>"; };
-		8A0404622BEB5952002202F0 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
+		8A0404622BEB5952002202F0 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		8A0404A02BF06AFB002202F0 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		8A3098732BE8D4A000F27593 /* actapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = actapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A3098762BE8D4A000F27593 /* actappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actappApp.swift; sourceTree = "<group>"; };
@@ -143,12 +145,13 @@
 			path = regularjournaling;
 			sourceTree = "<group>";
 		};
-		8A0404612BEB58F7002202F0 /* overview */ = {
+		8A0404612BEB58F7002202F0 /* insights */ = {
 			isa = PBXGroup;
 			children = (
-				8A0404622BEB5952002202F0 /* OverviewView.swift */,
+				8A0404622BEB5952002202F0 /* InsightsView.swift */,
+				0A84179B2BF8FEE7001E707D /* InsightsDetailView.swift */,
 			);
-			path = overview;
+			path = insights;
 			sourceTree = "<group>";
 		};
 		8A30986A2BE8D4A000F27593 = {
@@ -211,7 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				8AF888D72BEA2C9600597EB9 /* components */,
-				8A0404612BEB58F7002202F0 /* overview */,
+				8A0404612BEB58F7002202F0 /* insights */,
 				8A04045E2BEB58DD002202F0 /* regularjournaling */,
 				8A04045B2BEB589B002202F0 /* sosjournaling */,
 				8A04045A2BEB1326002202F0 /* openingview */,
@@ -374,8 +377,9 @@
 				9F392EB22BED492B0041D509 /* OnboardingReminderSettingView.swift in Sources */,
 				9F392EAC2BED39150041D509 /* OnboardingIntroSecondView.swift in Sources */,
 				8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */,
+				0A84179C2BF8FEE7001E707D /* InsightsDetailView.swift in Sources */,
 				0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownView.swift in Sources */,
-				8A0404632BEB5952002202F0 /* OverviewView.swift in Sources */,
+				8A0404632BEB5952002202F0 /* InsightsView.swift in Sources */,
 				0A8417942BF27F76001E707D /* GroundingEmotionalStormView.swift in Sources */,
 				9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */,
 				9F392EAA2BED387C0041D509 /* OnboardingIntroFirstView.swift in Sources */,

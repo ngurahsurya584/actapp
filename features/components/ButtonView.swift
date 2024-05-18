@@ -45,6 +45,20 @@ struct BlackButtonSmall: ButtonStyle {
             .clipShape(RoundedRectangle(cornerRadius: 50))
     }
 }
+struct PrimaryButtonSmall: ButtonStyle {
+    func makeBody(configuration:
+        
+        Configuration) -> some View {
+        configuration.label
+            .padding(.vertical)
+            .padding(.horizontal, 10)
+            .fontWeight(.bold)
+            .frame(height: 30)
+            .background(Color(red: 33/255, green: 107/255, blue: 82/255))
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+    }
+}
 
 struct WhiteButton: ButtonStyle {
     func makeBody(configuration:
@@ -72,7 +86,7 @@ struct WhiteButtonSmall: ButtonStyle {
             .clipShape(RoundedRectangle(cornerRadius: 50))
             .overlay(
                 RoundedRectangle(cornerRadius: 50)
-                    .stroke(Color.black, lineWidth: 1)
+                    .stroke(Color(red: 142/255, green: 142/255, blue: 147/255), lineWidth: 1)
             )
     }
 }
