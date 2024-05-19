@@ -13,6 +13,7 @@ struct actappApp: App {
         WindowGroup {
             DecideFirstTimeView()
                 .environmentObject(PersonValue())
+              
         }
     }
 }

@@ -27,7 +27,7 @@
 		8A88EB802BF7A5FD0068A9A6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB7F2BF7A5FD0068A9A6 /* MainView.swift */; };
 		8A88EB822BF7B4230068A9A6 /* DecideFirstTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB812BF7B4230068A9A6 /* DecideFirstTimeView.swift */; };
 		8A88EB852BF851B10068A9A6 /* ValueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB842BF851B10068A9A6 /* ValueModel.swift */; };
-		8A88EB872BF87CF00068A9A6 /* TestingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB862BF87CF00068A9A6 /* TestingModels.swift */; };
+		8A88EB892BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB882BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift */; };
 		8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF888D82BEA3B1600597EB9 /* ButtonView.swift */; };
 		9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA52BED349B0041D509 /* SplashScreenView.swift */; };
 		9F392EAA2BED387C0041D509 /* OnboardingIntroFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA92BED387C0041D509 /* OnboardingIntroFirstView.swift */; };
@@ -84,7 +84,7 @@
 		8A88EB7F2BF7A5FD0068A9A6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8A88EB812BF7B4230068A9A6 /* DecideFirstTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecideFirstTimeView.swift; sourceTree = "<group>"; };
 		8A88EB842BF851B10068A9A6 /* ValueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueModel.swift; sourceTree = "<group>"; };
-		8A88EB862BF87CF00068A9A6 /* TestingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingModels.swift; sourceTree = "<group>"; };
+		8A88EB882BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingValueSettingNoBackView.swift; sourceTree = "<group>"; };
 		8AF888D82BEA3B1600597EB9 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		9F392EA52BED349B0041D509 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		9F392EA92BED387C0041D509 /* OnboardingIntroFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroFirstView.swift; sourceTree = "<group>"; };
@@ -135,6 +135,7 @@
 				9F392EB12BED492B0041D509 /* OnboardingReminderSettingView.swift */,
 				9F392EAD2BED46140041D509 /* OnboardingAllSetView.swift */,
 				8A88EB812BF7B4230068A9A6 /* DecideFirstTimeView.swift */,
+				8A88EB882BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift */,
 			);
 			path = openingview;
 			sourceTree = "<group>";
@@ -248,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				8A88EB842BF851B10068A9A6 /* ValueModel.swift */,
-				8A88EB862BF87CF00068A9A6 /* TestingModels.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -406,20 +406,20 @@
 				9FDA84452BF8F021009961DD /* Transmission1.swift in Sources */,
 				0A84178D2BF2779B001E707D /* GroundingAffirmationView.swift in Sources */,
 				9F392EB02BED48F50041D509 /* OnboardingValueSettingView.swift in Sources */,
+				8A88EB892BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift in Sources */,
 				8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */,
 				8A04045D2BEB58D5002202F0 /* JournalingHomeView.swift in Sources */,
 				0A8417962BF28043001E707D /* GroundingRefocusSightView.swift in Sources */,
 				9F392EB22BED492B0041D509 /* OnboardingReminderSettingView.swift in Sources */,
 				9F392EAC2BED39150041D509 /* OnboardingIntroSecondView.swift in Sources */,
-				8A88EB872BF87CF00068A9A6 /* TestingModels.swift in Sources */,
 				8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */,
 				9FDA84492BF97A2C009961DD /* GroundingSlowingDownInSessionView.swift in Sources */,
 				9FDA84432BF8E323009961DD /* ActingOnYourValuesPlanView.swift in Sources */,
 				9FDA84472BF90237009961DD /* StrikeView.swift in Sources */,
 				0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift in Sources */,
-				8A0404632BEB5952002202F0 /* OverviewView.swift in Sources */,
+				8A0404632BEB5952002202F0 /* InsightsView.swift in Sources */,
 				0A84179C2BF8FEE7001E707D /* InsightsDetailView.swift in Sources */,
-				0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownView.swift in Sources */,
+				0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift in Sources */,
 				8A88EB822BF7B4230068A9A6 /* DecideFirstTimeView.swift in Sources */,
 				8A0404632BEB5952002202F0 /* InsightsView.swift in Sources */,
 				0A8417942BF27F76001E707D /* GroundingEmotionalStormView.swift in Sources */,

@@ -45,6 +45,7 @@ struct GreenButtonSmall: ButtonStyle {
             .clipShape(RoundedRectangle(cornerRadius: 50))
     }
 }
+
 struct PrimaryButtonSmall: ButtonStyle {
     func makeBody(configuration:
         
@@ -165,6 +166,38 @@ struct ButtonWhite: ViewModifier {
             .background(Color(red: 255/255, green: 255/255, blue: 255/255))
             .clipShape(RoundedRectangle(cornerRadius: 12))
     }
+}
+
+struct ButtonPrimarySmall: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(.vertical)
+            .padding(.horizontal, 10)
+            .fontWeight(.bold)
+            .frame(height: 30)
+            .background(Color(red: 33/255, green: 107/255, blue: 82/255))
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+    }
+    
+}
+
+struct ButtonWhiteSmall : ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(.vertical)
+            .padding(.horizontal, 10)
+            .fontWeight(.bold)
+            .frame(height: 30)
+            .background(Color(red: 255/255, green: 255/255, blue: 255/255))
+            .foregroundStyle(.black)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+            .overlay(
+                RoundedRectangle(cornerRadius: 50)
+                    .stroke(Color(red: 142/255, green: 142/255, blue: 147/255), lineWidth: 1)
+                )
+    }
+    
 }
 
 #Preview {
