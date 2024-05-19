@@ -1,16 +1,15 @@
 //
-//  Onboarding-ValueSetting.swift
+//  OnboardingValueSettingNoBackView.swift
 //  actapp
 //
-//  Created by Pedro Nicolas Cristiansen Hutabarat on 10/05/24.
+//  Created by I Gusti Ngurah Surya Ardika Dinataputra on 20/05/24.
 //
 
 import SwiftUI
 
-struct OnboardingValueSettingView: View {
+struct OnboardingValueSettingNoBackView: View {
     @EnvironmentObject var personValue: PersonValue
-
-
+  
     var body: some View {
         NavigationStack {
             VStack {
@@ -38,7 +37,6 @@ struct OnboardingValueSettingView: View {
                                     HStack {
                                         Button(action: {
                                             personValue.toggleChecked(at: index)
-                                            
                                         }) {
                                             Image(systemName: personValue.isChecked[index] ? "checkmark.circle.fill" : "circle")
                                                 .foregroundColor(personValue.isChecked[index] ? Color(UIColor.systemBlue) : Color.secondary)
@@ -59,33 +57,18 @@ struct OnboardingValueSettingView: View {
 
                 Spacer()
                 Spacer()
-                NavigationLink(destination: OnboardingReminderSettingView()) {
+                NavigationLink(destination: InsightsView()) {
                     Text("Next")
                         .modifier(ButtonBlack())
                 }
             }
             .padding()
-        }
-    }
-}
-
-struct CheckBoxView: View {
-    @Binding var checked: Bool
-
-    var body: some View {
-        Image(systemName: checked ? "checkmark.circle.fill" : "circle")
-            .foregroundColor(checked ? Color(UIColor.systemBlue) : Color.secondary)
-            .imageScale(.large)
-            .onTapGesture {
-                self.checked.toggle()
-            }
+        }.navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
-        OnboardingValueSettingView()
-            .environmentObject(PersonValue())
-           
-    }
-
-
+    OnboardingValueSettingNoBackView()
+        .environmentObject(PersonValue())
+       
+}
