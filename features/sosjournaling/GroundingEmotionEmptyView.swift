@@ -92,9 +92,9 @@ struct GroundingEmotionEmptyView: View {
                     //                }
                     //                .buttonStyle(BlackButton())
                     NavigationLink( destination:
-                        GroundingSlowingDownView()){
+                        GroundingSlowingDownFinishedView()){
                         Text("Next")
-                            .modifier(ButtonBlack())
+                            .modifier(ButtonGreen())
                         
                     }
                     
@@ -134,7 +134,7 @@ struct chevronView: View {
     var checked: Bool
     
     var body: some View {
-        Image(systemName: checked ? "chevron.down" : "chevron.right")
+        Image(systemName: checked ? "chevron.down" : "info.circle")
             .foregroundColor(Color(UIColor.systemBlue))
             .font(.body)
             .fontWeight(.bold)

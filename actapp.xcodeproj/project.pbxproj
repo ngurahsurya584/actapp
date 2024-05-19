@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B54522BF0FCB8001E3F95 /* PracticeCardView.swift */; };
-		0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownView.swift */; };
+		0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift */; };
 		0A84178D2BF2779B001E707D /* GroundingAffirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A84178C2BF2779B001E707D /* GroundingAffirmationView.swift */; };
 		0A8417922BF27E10001E707D /* GroundingRefocusTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417912BF27E10001E707D /* GroundingRefocusTouchView.swift */; };
 		0A8417942BF27F76001E707D /* GroundingEmotionalStormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */; };
@@ -31,7 +31,11 @@
 		9F392EB02BED48F50041D509 /* OnboardingValueSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EAF2BED48F50041D509 /* OnboardingValueSettingView.swift */; };
 		9F392EB22BED492B0041D509 /* OnboardingReminderSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EB12BED492B0041D509 /* OnboardingReminderSettingView.swift */; };
 		9FDA842B2BF45706009961DD /* ActingOnYourValuesAffirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA842A2BF45706009961DD /* ActingOnYourValuesAffirmationView.swift */; };
-		9FDA84412BF49196009961DD /* ActingOnYourValuesDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84402BF49196009961DD /* ActingOnYourValuesDefaultView.swift */; };
+		9FDA84412BF49196009961DD /* ActingOnYourValuesReflectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84402BF49196009961DD /* ActingOnYourValuesReflectView.swift */; };
+		9FDA84432BF8E323009961DD /* ActingOnYourValuesPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84422BF8E323009961DD /* ActingOnYourValuesPlanView.swift */; };
+		9FDA84452BF8F021009961DD /* Transmission1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84442BF8F021009961DD /* Transmission1.swift */; };
+		9FDA84472BF90237009961DD /* StrikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84462BF90237009961DD /* StrikeView.swift */; };
+		9FDA84492BF97A2C009961DD /* GroundingSlowingDownInSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDA84482BF97A2C009961DD /* GroundingSlowingDownInSessionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		0A6B54522BF0FCB8001E3F95 /* PracticeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeCardView.swift; sourceTree = "<group>"; };
-		0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingSlowingDownView.swift; sourceTree = "<group>"; };
+		0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingSlowingDownFinishedView.swift; sourceTree = "<group>"; };
 		0A84178C2BF2779B001E707D /* GroundingAffirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingAffirmationView.swift; sourceTree = "<group>"; };
 		0A8417912BF27E10001E707D /* GroundingRefocusTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingRefocusTouchView.swift; sourceTree = "<group>"; };
 		0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingEmotionalStormView.swift; sourceTree = "<group>"; };
@@ -79,7 +83,11 @@
 		9F392EAF2BED48F50041D509 /* OnboardingValueSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingValueSettingView.swift; sourceTree = "<group>"; };
 		9F392EB12BED492B0041D509 /* OnboardingReminderSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingReminderSettingView.swift; sourceTree = "<group>"; };
 		9FDA842A2BF45706009961DD /* ActingOnYourValuesAffirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActingOnYourValuesAffirmationView.swift; sourceTree = "<group>"; };
-		9FDA84402BF49196009961DD /* ActingOnYourValuesDefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActingOnYourValuesDefaultView.swift; sourceTree = "<group>"; };
+		9FDA84402BF49196009961DD /* ActingOnYourValuesReflectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActingOnYourValuesReflectView.swift; sourceTree = "<group>"; };
+		9FDA84422BF8E323009961DD /* ActingOnYourValuesPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActingOnYourValuesPlanView.swift; sourceTree = "<group>"; };
+		9FDA84442BF8F021009961DD /* Transmission1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transmission1.swift; sourceTree = "<group>"; };
+		9FDA84462BF90237009961DD /* StrikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikeView.swift; sourceTree = "<group>"; };
+		9FDA84482BF97A2C009961DD /* GroundingSlowingDownInSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingSlowingDownInSessionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,12 +132,13 @@
 			isa = PBXGroup;
 			children = (
 				8A04045C2BEB58D5002202F0 /* JournalingHomeView.swift */,
-				0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownView.swift */,
 				0A8417972BF36ABC001E707D /* GroundingEmotionEmptyView.swift */,
-				0A84178C2BF2779B001E707D /* GroundingAffirmationView.swift */,
-				0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */,
+				9FDA84482BF97A2C009961DD /* GroundingSlowingDownInSessionView.swift */,
+				0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift */,
 				0A8417952BF28043001E707D /* GroundingRefocusSightView.swift */,
 				0A8417912BF27E10001E707D /* GroundingRefocusTouchView.swift */,
+				0A84178C2BF2779B001E707D /* GroundingAffirmationView.swift */,
+				0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */,
 			);
 			path = sosjournaling;
 			sourceTree = "<group>";
@@ -137,8 +146,10 @@
 		8A04045E2BEB58DD002202F0 /* regularjournaling */ = {
 			isa = PBXGroup;
 			children = (
-				9FDA84402BF49196009961DD /* ActingOnYourValuesDefaultView.swift */,
+				9FDA84402BF49196009961DD /* ActingOnYourValuesReflectView.swift */,
+				9FDA84422BF8E323009961DD /* ActingOnYourValuesPlanView.swift */,
 				9FDA842A2BF45706009961DD /* ActingOnYourValuesAffirmationView.swift */,
+				9FDA84442BF8F021009961DD /* Transmission1.swift */,
 			);
 			path = regularjournaling;
 			sourceTree = "<group>";
@@ -225,6 +236,7 @@
 				8AF888D82BEA3B1600597EB9 /* ButtonView.swift */,
 				8A0404A02BF06AFB002202F0 /* CardsView.swift */,
 				0A6B54522BF0FCB8001E3F95 /* PracticeCardView.swift */,
+				9FDA84462BF90237009961DD /* StrikeView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -363,9 +375,10 @@
 				0A8417982BF36ABC001E707D /* GroundingEmotionEmptyView.swift in Sources */,
 				0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */,
 				9FDA842B2BF45706009961DD /* ActingOnYourValuesAffirmationView.swift in Sources */,
-				9FDA84412BF49196009961DD /* ActingOnYourValuesDefaultView.swift in Sources */,
+				9FDA84412BF49196009961DD /* ActingOnYourValuesReflectView.swift in Sources */,
 				0A8417922BF27E10001E707D /* GroundingRefocusTouchView.swift in Sources */,
 				9F392EAE2BED46140041D509 /* OnboardingAllSetView.swift in Sources */,
+				9FDA84452BF8F021009961DD /* Transmission1.swift in Sources */,
 				0A84178D2BF2779B001E707D /* GroundingAffirmationView.swift in Sources */,
 				9F392EB02BED48F50041D509 /* OnboardingValueSettingView.swift in Sources */,
 				8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */,
@@ -374,7 +387,10 @@
 				9F392EB22BED492B0041D509 /* OnboardingReminderSettingView.swift in Sources */,
 				9F392EAC2BED39150041D509 /* OnboardingIntroSecondView.swift in Sources */,
 				8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */,
-				0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownView.swift in Sources */,
+				9FDA84492BF97A2C009961DD /* GroundingSlowingDownInSessionView.swift in Sources */,
+				9FDA84432BF8E323009961DD /* ActingOnYourValuesPlanView.swift in Sources */,
+				9FDA84472BF90237009961DD /* StrikeView.swift in Sources */,
+				0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift in Sources */,
 				8A0404632BEB5952002202F0 /* OverviewView.swift in Sources */,
 				0A8417942BF27F76001E707D /* GroundingEmotionalStormView.swift in Sources */,
 				9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */,

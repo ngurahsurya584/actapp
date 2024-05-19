@@ -23,17 +23,16 @@ struct GroundingRefocusTouchView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("REFOCUS AND ENGAGE")
                         .font(.caption2).fontWeight(.semibold).foregroundColor(Color.gray)
-                    Text("Describe what were you doing just now")
+                    Text("Describe what you want to refocus your attention on…")
                         .font(.title).fontWeight(.bold).foregroundColor(Color.black)
                     Text("e.g.:I’m writing a proposal for my manager to review.")
                         .font(.body).fontWeight(.semibold).foregroundColor(Color.gray)
                 }
                 .padding(.horizontal)
-                Spacer()
                 
                 ZStack(alignment: .topLeading) {
                     if text.isEmpty {
-                        Text("Enter text here...")
+                        Text("I want to refocus on ")
                             .foregroundColor(.gray)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 12)
@@ -43,7 +42,7 @@ struct GroundingRefocusTouchView: View {
                     TextEditor(text: $text)
                         .padding(.horizontal, 3)
                         .padding(.vertical, 5)
-                        .frame(width: 352, height: 255)
+                        .frame(width: 352, height: 147)
                         .cornerRadius(10)
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
@@ -55,17 +54,22 @@ struct GroundingRefocusTouchView: View {
                         }
                     
                 }
-                .frame(width: 352, height: 255)
+                .frame(width: 352, height: 147)
+                
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
                 
                 HStack {
-                    NavigationLink( destination:
-                                        GroundingRefocusSightView()){
-                        Text("Back")
-                            .modifier(ButtonGray())
-                            .frame(maxWidth: 80)
-                    }
-                    
-                    .frame(width: 80)
+//                    NavigationLink( destination:
+//                                        GroundingRefocusSightView()){
+//                        Text("Back")
+//                            .modifier(ButtonGray())
+//                            .frame(maxWidth: 80)
+//                    }
+//                    
+//                    .frame(width: 80)
                     
                     //                Button("Next") {
                     //                    print("Button pressed!")
@@ -74,7 +78,7 @@ struct GroundingRefocusTouchView: View {
                     NavigationLink( destination:
                                         GroundingAffirmationView()){
                         Text("Finish")
-                            .modifier(ButtonBlack())
+                            .modifier(ButtonGreen())
                         
                     }
                     

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GroundingSlowingDownView: View {
+struct GroundingSlowingDownFinishedView: View {
     let isSessionFinished = true
     
     var body: some View {
@@ -31,12 +31,12 @@ struct GroundingSlowingDownView: View {
                     
                     if isSessionFinished {
                         HStack {
-                            NavigationLink( destination:
-                                                GroundingRefocusSightView()){
-                                Text("Back")
-                                    .modifier(ButtonWhite())
-                                    .frame(maxWidth: 80)
-                            }
+//                            NavigationLink( destination:
+//                                                GroundingRefocusSightView()){
+//                                Text("Back")
+//                                    .modifier(ButtonWhite())
+//                                    .frame(maxWidth: 80)
+//                            }
                             
 //                            Button("Next") {
 //                                print("Button pressed!")
@@ -44,7 +44,7 @@ struct GroundingSlowingDownView: View {
 //                            .buttonStyle(WhiteButton())
                             NavigationLink( destination:
                                 GroundingRefocusSightView()){
-                                Text("Next")
+                                Text("Get Started")
                                     .modifier(ButtonWhite())
                                 
                             }
@@ -68,5 +68,5 @@ struct GroundingSlowingDownView: View {
 }
 
 #Preview {
-    GroundingSlowingDownView()
+    GroundingSlowingDownFinishedView()
 }

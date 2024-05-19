@@ -31,7 +31,7 @@ struct BlackButton: ButtonStyle {
     }
 }
 
-struct BlackButtonSmall: ButtonStyle {
+struct GreenButtonSmall: ButtonStyle {
     func makeBody(configuration:
         
         Configuration) -> some View {
@@ -40,7 +40,7 @@ struct BlackButtonSmall: ButtonStyle {
             .padding(.horizontal, 10)
             .fontWeight(.bold)
             .frame(height: 30)
-            .background(Color(red: 0, green: 0, blue: 0))
+            .background(Color(red: 33/255, green: 107/255, blue: 82/255))
             .foregroundStyle(.white)
             .clipShape(RoundedRectangle(cornerRadius: 50))
     }
@@ -89,6 +89,18 @@ struct GrayButton: ButtonStyle {
     }
 }
 
+struct ButtonStrike: ButtonStyle {
+    func makeBody(configuration:
+        
+        Configuration) -> some View {
+        configuration.label
+            .padding().frame(maxWidth:350)
+            .background(Color(red: 242/255, green: 242/255, blue: 247/255))
+            .foregroundStyle(.black)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
+
 
 //struct ButtonBlack: ViewModifier{
 //    
@@ -110,13 +122,23 @@ struct ButtonBlack: ViewModifier {
     }
 }
 
+struct ButtonGreen: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(.white)
+            .padding().frame(maxWidth:350)
+            .background(Color(red: 48/255, green: 153/255, blue: 117/255))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
+
 
 struct ButtonGray: ViewModifier {
     func body(content: Content) -> some View {
         content
             .foregroundStyle(.black)
-            .frame(maxWidth:.infinity, maxHeight:48)
-            .background(Color(red: 242/255, green: 242/255, blue: 247/255))
+            .padding().frame(maxWidth:350)
+            .background(Color(red: 227/255, green: 227/255, blue: 227/255))
             .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
