@@ -23,6 +23,11 @@ struct MainView: View {
                         
                     }
                 
+               OverviewView()
+                    .tabItem {
+                        Label("insight", systemImage: "heart.text.square.fill")
+                    }
+                    
                 
             }
         }

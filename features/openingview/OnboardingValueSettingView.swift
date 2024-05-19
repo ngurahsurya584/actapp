@@ -8,22 +8,10 @@
 import SwiftUI
 
 struct OnboardingValueSettingView: View {
-    
-    
-    let values = ["Persistent", "Hard work", "Continued development", "Supportive", "Career progression", "Customer service", "Cooperation", "Creativity", "Collaboration", "Patient"]
-    @State var isChecked: [Bool]
+    @EnvironmentObject var personValue: PersonValue
 
-        init() {
-            _isChecked = State(initialValue: Array(repeating: false, count: values.count))
-        }
-    
-//    @State private var isChecked = Array(repeating: false, count: values.count) // Array untuk menyimpan status setiap item
-
-    
-    
     var body: some View {
-        
-        NavigationStack{
+        NavigationStack {
             VStack {
                 Spacer()
                 Spacer()
@@ -31,53 +19,51 @@ struct OnboardingValueSettingView: View {
                 Spacer()
                 Spacer()
                 VStack(alignment: .leading) {
-                    Text("Let’s explore your ")
+                    Text("Let's explore your ")
                         .font(.title).bold().fontDesign(.rounded)
                     + Text("values!")
                         .font(.title).bold().italic()
-                        .fontDesign( .serif)
+                        .fontDesign(.serif)
                     Text("Values describe the sort of person you want to be; how you want to treat yourself and others and the world around you. Choose the values that stand out to you the most!")
                         .font(.body)
-                        .fontWeight(.semibold).padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        .fontWeight(.semibold).padding(.top, 10)
                 }.padding(.bottom, 30)
-                ScrollView(.vertical, showsIndicators: false){
-                    VStack{
-                        ForEach(0..<isChecked.count, id: \.self) { index in
-                            VStack{
+
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack {
+                        ForEach(0..<personValue.values.count, id: \.self) { index in
+                            VStack {
                                 HStack {
                                     HStack {
-                                        CheckBoxView(checked: self.$isChecked[index]) // CheckBox untuk setiap item
-                                        Text(self.values[index])
+                                        Button(action: {
+                                            personValue.toggleChecked(at: index)
+                                        }) {
+                                            Image(systemName: personValue.isChecked[index] ? "checkmark.circle.fill" : "circle")
+                                                .foregroundColor(personValue.isChecked[index] ? Color(UIColor.systemBlue) : Color.secondary)
+                                                .imageScale(.large)
+                                        }
+                                        Text(personValue.values[index])
                                             .font(.body)
                                             .fontWeight(.light)
                                     }
                                     Spacer()
-                                    
                                 }
                             }
                             Divider()
                             Spacer()
                         }
-                        
                     }
                 }.padding(.bottom, 30)
-                
+
                 Spacer()
                 Spacer()
-               
-                NavigationLink( destination: OnboardingReminderSettingView()){
+                NavigationLink(destination: OnboardingReminderSettingView()) {
                     Text("Next")
                         .modifier(ButtonBlack())
-                    
                 }
-                    
-                
-                
-                
             }
             .padding()
         }
-        
     }
 }
 
@@ -85,7 +71,7 @@ struct CheckBoxView: View {
     @Binding var checked: Bool
 
     var body: some View {
-        Image(systemName: checked ? "checkmark.circle.fill" : "circle") // Menggunakan checkmark.circle.fill atau circle sesuai status
+        Image(systemName: checked ? "checkmark.circle.fill" : "circle")
             .foregroundColor(checked ? Color(UIColor.systemBlue) : Color.secondary)
             .imageScale(.large)
             .onTapGesture {
@@ -96,6 +82,7 @@ struct CheckBoxView: View {
 
 #Preview {
         OnboardingValueSettingView()
+            .environmentObject(PersonValue())
     }
 
 
