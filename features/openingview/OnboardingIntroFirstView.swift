@@ -22,10 +22,10 @@ struct OnboardingIntroFirstView: View {
                     + Text("normal")
                         .font(.title).bold().italic()
                         .fontDesign( .serif)
-                    Spacer()
-                    Text("Stress is often accompanied by powerful thoughts and feelings and that’s normal. But problems can occur if we get “hooked” by them.")
+                    Text("Stress can happen to anyone and you are not alone. We will help you to learn and practice the skills for dealing with stress.")
                         .font(.body)
                         .fontWeight(.semibold)
+                        .padding(.top, 0.05)
                 }
                 Spacer()
                 Spacer()

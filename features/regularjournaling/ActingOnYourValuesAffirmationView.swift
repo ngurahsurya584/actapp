@@ -15,21 +15,74 @@ struct ActingOnYourValuesAffirmationView: View {
                 Spacer()
                 Spacer()
                 VStack{
-                    Text("Many difficult thoughts and feelings appear when you face difficult situations - especially if you cannot improve them! So we unhook and ground ourselves…")
-                        .font(.body).fontWeight(.semibold).foregroundColor(Color.black)
+                    Text("Today, you demonstrated your values of:")
+                        .font(.body).fontWeight(.regular).foregroundColor(Color.black)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                Spacer()
+                VStack {
+                    Text("Kindness, Hard work, Cooperative")
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.black)
+                        .multilineTextAlignment(.leading)
+                        .font(.custom("Helvetica Neue Italic", size: 20))
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                 Spacer()
                 VStack{
-                    Rectangle()
-                        .stroke(.black, lineWidth: 2)
-                        .fill(.gray)
-                        .frame(width: 393, height: 425)
-                        .frame(maxWidth: .infinity, alignment: .center)
+                    Text("Here is prove of that:")
+                        .font(.body).fontWeight(.regular).foregroundColor(Color.black)
                 }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                 Spacer()
                 VStack{
-                    Text("Change what can be changed, accept the pain that cannot be changed, and continue to live by your values!")
+                    Text("This morning, I finished the proposal that my manager asked and got praised for my meticulous writing")
+                        .fontWeight(.semibold).foregroundColor(Color.black).font(.system(size: 20))
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                Spacer()
+                
+                VStack{
+                    Text("Tomorrow, you will focus on your values of:")
+                        .font(.body).fontWeight(.regular).foregroundColor(Color.black)
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                Spacer()
+                VStack {
+                    Text("Kindness, Hard work, Cooperative")
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.black)
+                        .multilineTextAlignment(.leading)
+                        .font(.custom("Helvetica Neue Italic", size: 20))
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                Spacer()
+                VStack{
+                    Text("Here is prove of that:")
+                        .font(.body).fontWeight(.regular).foregroundColor(Color.black)
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                Spacer()
+                VStack{
+                    Text("This morning, I finished the proposal that my manager asked and got praised for my meticulous writing")
+                        .fontWeight(.semibold).foregroundColor(Color.black).font(.system(size: 20))
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                Spacer()
+                Spacer()
+                Spacer()
+                //                .frame(maxWidth: .infinity, alignment: .leading)
+                Spacer()
+                //                VStack{
+                //                    Rectangle()
+                //                        .stroke(.black, lineWidth: 2)
+                //                        .fill(.gray)
+                //                        .frame(width: 393, height: 425)
+                //                        .frame(maxWidth: .infinity, alignment: .center)
+                //                }
+                Spacer()
+                VStack{
+                    Text("You have done great! Even tiny little actions of kindness can make a difference. Be kind to yourself and be present. ")
                         .font(.body).fontWeight(.semibold).foregroundColor(Color.black)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -50,10 +103,9 @@ struct ActingOnYourValuesAffirmationView: View {
                 //            }
                 
                 HStack {
-                    NavigationLink( destination: ActingOnYourValuesDefaultView()){
-                        Text("Back")
-                            .modifier(ButtonGray())
-                            .frame(width: 80)
+                    NavigationLink( destination: ActingOnYourValuesReflectView()){
+                        Text("Finish")
+                            .modifier(ButtonGreen())
                     }
                 }
                 

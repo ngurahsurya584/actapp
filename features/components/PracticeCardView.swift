@@ -10,13 +10,13 @@ import SwiftUI
 struct PracticeCardView: View {
     let practiceHeading: String
     let titleText: String
-    let subtitleText: String
+//    let subtitleText: String
     let descText: String
     
-    init(practiceHeading: String, titleText: String, subtitleText: String, descText: String) {
+    init(practiceHeading: String, titleText: String, /*subtitleText: String,*/ descText: String) {
         self.practiceHeading = practiceHeading
         self.titleText = titleText
-        self.subtitleText = subtitleText
+//        self.subtitleText = subtitleText
         self.descText = descText
     }
     
@@ -32,14 +32,14 @@ struct PracticeCardView: View {
                     Image("")
                 }
                 .frame(width: 81, height: 104)
-                .background(Color(red: 0/255, green: 0/255, blue: 0/255))
-                .overlay(
-                    LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .leading, endPoint: .trailing)
-                        .opacity(0.5)
-                )
+//                .background(Color(red: 0/255, green: 0/255, blue: 0/255))
+//                .overlay(
+//                    LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .leading, endPoint: .trailing)
+//                        .opacity(0.5)
+//                )
                 VStack(alignment: .leading, spacing: 2) {
                     Text("\(titleText)").font(.headline)
-                    Text("\(subtitleText)").font(.subheadline).foregroundColor(.gray)
+//                    Text("\(subtitleText)").font(.subheadline).foregroundColor(.gray)
                     Text("\(descText)")
                         .font(.caption)
                         .multilineTextAlignment(.leading)
@@ -54,5 +54,5 @@ struct PracticeCardView: View {
 }
 
 #Preview {
-    PracticeCardView(practiceHeading: "PRACTICE HEADING", titleText: "Practice Title", subtitleText: "Practice Subtitle", descText: "Practice Description")
+    PracticeCardView(practiceHeading: "PRACTICE HEADING", titleText: "Practice Title", /*subtitleText: "Practice Subtitle",*/ descText: "Practice Description")
 }
