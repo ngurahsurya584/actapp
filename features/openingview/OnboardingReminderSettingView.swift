@@ -10,38 +10,62 @@ struct OnboardingReminderSettingView: View {
     var body: some View {
         NavigationView{
             VStack {
-                VStack(alignment: .leading) {
-                    Text("Practice makes ")
-                        .font(.title).bold().fontDesign(.rounded)
-                    + Text("perfect")
+                VStack(alignment: .center) {
+                    Text("Commit to your ")
+                        .font(.title).bold()
+                    + Text("values")
                         .font(.title).bold().italic()
-                        .fontDesign( .serif)
-                    Text("Dealing with difficult thoughts and emotions is not easy. But every little bit of practice we do will come a long way. So let’s set a time to practice managing your stress!")
+                        .fontDesign(.serif)
+                    Text("Values are what you want to stand for as a human being. Choose at least 3 values that are most important to you.")
                         .font(.body)
-                        .fontWeight(.bold)
-                        .padding(.top, 0.5)
-                }.padding(.top, UIScreen.main.bounds.width * 0.10)
-                Spacer()
+                        .fontWeight(.semibold).padding(.top, 10)
+                }
+                .padding(.bottom, 30)
+                .multilineTextAlignment(.center)
+                
+                Text ("MORNING")
+                    .font(.callout).fontDesign(.default)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.gray)
+                VStack {
+                    DatePicker("", selection: $Morning, displayedComponents: [.hourAndMinute, .hourAndMinute])
+                        .datePickerStyle(.wheel)
+                        .labelsHidden()
+                        .frame(width: 296, height: 185)
+                        .environment(\.locale, Locale(identifier: "en_US"))
+                        .colorScheme(.dark)
+                }
+                .padding(.bottom, 18)
+
+                Text ("NIGHT")
+                    .font(.callout).fontDesign(.default)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.gray)
                 VStack{
                     DatePicker("", selection: $Night, displayedComponents: [.hourAndMinute, .hourAndMinute])
                         .datePickerStyle(.wheel)
                         .frame(width: 296, height: 185)
                         .labelsHidden()
                         .environment(\.locale, Locale(identifier: "en_US"))
+                        .colorScheme(.dark)
                 }
+                
                 Spacer()
-                Spacer()
-            
+
                 NavigationLink( destination:
                     OnboardingAllSetView()){
                     Text("Next")
-                        .modifier(ButtonBlack())
-                    
+                        .modifier(ButtonWhite())
+
                 }
                 
             }
             .padding()
+            .padding(.top, 20)
+            .background(Color(red: 17/255, green: 17/255, blue: 17/255))
+            .foregroundColor(.white)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

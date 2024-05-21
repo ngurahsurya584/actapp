@@ -174,7 +174,7 @@ struct ActingOnYourValuesReflectView: View {
                 //                }
                 Spacer()
                 HStack {
-                    NavigationLink( destination: JournalingHomeView()){
+                    NavigationLink( destination: GroundingNotice()){
                         Text("Back")
                             .modifier(ButtonGray())
                             .frame(width: 80)

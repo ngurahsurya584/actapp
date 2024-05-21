@@ -12,43 +12,30 @@ struct OnboardingAllSetView: View {
     var body: some View {
         NavigationStack{
             VStack {
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                VStack(alignment: .leading) {
-                    Text("You’re all set!")
-                        .font(.title).bold().fontDesign(.rounded)
-                    Spacer()
-                    Text("Enjoy this journey on learning how to what matters in times of stress.")
+                VStack(alignment: .center) {
+                    Text("Start living by your ")
+                        .font(.title).bold()
+                    +
+                    Text("values")
+                        .font(.title).bold().italic()
+                        .fontDesign( .serif)
+
+                    Text("Enjoy your journey on becoming the person you want to be.")
                         .font(.body)
                         .fontWeight(.semibold)
+                        .padding(.top, 0.05)
                 }
+                .padding(.bottom, 30)
+                .multilineTextAlignment(.center)
+                
                 Spacer()
+                Image("dummy")
                 Spacer()
                 
-                VStack{
-                    Rectangle()
-                        .stroke(.black, lineWidth: 2)
-                        .fill(.gray)
-                        .frame(width: 393, height: 504)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                }
-                Spacer()
-                Spacer()
-                Spacer()
-                
-//                Button("Let's begin") {
-//                    print("Button pressed!")
-//                }
-//                .buttonStyle(BlackButton())
-                NavigationLink( destination:
-                    MainView()){
+                NavigationLink( destination: MainView()){
                     Text("Let's begin")
-                        .modifier(ButtonBlack())
+                        .modifier(ButtonWhite())
                     
-                   
                     
                 }.simultaneousGesture(TapGesture().onEnded {
                     isWelcomeScreenOver = true
@@ -57,7 +44,11 @@ struct OnboardingAllSetView: View {
                 
             }
             .padding()
+            .padding(.top, 20)
+            .foregroundColor(.white)
+            .background(Color(red: 17/255, green: 17/255, blue: 17/255))
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

@@ -11,7 +11,7 @@ struct MainView: View {
     var body: some View {
         NavigationStack{
             TabView(){
-                JournalingHomeView()
+                GroundingNotice()
                     .tabItem{
                        Label("Home", systemImage: "house.fill")
                         

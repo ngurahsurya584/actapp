@@ -10,16 +10,10 @@ import SwiftUI
 struct SplashScreenView: View {
     var body: some View {
         VStack{
-            Circle()
-                .stroke(.black, lineWidth: 2)
-                .fill(.gray)
-                .frame(width: 231, height: 230)
-            Text("Grass")
-                .font(.largeTitle).bold().italic()
-                .fontDesign( .serif)
-            
+            Image("logo")
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.black)
     }
 }
 

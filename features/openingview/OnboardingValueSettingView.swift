@@ -14,21 +14,18 @@ struct OnboardingValueSettingView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                VStack(alignment: .leading) {
-                    Text("Let's explore your ")
-                        .font(.title).bold().fontDesign(.rounded)
-                    + Text("values!")
+                VStack(alignment: .center) {
+                    Text("Focus on what ")
+                        .font(.title).bold()
+                    + Text("matters")
                         .font(.title).bold().italic()
                         .fontDesign(.serif)
-                    Text("Values describe the sort of person you want to be; how you want to treat yourself and others and the world around you. Choose the values that stand out to you the most!")
+                    Text("Values are what you want to stand for as a human being. Choose at least 3 values that are most important to you.")
                         .font(.body)
                         .fontWeight(.semibold).padding(.top, 10)
-                }.padding(.bottom, 30)
+                }
+                .padding(.bottom, 30)
+                .multilineTextAlignment(.center)
 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
@@ -41,7 +38,7 @@ struct OnboardingValueSettingView: View {
                                             
                                         }) {
                                             Image(systemName: personValue.isChecked[index] ? "checkmark.circle.fill" : "circle")
-                                                .foregroundColor(personValue.isChecked[index] ? Color(UIColor.systemBlue) : Color.secondary)
+                                                .foregroundColor(personValue.isChecked[index] ? Color(UIColor.systemBlue) : Color(red: 72/255, green: 72/255, blue: 74/255))
                                                 .imageScale(.large)
                                         }
                                         Text(personValue.values[index])
@@ -52,20 +49,32 @@ struct OnboardingValueSettingView: View {
                                 }
                             }
                             Divider()
+                                .background(Color(red: 84/255, green: 84/255, blue: 88/255))
+                                .opacity(0.65)
                             Spacer()
                         }
                     }
-                }.padding(.bottom, 30)
+                }
+                .padding(10)
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color(red: 28/255, green: 28/255, blue: 30/255))
+                        .opacity(0.28)
+                )
 
                 Spacer()
                 Spacer()
                 NavigationLink(destination: OnboardingReminderSettingView()) {
                     Text("Next")
-                        .modifier(ButtonBlack())
+                        .modifier(ButtonWhite())
                 }
             }
             .padding()
+            .padding(.top, 20)
+            .background(Color(red: 17/255, green: 17/255, blue: 17/255))
+            .foregroundColor(.white)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

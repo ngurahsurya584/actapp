@@ -11,44 +11,35 @@ struct OnboardingIntroFirstView: View {
     var body: some View {
         NavigationStack{
             VStack {
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                VStack(alignment: .leading) {
-                    Text("Stress is ")
-                        .font(.title).bold().fontDesign(.rounded)
-                    + Text("normal")
+                VStack(alignment: .center) {
+                    Text("Learn")
                         .font(.title).bold().italic()
                         .fontDesign( .serif)
-                    Text("Stress can happen to anyone and you are not alone. We will help you to learn and practice the skills for dealing with stress.")
+                    +
+                    Text(" to live with stress")
+                        .font(.title).bold()
+                    Text("Stress can happen to anyone and you are not alone. With grass, you will learn and practice the skills for dealing with stress.")
                         .font(.body)
                         .fontWeight(.semibold)
                         .padding(.top, 0.05)
                 }
+                .multilineTextAlignment(.center)
+
                 Spacer()
+                Image("dummy")
                 Spacer()
-                
-                VStack{
-                    Rectangle()
-                        .stroke(.black, lineWidth: 2)
-                        .fill(.gray)
-                        .frame(width: 393, height: 462)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                }
-                Spacer()
-                Spacer()
-                Spacer()
-                
+
                 NavigationLink( destination: OnboardingIntroSecondView()){
                     Text("Next")
-                        .modifier(ButtonBlack())
+                        .modifier(ButtonWhite())
                 }
-                
             }
             .padding()
+            .padding(.top, 20)
+            .background(Color(red: 17/255, green: 17/255, blue: 17/255))
+            .foregroundColor(.white)
         }
+        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
     }
 }
 

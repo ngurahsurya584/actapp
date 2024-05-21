@@ -161,7 +161,8 @@ struct ButtonGray: ViewModifier {
 struct ButtonWhite: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(.black)
+            .foregroundStyle(Color(red: 0/255, green: 160/255, blue: 8/255))
+            .fontWeight(.bold)
             .frame(maxWidth:.infinity, maxHeight:48)
             .background(Color(red: 255/255, green: 255/255, blue: 255/255))
             .clipShape(RoundedRectangle(cornerRadius: 12))
