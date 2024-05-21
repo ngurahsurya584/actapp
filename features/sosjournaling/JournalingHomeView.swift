@@ -27,8 +27,9 @@ struct JournalingHomeView: View {
                     .font(.title)
                     .fontWeight(.semibold)
                 
+                
+                
                 ZStack{
-                    
                     
                     PracticeCardView(practiceHeading: "TODAY’S HIGHLIGHTED VALUE", titleText: "Being Kind", /*subtitleText: "< 1 mins",*/ descText: "I will complement my colleagues outfit and apreciate their work more. I think I can offer help here and there if I have the time.")
                         .padding(.top, 12)
@@ -49,7 +50,7 @@ struct JournalingHomeView: View {
                     }
                 }
                 
-                NavigationLink( destination: ActingOnYourValuesAffirmationView()){
+                NavigationLink( destination: ActingOnYourValuesReflectView()){
                     Text("Check In")
                         .modifier(ButtonGreen())
                 }

@@ -6,91 +6,81 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ActingOnYourValuesReflectView: View {
     @State private var text: String = ""
     @FocusState private var isFocused: Bool
     @State private var showDescription: Bool = false
+    @EnvironmentObject var userValue: PersonValue
+    @Environment(\.managedObjectContext) var moc
     
+    // State to keep track of selected values
+    @State private var selectedValues: [Bool]
+    @State private var selectedCount: Int = 0
+    
+    // State to manage alert presentation
+    @State private var showAlert: Bool = false
+    
+    init() {
+        // Initialize selectedValues with all false (unselected) initially
+        _selectedValues = State(initialValue: Array(repeating: false, count: 5))
+    }
     
     var body: some View {
-        NavigationStack{
-            VStack{
+        NavigationStack {
+            VStack {
                 Spacer()
                 Text("Let’s reflect on your day")
                     .font(.title2)
                     .fontWeight(.bold)
                 Spacer()
-                VStack{
-                    Text("Which value(s) did you demonstrate today that you’re proud of?")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .multilineTextAlignment(.center)
-                }
-                VStack{
+                Text("Which value(s) did you demonstrate today that you’re proud of?")
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
+                Spacer()
+                VStack {
                     WrappingHStack(horizontalSpacing: 10) {
-                        
-                        Button("Kindness") {
-                            print("Button pressed!")
+                        // Filter and show the first 5 selected values from onboarding
+                        ForEach(Array(userValue.values.enumerated().filter { userValue.isChecked[$0.offset] }.prefix(5)), id: \.offset) { index, value in
+                            let isSelected = selectedValues[index]
+                            Text(value)
+                                .padding(.vertical)
+                                .padding(.horizontal, 10)
+                                .fontWeight(.bold)
+                                .frame(height: 30)
+                                .background(isSelected ? Color.customPrimary : Color.customWhite)
+                                .foregroundColor(isSelected ? .white : .black)
+                                .clipShape(RoundedRectangle(cornerRadius: 50))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 50)
+                                        .stroke(Color(red: 142/255, green: 142/255, blue: 147/255), lineWidth: 1)
+                                )
+                                .onTapGesture {
+                                    if selectedValues[index] {
+                                        selectedValues[index].toggle()
+                                        selectedCount -= 1
+                                    } else if selectedCount < 3 {
+                                        selectedValues[index].toggle()
+                                        selectedCount += 1
+                                    } else {
+                                        showAlert = true
+                                    }
+                                }
                         }
-                        .buttonStyle(GreenButtonSmall())
-                        Button("Patience") {
-                            print("Button pressed!")
-                        }
-                        .buttonStyle(WhiteButtonSmall())
-                        Button("Supportive") {
-                            print("Button pressed!")
-                        }
-                        .buttonStyle(WhiteButtonSmall())
-                        Button("Creativity") {
-                            print("Button pressed!")
-                        }
-                        .buttonStyle(WhiteButtonSmall())
-                        Button("Hard work") {
-                            print("Button pressed!")
-                        }
-                        .buttonStyle(GreenButtonSmall())
-                        Button("Cooperative") {
-                            print("Button pressed!")
-                        }
-                        .buttonStyle(GreenButtonSmall())
-                        
                     }
                     .font(.callout)
                     .padding(.horizontal, 10)
-                    
                 }
                 VStack {
-                    HStack {
-                        Text("See More")
-                            .fontWeight(.regular)
-                        Image(systemName: showDescription ? "chevron.down" : "chevron.right")
-                            .fontWeight(.regular)
-                            .onTapGesture {
-                                showDescription.toggle()
-                            }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    if showDescription {
-                        Text("Describe what did you do in detail, e.g.: This morning, I finished the proposal that my manager asked and got praised for my meticulous writing, etc.")
-                            .font(.body)
-                            .fontWeight(.semibold)
-                            .foregroundStyle(.gray)
-                            .padding(.horizontal)
-                        
-                    }
+                    Text("Describe what did you do in detail, e.g.: This morning, I finished the proposal that my manager asked and got praised for my meticulous writing, etc.")
+                        .font(.body)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.gray)
+                        .padding(.horizontal)
                 }
-                
                 ZStack(alignment: .topLeading) {
-                    //                    if text.isEmpty {
-                    //                        Text("Describe what did you do in detail, e.g.: This morning, I finished the proposal that my manager asked and got praised for my meticulous writing, etc.")
-                    //                            .foregroundColor(.gray)
-                    //                            .padding(.horizontal, 8)
-                    //                            .padding(.vertical, 12)
-                    //                            .zIndex(1)
-                    //                    }
-                    
                     TextEditor(text: $text)
                         .padding(.horizontal, 3)
                         .padding(.vertical, 5)
@@ -104,92 +94,49 @@ struct ActingOnYourValuesReflectView: View {
                         .onTapGesture {
                             isFocused = true
                         }
-                    
                 }
                 Spacer()
-                //                VStack{
-                //                    Text("Which value(s) do you want to focus on improving tomorrow?")
-                //                        .font(.headline)
-                //                        .fontWeight(.semibold)
-                //                        .multilineTextAlignment(.center)
-                //                }
-                //                Spacer()
-                //                VStack{
-                //                    WrappingHStack(horizontalSpacing: 10) {
-                //
-                //                        Button("Chair") {
-                //                            print("Button pressed!")
-                //                        }
-                //                        .buttonStyle(GreenButtonSmall())
-                //                        Button("Pen") {
-                //                            print("Button pressed!")
-                //                        }
-                //                        .buttonStyle(WhiteButtonSmall())
-                //                        Button("Pencil") {
-                //                            print("Button pressed!")
-                //                        }
-                //                        .buttonStyle(WhiteButtonSmall())
-                //                        Button("Table") {
-                //                            print("Button pressed!")
-                //                        }
-                //                        .buttonStyle(WhiteButtonSmall())
-                //                        Button("Laptop") {
-                //                            print("Button pressed!")
-                //                        }
-                //                        .buttonStyle(WhiteButtonSmall())
-                //                        Button("Sock") {
-                //                            print("Button pressed!")
-                //                        }
-                //                        .buttonStyle(GreenButtonSmall())
-                //
-                //                    }
-                //                    .font(.callout)
-                //                    .padding(.horizontal, 45)
-                //
-                //                }
-                //                Spacer()
-                //                ZStack(alignment: .topLeading) {
-                //                    if text.isEmpty {
-                //                        Text("Describe what will you do in detail, e. g. : Tomorrow, I will act on my values of being caring by checking on my collegues at least once a day etc.")
-                //                            .foregroundColor(.gray)
-                //                            .padding(.horizontal, 8)
-                //                            .padding(.vertical, 12)
-                //                            .zIndex(1)
-                //                    }
-                //
-                //                    TextEditor(text: $text)
-                //                        .padding(.horizontal, 3)
-                //                        .padding(.vertical, 5)
-                //                        .frame(width: 352, height: 120)
-                //                        .cornerRadius(10)
-                //                        .overlay(
-                //                            RoundedRectangle(cornerRadius: 10)
-                //                                .stroke(Color.gray, lineWidth: 1)
-                //                        )
-                //                        .focused($isFocused)
-                //                        .onTapGesture {
-                //                            isFocused = true
-                //                        }
-                //
-                //                }
-                Spacer()
                 HStack {
-                    NavigationLink( destination: JournalingHomeView()){
+                    NavigationLink(destination: JournalingHomeView()) {
                         Text("Back")
                             .modifier(ButtonGray())
                             .frame(width: 80)
                     }
-                    NavigationLink( destination: ActingOnYourValuesAffirmationView()){
+                    NavigationLink(destination: ActingOnYourValuesAffirmationView()) {
                         Text("Next")
                             .modifier(ButtonGreen())
                     }
-                    
+                    .simultaneousGesture(TapGesture().onEnded {
+                        saveJournalEntry()
+                    })
                 }
-                
             }
             .padding()
+            .alert("You can only select up to 3 values.", isPresented: $showAlert) {
+                Button("OK", role: .cancel) {}
+            }
         }
         .navigationBarBackButtonHidden(true)
+    }
+    
+    // Function to save the journal entry to Core Data
+    private func saveJournalEntry() {
+        let selectedValuesStrings = selectedValues.enumerated()
+            .filter { $0.element }
+            .compactMap { $0.offset < 5 ? userValue.values[$0.offset] : nil }
+            .joined(separator: ", ")
+        
+        let newEntry = Journaling(context: moc)
+        newEntry.date = Date()
+        newEntry.todayValue = selectedValuesStrings
+        newEntry.todayDescribe = text
+        
+        do {
+            try moc.save()
+            print("Journal entry saved.")
+        } catch {
+            print("Failed to save journal entry: \(error.localizedDescription)")
+        }
     }
 }
 
@@ -247,8 +194,10 @@ private struct WrappingHStack: Layout {
     }
 }
 
-
-
 #Preview {
     ActingOnYourValuesReflectView()
+        .environmentObject(PersonValue())
+        .environment(\.managedObjectContext, DataController().container.viewContext)
 }
+
+

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingValueSettingView: View {
     @EnvironmentObject var personValue: PersonValue
-
+    @State private var showAlert: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -37,8 +37,18 @@ struct OnboardingValueSettingView: View {
                                 HStack {
                                     HStack {
                                         Button(action: {
-                                            personValue.toggleChecked(at: index)
-                                            
+                                            if personValue.isChecked[index] {
+                                                // If already checked, uncheck it
+                                                personValue.toggleChecked(at: index)
+                                            } else {
+                                                // Check if the limit of 5 is reached
+                                                if personValue.isChecked.filter({ $0 }).count < 5 {
+                                                    personValue.toggleChecked(at: index)
+                                                } else {
+                                                    // Show alert if limit is reached
+                                                    showAlert.toggle()
+                                                }
+                                            }
                                         }) {
                                             Image(systemName: personValue.isChecked[index] ? "checkmark.circle.fill" : "circle")
                                                 .foregroundColor(personValue.isChecked[index] ? Color(UIColor.systemBlue) : Color.secondary)
@@ -65,6 +75,9 @@ struct OnboardingValueSettingView: View {
                 }
             }
             .padding()
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Limit Reached"), message: Text("You can only select up to 5 values."), dismissButton: .default(Text("OK")))
+            }
         }
     }
 }
@@ -83,9 +96,8 @@ struct CheckBoxView: View {
 }
 
 #Preview {
-        OnboardingValueSettingView()
-            .environmentObject(PersonValue())
-           
-    }
+    OnboardingValueSettingView()
+        .environmentObject(PersonValue())
+}
 
 

@@ -28,6 +28,9 @@
 		8A88EB822BF7B4230068A9A6 /* DecideFirstTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB812BF7B4230068A9A6 /* DecideFirstTimeView.swift */; };
 		8A88EB852BF851B10068A9A6 /* ValueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB842BF851B10068A9A6 /* ValueModel.swift */; };
 		8A88EB892BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB882BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift */; };
+		8A88EB8E2BFB0C350068A9A6 /* JournalingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB8D2BFB0C350068A9A6 /* JournalingModel.swift */; };
+		8A88EB942BFB238F0068A9A6 /* Dataact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB922BFB238F0068A9A6 /* Dataact.xcdatamodeld */; };
+		8A88EB962BFB2A4C0068A9A6 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB952BFB2A4C0068A9A6 /* CustomColor.swift */; };
 		8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF888D82BEA3B1600597EB9 /* ButtonView.swift */; };
 		9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA52BED349B0041D509 /* SplashScreenView.swift */; };
 		9F392EAA2BED387C0041D509 /* OnboardingIntroFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA92BED387C0041D509 /* OnboardingIntroFirstView.swift */; };
@@ -85,6 +88,9 @@
 		8A88EB812BF7B4230068A9A6 /* DecideFirstTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecideFirstTimeView.swift; sourceTree = "<group>"; };
 		8A88EB842BF851B10068A9A6 /* ValueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueModel.swift; sourceTree = "<group>"; };
 		8A88EB882BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingValueSettingNoBackView.swift; sourceTree = "<group>"; };
+		8A88EB8D2BFB0C350068A9A6 /* JournalingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingModel.swift; sourceTree = "<group>"; };
+		8A88EB932BFB238F0068A9A6 /* Dataact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dataact.xcdatamodel; sourceTree = "<group>"; };
+		8A88EB952BFB2A4C0068A9A6 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		8AF888D82BEA3B1600597EB9 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		9F392EA52BED349B0041D509 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		9F392EA92BED387C0041D509 /* OnboardingIntroFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroFirstView.swift; sourceTree = "<group>"; };
@@ -249,6 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				8A88EB842BF851B10068A9A6 /* ValueModel.swift */,
+				8A88EB8D2BFB0C350068A9A6 /* JournalingModel.swift */,
+				8A88EB922BFB238F0068A9A6 /* Dataact.xcdatamodeld */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -260,6 +268,7 @@
 				8A0404A02BF06AFB002202F0 /* CardsView.swift */,
 				0A6B54522BF0FCB8001E3F95 /* PracticeCardView.swift */,
 				9FDA84462BF90237009961DD /* StrikeView.swift */,
+				8A88EB952BFB2A4C0068A9A6 /* CustomColor.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -396,6 +405,8 @@
 			files = (
 				8A0404A12BF06AFB002202F0 /* CardsView.swift in Sources */,
 				8A88EB802BF7A5FD0068A9A6 /* MainView.swift in Sources */,
+				8A88EB962BFB2A4C0068A9A6 /* CustomColor.swift in Sources */,
+				8A88EB942BFB238F0068A9A6 /* Dataact.xcdatamodeld in Sources */,
 				0A8417982BF36ABC001E707D /* GroundingEmotionEmptyView.swift in Sources */,
 				0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */,
 				9FDA842B2BF45706009961DD /* ActingOnYourValuesAffirmationView.swift in Sources */,
@@ -405,6 +416,7 @@
 				9F392EAE2BED46140041D509 /* OnboardingAllSetView.swift in Sources */,
 				9FDA84452BF8F021009961DD /* Transmission1.swift in Sources */,
 				0A84178D2BF2779B001E707D /* GroundingAffirmationView.swift in Sources */,
+				8A88EB8E2BFB0C350068A9A6 /* JournalingModel.swift in Sources */,
 				9F392EB02BED48F50041D509 /* OnboardingValueSettingView.swift in Sources */,
 				8A88EB892BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift in Sources */,
 				8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */,
@@ -748,6 +760,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8A88EB922BFB238F0068A9A6 /* Dataact.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8A88EB932BFB238F0068A9A6 /* Dataact.xcdatamodel */,
+			);
+			currentVersion = 8A88EB932BFB238F0068A9A6 /* Dataact.xcdatamodel */;
+			name = Dataact.xcdatamodeld;
+			path = /Users/ngurahgusti584/Documents/Academy/MC1/actapp/actapp/features/models/Dataact.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8A30986B2BE8D4A000F27593 /* Project object */;
 }

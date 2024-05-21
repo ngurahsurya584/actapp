@@ -1,10 +1,3 @@
-//
-//  OverviewView.swift
-//  actapp
-//
-//  Created by I Gusti Ngurah Surya Ardika Dinataputra on 08/05/24.
-//
-
 import SwiftUI
 
 struct InsightsView: View {
@@ -15,7 +8,6 @@ struct InsightsView: View {
         NavigationStack{
             ScrollView(.vertical){
                 VStack(spacing: 0) {
-
                     
                     Divider()
                         .frame(width: UIScreen.main.bounds.width * 1)
@@ -63,10 +55,9 @@ struct InsightsView: View {
                             .foregroundColor(Color(red: 60/255, green: 60/355, blue: 67/255).opacity(0.6))
                         
                         WrappingHStack(horizontalSpacing: 5) {
-                            ForEach(Array(userValue.values.enumerated()), id: \.offset) { index, value in
-                                let isChecked = userValue.isChecked[index]
+                            ForEach(Array(userValue.values.enumerated().filter { userValue.isChecked[$0.offset] }), id: \.offset) { index, value in
                                 Text(value)
-                                .modifier(ConditionalContentStyle(isChecked: isChecked))
+                                    .modifier(ButtonPrimarySmall())
                             }
                         }
                         .font(.callout)
@@ -284,5 +275,4 @@ private struct WrappingHStack: Layout {
 #Preview {
     InsightsView()
         .environmentObject(PersonValue())
-    
 }

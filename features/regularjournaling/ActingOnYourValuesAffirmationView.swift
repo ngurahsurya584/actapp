@@ -6,109 +6,73 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ActingOnYourValuesAffirmationView: View {
+    @Environment(\.managedObjectContext) private var moc
+    @FetchRequest(
+        entity: Journaling.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \Journaling.date, ascending: false)],
+        predicate: nil
+    ) private var journalEntries: FetchedResults<Journaling>
+    
+    private var latestEntry: Journaling? {
+        journalEntries.first
+    }
+    
     var body: some View {
-        NavigationStack{
-            
+        NavigationStack {
             VStack {
                 Spacer()
                 Spacer()
-                VStack{
-                    Text("Today, you demonstrated your values of:")
-                        .font(.body).fontWeight(.regular).foregroundColor(Color.black)
+                if let latestEntry = latestEntry {
+                    VStack {
+                        Text("Today, you demonstrated your values of:")
+                            .font(.body).fontWeight(.regular).foregroundColor(Color.black)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    Spacer()
+                    VStack {
+                        Text(latestEntry.todayValue ?? "")
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.black)
+                            .multilineTextAlignment(.leading)
+                            .font(.custom("Helvetica Neue Italic", size: 20))
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    Spacer()
+                    VStack {
+                        Text("Here is proof of that:")
+                            .font(.body).fontWeight(.regular).foregroundColor(Color.black)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    Spacer()
+                    VStack {
+                        Text(latestEntry.todayDescribe ?? "")
+                            .fontWeight(.semibold).foregroundColor(Color.black).font(.system(size: 20))
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                } else {
+                    Text("No journal entry found.")
+                        .foregroundColor(Color.gray)
                 }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
                 Spacer()
                 VStack {
-                    Text("Kindness, Hard work, Cooperative")
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.black)
-                        .multilineTextAlignment(.leading)
-                        .font(.custom("Helvetica Neue Italic", size: 20))
-                }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                Spacer()
-                VStack{
-                    Text("Here is prove of that:")
-                        .font(.body).fontWeight(.regular).foregroundColor(Color.black)
-                }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                Spacer()
-                VStack{
-                    Text("This morning, I finished the proposal that my manager asked and got praised for my meticulous writing")
-                        .fontWeight(.semibold).foregroundColor(Color.black).font(.system(size: 20))
-                }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                Spacer()
-                
-                VStack{
-                    Text("Tomorrow, you will focus on your values of:")
-                        .font(.body).fontWeight(.regular).foregroundColor(Color.black)
-                }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                Spacer()
-                VStack {
-                    Text("Kindness, Hard work, Cooperative")
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.black)
-                        .multilineTextAlignment(.leading)
-                        .font(.custom("Helvetica Neue Italic", size: 20))
-                }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                Spacer()
-                VStack{
-                    Text("Here is prove of that:")
-                        .font(.body).fontWeight(.regular).foregroundColor(Color.black)
-                }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                Spacer()
-                VStack{
-                    Text("This morning, I finished the proposal that my manager asked and got praised for my meticulous writing")
-                        .fontWeight(.semibold).foregroundColor(Color.black).font(.system(size: 20))
-                }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                Spacer()
-                Spacer()
-                Spacer()
-                //                .frame(maxWidth: .infinity, alignment: .leading)
-                Spacer()
-                //                VStack{
-                //                    Rectangle()
-                //                        .stroke(.black, lineWidth: 2)
-                //                        .fill(.gray)
-                //                        .frame(width: 393, height: 425)
-                //                        .frame(maxWidth: .infinity, alignment: .center)
-                //                }
-                Spacer()
-                VStack{
-                    Text("You have done great! Even tiny little actions of kindness can make a difference. Be kind to yourself and be present. ")
+                    Text("You have done great! Even tiny little actions of kindness can make a difference. Be kind to yourself and be present.")
                         .font(.body).fontWeight(.semibold).foregroundColor(Color.black)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 Spacer()
-                //            HStack {
-                //                Button("Back") {
-                //                    print("Button pressed!")
-                //                }
-                //                .buttonStyle(GrayButton())
-                //
-                //                .frame(width: 80)
-                //
-                //                Button("Finish") {
-                //                    print("Button pressed!")
-                //                }
-                //                .buttonStyle(BlackButton())
-                //
-                //            }
-                
                 HStack {
-                    NavigationLink( destination: ActingOnYourValuesReflectView()){
+                    NavigationLink(destination: ActingOnYourValuesReflectView()) {
                         Text("Finish")
                             .modifier(ButtonGreen())
                     }
                 }
-                
             }
             .padding()
         }

@@ -189,7 +189,7 @@ struct ButtonWhiteSmall : ViewModifier {
             .padding(.horizontal, 10)
             .fontWeight(.bold)
             .frame(height: 30)
-            .background(Color(red: 255/255, green: 255/255, blue: 255/255))
+            .background(Color.customWhite)
             .foregroundStyle(.black)
             .clipShape(RoundedRectangle(cornerRadius: 50))
             .overlay(

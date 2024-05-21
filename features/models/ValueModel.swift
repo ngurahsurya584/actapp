@@ -9,7 +9,18 @@ import Foundation
 
 
 class PersonValue: ObservableObject {
-    let values = ["Persistent", "Hard work", "Continued development", "Supportive", "Career progression", "Customer service", "Cooperation", "Creativity", "Collaboration", "Patient"]
+    let values = [
+        "Acceptance",
+        "Adventure",
+        "Assertiveness",
+        "Authenticity",
+        "Beauty",
+        "Caring",
+        "Challenge",
+        "Compassion",
+        "Connection",
+  
+    ]
     
     @Published var isChecked: [Bool]{
         didSet{
