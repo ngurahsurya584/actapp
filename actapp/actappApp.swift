@@ -12,6 +12,8 @@ struct actappApp: App {
     var body: some Scene {
         WindowGroup {
             DecideFirstTimeView()
+                .environmentObject(PersonValue())
+              
         }
     }
 }

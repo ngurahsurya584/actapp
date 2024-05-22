@@ -11,18 +11,17 @@ struct MainView: View {
     var body: some View {
         NavigationStack{
             TabView(){
-                JournalingHomeView()
+                GroundingNotice()
                     .tabItem{
-                        VStack{
-                            HStack{
-                                Image(systemName: "laurel.leading")
-                                Image(systemName: "laurel.trailing")
-                            }
-                            Text("Home")
-                        }
+                       Label("Home", systemImage: "house.fill")
                         
                     }
                 
+              InsightsView()
+                    .tabItem{
+                        Label("Insights", systemImage: "heart.text.square.fill")
+                    }
+                    
                 
             }
         }
