@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct JournalingHomeView: View {
+struct GroundingNotice: View {
     let name = "Jennie"
     let isFinishedPractice = true
 
@@ -65,5 +65,5 @@ struct JournalingHomeView: View {
 }
 
 #Preview {
-    JournalingHomeView()
+    GroundingNotice()
 }

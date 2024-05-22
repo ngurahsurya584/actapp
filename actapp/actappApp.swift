@@ -11,7 +11,9 @@ import SwiftUI
 struct actappApp: App {
     var body: some Scene {
         WindowGroup {
-            OnboardingReminderSettingView()
+            DecideFirstTimeView()
+                .environmentObject(PersonValue())
+              
         }
     }
 }

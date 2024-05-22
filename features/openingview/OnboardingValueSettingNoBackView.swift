@@ -1,16 +1,15 @@
 //
-//  Onboarding-ValueSetting.swift
+//  OnboardingValueSettingNoBackView.swift
 //  actapp
 //
-//  Created by Pedro Nicolas Cristiansen Hutabarat on 10/05/24.
+//  Created by I Gusti Ngurah Surya Ardika Dinataputra on 20/05/24.
 //
 
 import SwiftUI
 
-struct OnboardingValueSettingView: View {
+struct OnboardingValueSettingNoBackView: View {
     @EnvironmentObject var personValue: PersonValue
-
-
+  
     var body: some View {
         NavigationStack {
             VStack {
@@ -26,7 +25,7 @@ struct OnboardingValueSettingView: View {
                 }
                 .padding(.bottom, 30)
                 .multilineTextAlignment(.center)
-
+                
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
                         ForEach(0..<personValue.values.count, id: \.self) { index in
@@ -35,7 +34,6 @@ struct OnboardingValueSettingView: View {
                                     HStack {
                                         Button(action: {
                                             personValue.toggleChecked(at: index)
-                                            
                                         }) {
                                             Image(systemName: personValue.isChecked[index] ? "checkmark.circle.fill" : "circle")
                                                 .foregroundColor(personValue.isChecked[index] ? Color(UIColor.systemBlue) : Color(red: 72/255, green: 72/255, blue: 74/255))
@@ -64,7 +62,7 @@ struct OnboardingValueSettingView: View {
 
                 Spacer()
                 Spacer()
-                NavigationLink(destination: OnboardingReminderSettingView()) {
+                NavigationLink(destination: InsightsView()) {
                     Text("Next")
                         .modifier(ButtonWhite())
                 }
@@ -75,26 +73,12 @@ struct OnboardingValueSettingView: View {
             .foregroundColor(.white)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-}
-
-struct CheckBoxView: View {
-    @Binding var checked: Bool
-
-    var body: some View {
-        Image(systemName: checked ? "checkmark.circle.fill" : "circle")
-            .foregroundColor(checked ? Color(UIColor.systemBlue) : Color.secondary)
-            .imageScale(.large)
-            .onTapGesture {
-                self.checked.toggle()
-            }
+        .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
-        OnboardingValueSettingView()
-            .environmentObject(PersonValue())
-           
-    }
-
-
+    OnboardingValueSettingNoBackView()
+        .environmentObject(PersonValue())
+       
+}
