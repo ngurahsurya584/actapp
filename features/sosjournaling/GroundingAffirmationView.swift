@@ -70,7 +70,7 @@ struct GroundingAffirmationView: View {
                     //                .buttonStyle(BlackButton())
                     //                .frame(maxWidth: .infinity)
                     NavigationLink( destination:
-                                        JournalingHomeView()){
+                                        GroundingNotice()){
                         Text("Finish")
                             .modifier(ButtonGreen())
                         
