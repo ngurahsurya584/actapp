@@ -103,7 +103,7 @@ struct ActingOnYourValuesAffirmationView: View {
                 //            }
                 
                 HStack {
-                    NavigationLink( destination: ActingOnYourValuesReflectView()){
+                    NavigationLink( destination: JournalingMorningView()){
                         Text("Finish")
                             .modifier(ButtonGreen())
                     }

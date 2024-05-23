@@ -49,7 +49,7 @@ struct GroundingNotice: View {
                     }
                 }
                 
-                NavigationLink( destination: ActingOnYourValuesAffirmationView()){
+                NavigationLink( destination: JournalingView()){
                     Text("Check In")
                         .modifier(ButtonGreen())
                 }
