@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct GroundingSlowingDownInSessionView: View {
+struct GroundingPushFeetView: View {
     @State private var gradientPhase: Int = 0
 
     var body: some View {
@@ -19,7 +19,7 @@ struct GroundingSlowingDownInSessionView: View {
                 .ignoresSafeArea()
 
                 VStack {
-                    Text("Slow down and reconnect with your body")
+                    Text("Push your feet onto the floor")
                         .font(.title)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
@@ -55,5 +55,5 @@ struct GroundingSlowingDownInSessionView: View {
 }
 
 #Preview {
-    GroundingSlowingDownInSessionView()
+    GroundingPushFeetView()
 }

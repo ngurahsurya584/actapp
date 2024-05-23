@@ -14,6 +14,8 @@ struct GroundingEmotionEmptyView: View {
         ("Pressured", "When you feel light-headed and it's hard to breathe because everything feels like crushing you")
     ]
     
+    @State private var changeSize = false
+    
     @State private var selectedKey: Int?
     
     var body: some View {
@@ -27,7 +29,7 @@ struct GroundingEmotionEmptyView: View {
                             gradient: Gradient(colors: [Color.orange, Color.clear]),
                             center: .center,
                             startRadius: 0,
-                            endRadius: 100
+                            endRadius: changeSize ? 70 : 100
                         ))
                         
                     Circle()
@@ -35,7 +37,7 @@ struct GroundingEmotionEmptyView: View {
                             gradient: Gradient(colors: [Color.orange, Color.clear]),
                             center: .center,
                             startRadius: 0,
-                            endRadius: 50
+                            endRadius: changeSize ? 30 : 50
                         ))
                         .offset(x:150, y:100)
                     
@@ -44,7 +46,7 @@ struct GroundingEmotionEmptyView: View {
                             gradient: Gradient(colors: [Color.orange, Color.clear]),
                             center: .center,
                             startRadius: 0,
-                            endRadius: 100
+                            endRadius: changeSize ? 70 : 100
                         ))
                         .offset(x:-200, y:80)
                     
@@ -53,7 +55,7 @@ struct GroundingEmotionEmptyView: View {
                             gradient: Gradient(colors: [Color.orange, Color.clear]),
                             center: .center,
                             startRadius: 0,
-                            endRadius: 30
+                            endRadius: changeSize ? 20 : 30
                         ))
                         .offset(x:-120, y:-70)
                     
@@ -62,10 +64,16 @@ struct GroundingEmotionEmptyView: View {
                             gradient: Gradient(colors: [Color.orange, Color.clear]),
                             center: .center,
                             startRadius: 0,
-                            endRadius: 50
+                            endRadius: changeSize ? 30 : 50
                         ))
                         .offset(x:200, y:-80)
-                }.offset(y:-80)
+                }
+                .offset(y:-80)
+                .onAppear{
+                    withAnimation(.easeInOut(duration: 3.0).repeatForever(autoreverses: true)){
+                        changeSize.toggle()
+                    }
+                }
                 
                 VStack {
                     Text("NOTICE AND NAME")
@@ -103,15 +111,13 @@ struct GroundingEmotionEmptyView: View {
                 }
                 .offset(CGSize(width: 0, height: -110))
                 
-                Button(action: {
-                    // Handle Next button action here
-                }) {
+                NavigationLink(destination: GroundingSlowingDownInSessionView()){
                     Text("Next")
                         .fontWeight(.bold)
-                        .foregroundColor(.white)
+                        .foregroundColor(.fillButton)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.green)
+                        .background(Color.white)
                         .cornerRadius(10)
                 }
                 .padding()

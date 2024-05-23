@@ -30,7 +30,7 @@ struct GroundingEmotionalStormView: View {
 //                    .buttonStyle(BlackButton())
 //                    .frame(maxWidth: .infinity)
                     NavigationLink( destination:
-                        GroundingSlowingDownFinishedView()){
+                        GroundingBreathingDownView()){
                         Text("Next")
                             .modifier(ButtonBlack())
                         
