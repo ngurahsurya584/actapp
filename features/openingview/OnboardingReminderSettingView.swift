@@ -22,26 +22,25 @@ struct OnboardingReminderSettingView: View {
                 .padding(.bottom, 30)
                 .multilineTextAlignment(.center)
                 
-                Text ("MORNING")
+                Text("MORNING")
                     .font(.callout).fontDesign(.default)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.gray)
                 VStack {
-                    DatePicker("", selection: $Morning, displayedComponents: [.hourAndMinute, .hourAndMinute])
+                    DatePicker("", selection: $selectedMorning, displayedComponents: [.hourAndMinute])
                         .datePickerStyle(.wheel)
-                        .labelsHidden()
                         .frame(width: 296, height: 185)
+                        .labelsHidden()
                         .environment(\.locale, Locale(identifier: "en_US"))
                         .colorScheme(.dark)
                 }
                 .padding(.bottom, 18)
-
-                Text ("NIGHT")
+                Text("NIGHT")
                     .font(.callout).fontDesign(.default)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.gray)
-                VStack{
-                    DatePicker("", selection: $Night, displayedComponents: [.hourAndMinute, .hourAndMinute])
+                VStack {
+                    DatePicker("", selection: $selectedNight, displayedComponents: [.hourAndMinute])
                         .datePickerStyle(.wheel)
                         .frame(width: 296, height: 185)
                         .labelsHidden()
@@ -50,19 +49,24 @@ struct OnboardingReminderSettingView: View {
                 }
                 
                 Spacer()
-
-                NavigationLink( destination:
-                    OnboardingAllSetView()){
-                    Text("Next")
-                        .modifier(ButtonWhite())
-
-                }
                 
+                Button(action: {
+                    notify.askPermission {
+                        notify.scheduleMorningAndNightNotifications(morning: selectedMorning, night: selectedNight)
+                        readyToNavigate = true
+                    }
+                }, label: {
+                    Text("Next")
+                        .modifier(ButtonBlack())
+                })
             }
             .padding()
             .padding(.top, 20)
             .background(Color(red: 17/255, green: 17/255, blue: 17/255))
             .foregroundColor(.white)
+            .navigationDestination(isPresented: $readyToNavigate) {
+                OnboardingAllSetView()
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -87,6 +91,3 @@ func defaultNight() -> Date {
 #Preview {
     OnboardingReminderSettingView()
 }
-
-
-
