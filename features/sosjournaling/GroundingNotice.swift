@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct JournalingHomeView: View {
+struct GroundingNotice: View {
     let name = "Jennie"
     let isFinishedPractice = true
 
@@ -49,7 +49,7 @@ struct JournalingHomeView: View {
                     }
                 }
                 
-                NavigationLink( destination: ActingOnYourValuesAffirmationView()){
+                NavigationLink( destination: JournalingView()){
                     Text("Check In")
                         .modifier(ButtonGreen())
                 }
@@ -65,5 +65,5 @@ struct JournalingHomeView: View {
 }
 
 #Preview {
-    JournalingHomeView()
+    GroundingNotice()
 }

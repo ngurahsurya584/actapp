@@ -11,41 +11,35 @@ struct OnboardingIntroSecondView: View {
     var body: some View {
         NavigationStack{
             VStack {
-                VStack(alignment: .leading) {
-                    Text("What does ")
-                        .font(.title).bold().fontDesign(.rounded)
-                    + Text("hooked ")
+                VStack(alignment: .center) {
+                    Text("Backed by ")
+                        .font(.title).bold()
+                    +
+                    Text("science")
                         .font(.title).bold().italic()
                         .fontDesign( .serif)
-                    + Text("mean?")
-                        .font(.title).bold().fontDesign(.rounded)
-                    Text("When something is on a hook, it cannot get away. The hook traps it. In the same way, we can get hooked by our difficult thoughts and feelings that they pull us away from our “values”.")
+                    Text("Grass is using the Acceptance and Commitment Training (ACT), which is proven to be effective in managing stress by experts.")
                         .font(.body)
                         .fontWeight(.semibold)
                         .padding(.top, 0.05)
                 }
+                .multilineTextAlignment(.center)
+
                 Spacer()
-                Spacer()
-                
-                VStack{
-                    Rectangle()
-                        .stroke(.black, lineWidth: 2)
-                        .fill(.gray)
-                        .frame(width: 393, height: 438)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                }
-                
-                Spacer()
+                Image("dummy")
                 Spacer()
                 
                 NavigationLink( destination: OnboardingValueSettingView()){
                     Text("Next")
-                        .modifier(ButtonBlack())
+                        .modifier(ButtonWhite())
                 }
-                
             }
             .padding()
+            .padding(.top, 20)
+            .background(Color(red: 17/255, green: 17/255, blue: 17/255))
+            .foregroundColor(.white)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
