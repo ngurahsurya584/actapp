@@ -433,6 +433,24 @@ struct MorningButtonCheckedModifier: ViewModifier {
     }
 }
 
+struct LinearWhiteButtonSmall: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(.vertical)
+            .padding(.horizontal, 10)
+            .fontWeight(.medium)
+            .frame(height: 30)
+            .background(
+                LinearGradient(gradient: Gradient(stops: [
+                    .init(color: Color.white.opacity(0.5), location: 0),
+                    .init(color: Color.white.opacity(0.2), location: 1)
+                ]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            )
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+    }
+}
+
 #Preview {
     ButtonView()
 }
