@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OnboardingAllSetView: View {
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
+    @State private var changeSize = false
     var body: some View {
         NavigationStack{
             VStack {
@@ -29,7 +30,18 @@ struct OnboardingAllSetView: View {
                 .multilineTextAlignment(.center)
                 
                 Spacer()
-                Image("dummy")
+                Circle()
+                    .fill(RadialGradient(
+                        gradient: Gradient(colors: [.buttonAovStart,.buttonAovMiddle, .buttonAovStop, .clear]),
+                        center: .center,
+                        startRadius: 0,
+                        endRadius: changeSize ? 200 : 160
+                    ))
+                    .onAppear{
+                        withAnimation(.easeInOut(duration: 3.0).repeatForever(autoreverses: true)){
+                            changeSize.toggle()
+                        }
+                    }
                 Spacer()
                 
                 NavigationLink( destination: MainView()){

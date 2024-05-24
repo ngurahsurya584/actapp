@@ -12,10 +12,8 @@
 		0A38AD582BFF2A54000436CF /* JournalingNightSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38AD572BFF2A54000436CF /* JournalingNightSummaryView.swift */; };
 		0A38AD5A2BFF2D2B000436CF /* JournalingNightCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38AD592BFF2D2B000436CF /* JournalingNightCompletedView.swift */; };
 		0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B54522BF0FCB8001E3F95 /* PracticeCardView.swift */; };
-		0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift */; };
 		0A84178D2BF2779B001E707D /* GroundingAffirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A84178C2BF2779B001E707D /* GroundingAffirmationView.swift */; };
 		0A8417922BF27E10001E707D /* GroundingRefocusTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417912BF27E10001E707D /* GroundingRefocusTouchView.swift */; };
-		0A8417942BF27F76001E707D /* GroundingEmotionalStormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */; };
 		0A8417962BF28043001E707D /* GroundingRefocusSightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417952BF28043001E707D /* GroundingRefocusSightView.swift */; };
 		0A8417982BF36ABC001E707D /* GroundingEmotionEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8417972BF36ABC001E707D /* GroundingEmotionEmptyView.swift */; };
 		0A84179C2BF8FEE7001E707D /* InsightsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A84179B2BF8FEE7001E707D /* InsightsDetailView.swift */; };
@@ -33,6 +31,8 @@
 		8A88EB822BF7B4230068A9A6 /* DecideFirstTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB812BF7B4230068A9A6 /* DecideFirstTimeView.swift */; };
 		8A88EB852BF851B10068A9A6 /* ValueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB842BF851B10068A9A6 /* ValueModel.swift */; };
 		8A88EB892BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB882BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift */; };
+		8A88EB982BFDC9760068A9A6 /* GroundingBreathingDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB972BFDC9760068A9A6 /* GroundingBreathingDownView.swift */; };
+		8A88EB9A2BFDF7740068A9A6 /* GroundingPushFeetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB992BFDF7740068A9A6 /* GroundingPushFeetView.swift */; };
 		8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF888D82BEA3B1600597EB9 /* ButtonView.swift */; };
 		9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA52BED349B0041D509 /* SplashScreenView.swift */; };
 		9F392EAA2BED387C0041D509 /* OnboardingIntroFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA92BED387C0041D509 /* OnboardingIntroFirstView.swift */; };
@@ -69,10 +69,8 @@
 		0A38AD572BFF2A54000436CF /* JournalingNightSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingNightSummaryView.swift; sourceTree = "<group>"; };
 		0A38AD592BFF2D2B000436CF /* JournalingNightCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingNightCompletedView.swift; sourceTree = "<group>"; };
 		0A6B54522BF0FCB8001E3F95 /* PracticeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeCardView.swift; sourceTree = "<group>"; };
-		0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingSlowingDownFinishedView.swift; sourceTree = "<group>"; };
 		0A84178C2BF2779B001E707D /* GroundingAffirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingAffirmationView.swift; sourceTree = "<group>"; };
 		0A8417912BF27E10001E707D /* GroundingRefocusTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingRefocusTouchView.swift; sourceTree = "<group>"; };
-		0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingEmotionalStormView.swift; sourceTree = "<group>"; };
 		0A8417952BF28043001E707D /* GroundingRefocusSightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingRefocusSightView.swift; sourceTree = "<group>"; };
 		0A8417972BF36ABC001E707D /* GroundingEmotionEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingEmotionEmptyView.swift; sourceTree = "<group>"; };
 		0A84179B2BF8FEE7001E707D /* InsightsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsDetailView.swift; sourceTree = "<group>"; };
@@ -93,6 +91,8 @@
 		8A88EB812BF7B4230068A9A6 /* DecideFirstTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecideFirstTimeView.swift; sourceTree = "<group>"; };
 		8A88EB842BF851B10068A9A6 /* ValueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueModel.swift; sourceTree = "<group>"; };
 		8A88EB882BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingValueSettingNoBackView.swift; sourceTree = "<group>"; };
+		8A88EB972BFDC9760068A9A6 /* GroundingBreathingDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingBreathingDownView.swift; sourceTree = "<group>"; };
+		8A88EB992BFDF7740068A9A6 /* GroundingPushFeetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingPushFeetView.swift; sourceTree = "<group>"; };
 		8AF888D82BEA3B1600597EB9 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		9F392EA52BED349B0041D509 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		9F392EA92BED387C0041D509 /* OnboardingIntroFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroFirstView.swift; sourceTree = "<group>"; };
@@ -152,11 +152,11 @@
 				8A04045C2BEB58D5002202F0 /* GroundingNotice.swift */,
 				0A8417972BF36ABC001E707D /* GroundingEmotionEmptyView.swift */,
 				9FDA84482BF97A2C009961DD /* GroundingSlowingDownInSessionView.swift */,
-				0A6B54582BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift */,
+				8A88EB972BFDC9760068A9A6 /* GroundingBreathingDownView.swift */,
+				8A88EB992BFDF7740068A9A6 /* GroundingPushFeetView.swift */,
 				0A8417952BF28043001E707D /* GroundingRefocusSightView.swift */,
 				0A8417912BF27E10001E707D /* GroundingRefocusTouchView.swift */,
 				0A84178C2BF2779B001E707D /* GroundingAffirmationView.swift */,
-				0A8417932BF27F76001E707D /* GroundingEmotionalStormView.swift */,
 				8A88EB7F2BF7A5FD0068A9A6 /* MainView.swift */,
 			);
 			path = sosjournaling;
@@ -408,8 +408,12 @@
 				0A8417982BF36ABC001E707D /* GroundingEmotionEmptyView.swift in Sources */,
 				0A8417A02BFCEC53001E707D /* JournalingView.swift in Sources */,
 				0A38AD5A2BFF2D2B000436CF /* JournalingNightCompletedView.swift in Sources */,
+				8A88EB982BFDC9760068A9A6 /* GroundingBreathingDownView.swift in Sources */,
 				0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */,
 				9FDA84412BF49196009961DD /* JournalingMorningView.swift in Sources */,
+				9FDA842B2BF45706009961DD /* ActingOnYourValuesAffirmationView.swift in Sources */,
+				9FDA84412BF49196009961DD /* ActingOnYourValuesReflectView.swift in Sources */,
+				8A88EB9A2BFDF7740068A9A6 /* GroundingPushFeetView.swift in Sources */,
 				0A8417922BF27E10001E707D /* GroundingRefocusTouchView.swift in Sources */,
 				8A88EB852BF851B10068A9A6 /* ValueModel.swift in Sources */,
 				9F392EAE2BED46140041D509 /* OnboardingAllSetView.swift in Sources */,
@@ -426,13 +430,10 @@
 				8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */,
 				9FDA84492BF97A2C009961DD /* GroundingSlowingDownInSessionView.swift in Sources */,
 				9FDA84472BF90237009961DD /* StrikeView.swift in Sources */,
-				0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift in Sources */,
 				8A0404632BEB5952002202F0 /* InsightsView.swift in Sources */,
 				0A84179C2BF8FEE7001E707D /* InsightsDetailView.swift in Sources */,
-				0A6B54592BF1FF67001E3F95 /* GroundingSlowingDownFinishedView.swift in Sources */,
 				8A88EB822BF7B4230068A9A6 /* DecideFirstTimeView.swift in Sources */,
 				8A0404632BEB5952002202F0 /* InsightsView.swift in Sources */,
-				0A8417942BF27F76001E707D /* GroundingEmotionalStormView.swift in Sources */,
 				9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */,
 				0A38AD542BFF056B000436CF /* JournalingMorningSummaryView.swift in Sources */,
 				0A38AD582BFF2A54000436CF /* JournalingNightSummaryView.swift in Sources */,
