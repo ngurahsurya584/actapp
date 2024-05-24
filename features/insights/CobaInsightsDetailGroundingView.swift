@@ -96,7 +96,10 @@ struct CobaInsightsDetailGroundingView: View {
                                 HStack(spacing: 12) {
                                     
                                     ForEach(chosenThreeValue, id: \.self) { value in
-                                        Text(value).modifier(LinearGrayButtonSmallTextPurple())
+                                        Button(value) {
+                                            print("Button pressed!")
+                                        }
+                                        .buttonStyle(LinearGrayButtonSmallTextPurple())
                                     }
                                     
                                 }

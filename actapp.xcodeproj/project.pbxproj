@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A12368A2C00E3E800BAA4CF /* GroundingSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1236892C00E3E800BAA4CF /* GroundingSummaryView.swift */; };
 		0A38AD542BFF056B000436CF /* JournalingMorningSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38AD532BFF056B000436CF /* JournalingMorningSummaryView.swift */; };
 		0A38AD562BFF243D000436CF /* JournalingNightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38AD552BFF243D000436CF /* JournalingNightView.swift */; };
 		0A38AD582BFF2A54000436CF /* JournalingNightSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38AD572BFF2A54000436CF /* JournalingNightSummaryView.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A1236892C00E3E800BAA4CF /* GroundingSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingSummaryView.swift; sourceTree = "<group>"; };
 		0A38AD532BFF056B000436CF /* JournalingMorningSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingMorningSummaryView.swift; sourceTree = "<group>"; };
 		0A38AD552BFF243D000436CF /* JournalingNightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingNightView.swift; sourceTree = "<group>"; };
 		0A38AD572BFF2A54000436CF /* JournalingNightSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingNightSummaryView.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				8A88EB992BFDF7740068A9A6 /* GroundingPushFeetView.swift */,
 				0A8417952BF28043001E707D /* GroundingRefocusSightView.swift */,
 				0A8417912BF27E10001E707D /* GroundingRefocusTouchView.swift */,
+				0A1236892C00E3E800BAA4CF /* GroundingSummaryView.swift */,
 				0A84178C2BF2779B001E707D /* GroundingAffirmationView.swift */,
 				8A88EB7F2BF7A5FD0068A9A6 /* MainView.swift */,
 			);
@@ -421,8 +424,7 @@
 				8A88EB982BFDC9760068A9A6 /* GroundingBreathingDownView.swift in Sources */,
 				0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */,
 				9FDA84412BF49196009961DD /* JournalingMorningView.swift in Sources */,
-				9FDA842B2BF45706009961DD /* ActingOnYourValuesAffirmationView.swift in Sources */,
-				9FDA84412BF49196009961DD /* ActingOnYourValuesReflectView.swift in Sources */,
+				9FDA84412BF49196009961DD /* JournalingMorningView.swift in Sources */,
 				8A88EB9A2BFDF7740068A9A6 /* GroundingPushFeetView.swift in Sources */,
 				0A8417922BF27E10001E707D /* GroundingRefocusTouchView.swift in Sources */,
 				8A88EB852BF851B10068A9A6 /* ValueModel.swift in Sources */,
@@ -449,6 +451,7 @@
 				9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */,
 				0A38AD542BFF056B000436CF /* JournalingMorningSummaryView.swift in Sources */,
 				0A38AD582BFF2A54000436CF /* JournalingNightSummaryView.swift in Sources */,
+				0A12368A2C00E3E800BAA4CF /* GroundingSummaryView.swift in Sources */,
 				9F392EAA2BED387C0041D509 /* OnboardingIntroFirstView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

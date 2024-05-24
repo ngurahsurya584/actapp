@@ -77,7 +77,7 @@ struct GroundingNoticeView: View {
         VStack(alignment: .leading, spacing: 10) {
             Text("FOR WHEN YOU’RE FEELING DISTRAUGHT")
                 .font(.caption2)
-            NavigationLink(destination: GroundingNotice()) {
+            NavigationLink(destination: GroundingEmotionEmptyView()) {
                 GroundingLinkView()
             }
         }
