@@ -20,7 +20,7 @@ struct ButtonView: View {
 }
 
 struct BlackButton: ButtonStyle {
-    func makeBody(configuration: 
+    func makeBody(configuration:
         
         Configuration) -> some View {
         configuration.label
@@ -112,9 +112,10 @@ struct LinearWhiteButtonSmall: ViewModifier {
     }
 }
 
-struct LinearGrayButtonSmallTextPurple: ViewModifier {
-    func body(content: Content) -> some View {
-        content
+struct LinearGrayButtonSmallTextPurple: ButtonStyle {
+    func makeBody(configuration:
+        Configuration) -> some View {
+        configuration.label
             .padding(.vertical)
             .padding(.horizontal, 10)
             .fontWeight(.medium)
@@ -150,6 +151,23 @@ struct LinearGrayButtonSmallTextGreen: ButtonStyle {
     }
 }
 
+struct LinearGreenButtonSmallTextPurple: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(.vertical)
+            .padding(.horizontal, 10)
+            .fontWeight(.medium)
+            .frame(height: 30)
+            .background(
+                LinearGradient(gradient: Gradient(stops: [
+                    .init(color: Color.white.opacity(0.5), location: 0),
+                    .init(color: Color.white.opacity(0.2), location: 1)
+                ]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            )
+            .foregroundStyle(Color(red: 0/255, green: 223/255, blue: 39/255))
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+    }
+}
 
 struct PrimaryButtonSmall: ButtonStyle {
     func makeBody(configuration:
@@ -223,7 +241,7 @@ struct ButtonStrike: ButtonStyle {
 
 
 //struct ButtonBlack: ViewModifier{
-//    
+//
 //    func body(content: Content) -> some View{
 //        content
 //            .foregroundStyle(.white)
