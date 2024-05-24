@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct actappApp: App {
+    @StateObject var dataController = MorningJournalingDataController()
     var body: some Scene {
         WindowGroup {
             DecideFirstTimeView()
                 .environmentObject(PersonValue())
+                .environment(\.managedObjectContext, dataController.container.viewContext)
               
         }
     }

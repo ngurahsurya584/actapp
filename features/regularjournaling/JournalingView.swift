@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreData
 
 struct JournalingView: View {
     var body: some View {
@@ -20,6 +21,20 @@ struct JournalingView: View {
 
 struct TodaysFocusView: View {
     @State private var changeSize = false
+    @Environment(\.managedObjectContext) private var moc
+    @FetchRequest(
+        entity: MorningJournaling.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \MorningJournaling.date, ascending: false)],
+        predicate: nil
+    ) private var journalEntries: FetchedResults<MorningJournaling>
+    
+    private var todaysValues: [String] {
+        if let latestEntry = journalEntries.first, let planValue = latestEntry.planValue {
+            return planValue.components(separatedBy: ", ")
+        }
+        return []
+    }
+    
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
@@ -27,15 +42,18 @@ struct TodaysFocusView: View {
                     .font(.system(size: 12))
                     .fontWeight(.heavy)
                     .padding(.bottom, 4)
-                Text("Creativity")
-                    .titleStyle()
-                    .frame(width: UIScreen.main.bounds.width * 0.5, alignment: .leading)
-                Text("Caring")
-                    .titleStyle()
-                    .frame(width: UIScreen.main.bounds.width * 0.5, alignment: .trailing)
-                Text("Kind")
-                    .titleStyle()
-                    .frame(width: UIScreen.main.bounds.width * 0.3, alignment: .leading)
+                
+                if todaysValues.isEmpty {
+                    Text("No focus values yet")
+                        .titleStyle()
+                        .frame(width: UIScreen.main.bounds.width * 0.5, alignment: .center)
+                } else {
+                    ForEach(Array(todaysValues.enumerated()), id: \.offset) { index, value in
+                        Text(value)
+                            .titleStyle()
+                            .frame(width: frameWidth(for: index), alignment: frameAlignment(for: index))
+                    }
+                }
             }
             .zIndex(2)
             Circle()
@@ -45,14 +63,38 @@ struct TodaysFocusView: View {
                     startRadius: 0,
                     endRadius: changeSize ? 200 : 160
                 ))
-                .onAppear{
-                    withAnimation(.easeInOut(duration: 3.0).repeatForever(autoreverses: true)){
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 3.0).repeatForever(autoreverses: true)) {
                         changeSize.toggle()
                     }
                 }
-            
         }
-        
+    }
+    
+    private func frameWidth(for index: Int) -> CGFloat {
+        switch index {
+        case 0:
+            return UIScreen.main.bounds.width * 0.5
+        case 1:
+            return UIScreen.main.bounds.width * 0.5
+        case 2:
+            return UIScreen.main.bounds.width * 0.3
+        default:
+            return UIScreen.main.bounds.width * 0.5
+        }
+    }
+    
+    private func frameAlignment(for index: Int) -> Alignment {
+        switch index {
+        case 0:
+            return .leading
+        case 1:
+            return .trailing
+        case 2:
+            return .leading
+        default:
+            return .center
+        }
     }
 }
 
@@ -160,4 +202,5 @@ extension Text {
 
 #Preview {
     JournalingView()
+        .environment(\.managedObjectContext, MorningJournalingDataController().container.viewContext)
 }

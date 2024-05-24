@@ -11,16 +11,15 @@ struct MainView: View {
     var body: some View {
         NavigationStack{
             TabView(){
-                GroundingNotice()
+                JournalingView()
                     .tabItem{
-                       Label("Home", systemImage: "house.fill")
-                        
+                        Label("Home", systemImage: "leaf.fill")
                     }
                 
-              InsightsView()
-                    .tabItem{
-                        Label("Insights", systemImage: "heart.text.square.fill")
-                    }
+//              InsightsView()
+//                    .tabItem{
+//                        Label("Insights", systemImage: "heart.text.square.fill")
+//                    }
                     
                 
             }

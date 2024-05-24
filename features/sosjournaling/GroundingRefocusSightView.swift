@@ -1,8 +1,13 @@
 import SwiftUI
 
 struct GroundingRefocusSightView: View {
-    @State private var text: String = ""
+    @State private var seenItems: [String] = Array(repeating: "", count: 5)
+    @State private var heardItems: [String] = Array(repeating: "", count: 3)
+    @State private var smeltItem: String = ""
+    @State private var feltItem: String = ""
     @FocusState private var isFocused: Bool
+    
+    @Environment(\.managedObjectContext) private var moc
     
     var body: some View {
         NavigationStack {
@@ -24,17 +29,17 @@ struct GroundingRefocusSightView: View {
                                     .fontWeight(.semibold)
                                     .foregroundStyle(.white)
                                 
-                                ForEach(0..<5) { index in
+                                ForEach(0..<5, id: \.self) { index in
                                     ZStack(alignment: .topLeading) {
-                                        if text.isEmpty {
-                                            Text("Item \(index + 1) ")
+                                        if seenItems[index].isEmpty {
+                                            Text("Item \(index + 1)")
                                                 .foregroundColor(.gray)
                                                 .padding(.horizontal, 8)
                                                 .padding(.vertical, 12)
                                                 .zIndex(1)
                                         }
                                         
-                                        TextEditor(text: $text)
+                                        TextEditor(text: $seenItems[index])
                                             .padding(.horizontal, 3)
                                             .padding(.vertical, 5)
                                             .frame(width: 345, height: 41)
@@ -62,17 +67,17 @@ struct GroundingRefocusSightView: View {
                                     .fontWeight(.semibold)
                                     .foregroundStyle(.white)
                                 
-                                ForEach(0..<3) { index in
+                                ForEach(0..<3, id: \.self) { index in
                                     ZStack(alignment: .topLeading) {
-                                        if text.isEmpty {
-                                            Text("Item \(index + 1) ")
+                                        if heardItems[index].isEmpty {
+                                            Text("Item \(index + 1)")
                                                 .foregroundColor(.gray)
                                                 .padding(.horizontal, 8)
                                                 .padding(.vertical, 12)
                                                 .zIndex(1)
                                         }
                                         
-                                        TextEditor(text: $text)
+                                        TextEditor(text: $heardItems[index])
                                             .padding(.horizontal, 3)
                                             .padding(.vertical, 5)
                                             .frame(width: 345, height: 41)
@@ -101,15 +106,15 @@ struct GroundingRefocusSightView: View {
                                     .foregroundStyle(.white)
                                 
                                 ZStack(alignment: .topLeading) {
-                                    if text.isEmpty {
-                                        Text("Item 1 ")
+                                    if smeltItem.isEmpty {
+                                        Text("Item 1")
                                             .foregroundColor(.gray)
                                             .padding(.horizontal, 8)
                                             .padding(.vertical, 12)
                                             .zIndex(1)
                                     }
                                     
-                                    TextEditor(text: $text)
+                                    TextEditor(text: $smeltItem)
                                         .padding(.horizontal, 3)
                                         .padding(.vertical, 5)
                                         .frame(width: 345, height: 41)
@@ -138,15 +143,15 @@ struct GroundingRefocusSightView: View {
                                     .foregroundStyle(.white)
                                 
                                 ZStack(alignment: .topLeading) {
-                                    if text.isEmpty {
-                                        Text("Item 1 ")
+                                    if feltItem.isEmpty {
+                                        Text("Item 1")
                                             .foregroundColor(.gray)
                                             .padding(.horizontal, 8)
                                             .padding(.vertical, 12)
                                             .zIndex(1)
                                     }
                                     
-                                    TextEditor(text: $text)
+                                    TextEditor(text: $feltItem)
                                         .padding(.horizontal, 3)
                                         .padding(.vertical, 5)
                                         .frame(width: 345, height: 41)
@@ -171,10 +176,15 @@ struct GroundingRefocusSightView: View {
                     }
                     HStack {
                         Spacer()
-                        NavigationLink(destination: GroundingRefocusTouchView()) {
+                        Button(action: saveGroundingData) {
                             Text("Next")
                                 .modifier(ButtonNext())
                         }
+                        NavigationLink(destination: GroundingRefocusTouchView()) {
+                            EmptyView()
+                        }.simultaneousGesture(TapGesture().onEnded {
+                            saveGroundingData()
+                        })
                         Spacer()
                     }
                 }
@@ -187,8 +197,28 @@ struct GroundingRefocusSightView: View {
             
         }
     }
+    
+    private func saveGroundingData() {
+        let seenItemsString = seenItems.joined(separator: ", ")
+        let heardItemsString = heardItems.joined(separator: ", ")
+        
+        let newGrounding = Grounding(context: moc)
+        newGrounding.seenItems = seenItemsString
+        newGrounding.heardItems = heardItemsString
+        newGrounding.smeltItems = smeltItem
+        newGrounding.feltItems = feltItem
+        
+        do {
+            try moc.save()
+        } catch {
+            print("Failed to save context: \(error)")
+        }
+    }
 }
 
-#Preview {
-    GroundingRefocusSightView()
+struct GroundingRefocusSightView_Previews: PreviewProvider {
+    static var previews: some View {
+        GroundingRefocusSightView()
+            .environment(\.managedObjectContext, MorningJournalingDataController().container.viewContext)
+    }
 }

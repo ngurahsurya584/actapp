@@ -44,7 +44,7 @@ struct OnboardingAllSetView: View {
                     }
                 Spacer()
                 
-                NavigationLink( destination: MainView()){
+                NavigationLink( destination: JournalingView()){
                     Text("Let's begin")
                         .modifier(ButtonWhite())
                     

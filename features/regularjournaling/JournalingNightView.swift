@@ -10,8 +10,21 @@ import SwiftUI
 struct JournalingNightView: View {
     @State private var text: String = ""
     @FocusState private var isFocused: Bool
+    @Environment(\.managedObjectContext) var moc
     
-    let chosenFiveValues = ["Kindness", "Patience", "Supportive", "Creativity", "Hard work"]
+    // State to keep track of selected values
+    @State private var selectedValues: [Bool]
+    @State private var selectedCount: Int = 0
+    
+    // State to manage alert presentation
+    @State private var showAlert: Bool = false
+    
+    @EnvironmentObject var userValue: PersonValue
+    
+    init() {
+        // Initialize selectedValues with all false (unselected) initially
+        _selectedValues = State(initialValue: Array(repeating: false, count: 5))
+    }
     
     var body: some View {
         
@@ -34,12 +47,38 @@ struct JournalingNightView: View {
                     
                     VStack{
                         WrappingHStack(horizontalSpacing: 12, verticalSpacing: 12) {
-                            ForEach(chosenFiveValues, id: \.self) { value in
-                                Button(value) {
-                                    print("Button pressed!")
+                            ForEach(Array(userValue.values.enumerated().filter { userValue.isChecked[$0.offset] }.prefix(5)), id: \.offset) { index, value in
+                                let isSelected = selectedValues[index]
+                                if isSelected{
+                                    Button(value){
+                                        if selectedValues[index] {
+                                            selectedValues[index].toggle()
+                                            selectedCount -= 1
+                                        } else if selectedCount < 3 {
+                                            selectedValues[index].toggle()
+                                            selectedCount += 1
+                                        } else {
+                                            showAlert = true
+                                        }
+                                    }
+                                    .buttonStyle(NightButtonCheckedSmall())
+                                    
+                                } else{
+                                    Button(value){
+                                        if selectedValues[index] {
+                                            selectedValues[index].toggle()
+                                            selectedCount -= 1
+                                        } else if selectedCount < 3 {
+                                            selectedValues[index].toggle()
+                                            selectedCount += 1
+                                        } else {
+                                            showAlert = true
+                                        }
+                                    }
+                                    .buttonStyle(LinearGrayButtonSmallTextPurple())
                                 }
-                                .buttonStyle(LinearGrayButtonSmallTextPurple())
                             }
+                            
                             
                         }
                         .font(.callout)
@@ -81,7 +120,9 @@ struct JournalingNightView: View {
                     NavigationLink( destination: JournalingNightSummaryView()){
                         Text("Next")
                             .modifier(ButtonWhiteTextPurple())
-                    }
+                    }.simultaneousGesture(TapGesture().onEnded {
+                        saveJournalEntry()
+                    })
                 }
                 .frame(maxWidth: UIScreen.main.bounds.width * 0.94, maxHeight: .infinity)
             }
@@ -92,6 +133,24 @@ struct JournalingNightView: View {
         }
         
     }
+    private func saveJournalEntry() {
+            let selectedValuesStrings = selectedValues.enumerated()
+                .filter { $0.element }
+                .compactMap { $0.offset < 5 ? userValue.values[$0.offset] : nil }
+                .joined(separator: ", ")
+            
+        let newEntry = NightJournaling(context: moc)
+            newEntry.date = Date()
+            newEntry.reflectValue = selectedValuesStrings
+            newEntry.reflectDescribe = text
+            
+            do {
+                try moc.save()
+                print("Journal entry saved.")
+            } catch {
+                print("Failed to save journal entry: \(error.localizedDescription)")
+            }
+        }
 }
 
 private struct WrappingHStack: Layout {
@@ -149,4 +208,6 @@ private struct WrappingHStack: Layout {
 
 #Preview {
     JournalingNightView()
+        .environmentObject(PersonValue())
+       
 }

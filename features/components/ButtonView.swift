@@ -94,6 +94,36 @@ struct LinearGrayButtonSmall: ButtonStyle {
     }
 }
 
+struct MorningButtonCheckedSmall: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(.vertical)
+            .padding(.horizontal, 10)
+            .fontWeight(.medium)
+            .frame(height: 30)
+            .background(
+                Color.buttonMorningChecked
+            )
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+    }
+}
+
+struct NightButtonCheckedSmall: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(.vertical)
+            .padding(.horizontal, 10)
+            .fontWeight(.medium)
+            .frame(height: 30)
+            .background(
+                Color.buttonNightChecked
+            )
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+    }
+}
+
 struct LinearGrayButtonSmallTextPurple: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -329,6 +359,38 @@ struct ButtonNext: ViewModifier {
             .padding().frame(maxWidth:350)
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
+struct LinearGrayButtonModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(.vertical)
+            .padding(.horizontal, 10)
+            .fontWeight(.medium)
+            .frame(height: 30)
+            .background(
+                LinearGradient(gradient: Gradient(stops: [
+                    .init(color: Color.white.opacity(0.5), location: 0),
+                    .init(color: Color.white.opacity(0.2), location: 1)
+                ]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            )
+            .foregroundStyle(Color(red: 255/255, green: 199/255, blue: 61/255))
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+    }
+}
+
+struct MorningButtonCheckedModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(.vertical)
+            .padding(.horizontal, 10)
+            .fontWeight(.medium)
+            .frame(height: 30)
+            .background(
+                Color.buttonMorningChecked
+            )
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
     }
 }
 
