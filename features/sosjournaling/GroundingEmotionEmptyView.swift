@@ -1,146 +1,161 @@
 import SwiftUI
 
 struct GroundingEmotionEmptyView: View {
-    
-    @State private var isChecked = Array(repeating: false, count: 11)
-    @State private var selectedKey: String? = nil
-    
-    let feelings: [String: String] = [
-        "Stressed": "When you feel light-headed and it’s hard to breathe because everything feels like crushing you.",
-        "Frustrated": "When you feel light-headed and it’s hard to breathe because everything feels like crushing you",
-        "Anxious": "When you feel light-headed and it’s hard to breathe because everything feels like crushing you 2",
-        "Disappointed": "When you feel light-headed and it’s hard to breathe because everything feels like crushing you 4",
-        "Insecure": "When you feel light-headed and it’s hard to breathe because everything feels like crushing you 5",
-        "Ashamed": "When you feel light-headed and it’s hard to breathe because everything feels like crushing you 10",
-        "Annoyed": "When you feel light-headed and it’s hard to breathe because everything feels like crushing you",
-        "Creativity": "When you feel light-headed and it’s hard to breathe because everything feels like crushing youwqw",
-        "Troubled": "When you feel light-headed and it’s hard to breathe because everything feels like crushing youweq",
-        "Pressured": "When you feel light-headed and it’s hard to breathe because everything feels like crushing you",
-        "Apathetic": "When you feel light-headed and it’s hard to breathe because everything feels like crushing you"
+    let feelings: [(key: String, value: String)] = [
+        ("Stressed", "When you feel light-headed and it's hard to breathe because everything feels like crushing you."),
+        ("Frustrated", "When you feel light-headed and it's hard to breathe because everything feels like crushing you"),
+        ("Anxious", "When you feel light-headed and it's hard to breathe because everything feels like crushing you 2"),
+        ("Disappointed", "When you feel light-headed and it's hard to breathe because everything feels like crushing you 4"),
+        ("Insecure", "When you feel light-headed and it's hard to breathe because everything feels like crushing you 5"),
+        ("Ashamed", "When you feel light-headed and it's hard to breathe because everything feels like crushing you 10"),
+        ("Annoyed", "When you feel light-headed and it's hard to breathe because everything feels like crushing you"),
+        ("Creativity", "When you feel light-headed and it's hard to breathe because everything feels like crushing youwqw"),
+        ("Troubled", "When you feel light-headed and it's hard to breathe because everything feels like crushing youweq"),
+        ("Pressured", "When you feel light-headed and it's hard to breathe because everything feels like crushing you")
     ]
     
+    @State private var changeSize = false
+    
+    @State private var selectedKey: Int?
+    
     var body: some View {
-        NavigationStack{
-            ScrollView {
-                Rectangle()
-                    .stroke(Color.black, lineWidth: 2)
-                    .fill(Color.gray)
-                    .frame(width: 393, height: 274)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                Spacer()
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("NOTICE AND NAME")
-                        .font(.caption2).fontWeight(.semibold).foregroundColor(Color.gray)
-                    Text("A storm is brewing inside…")
-                        .font(.title2)
-                    Text("Choose the unkind emotion(s) you’re feeling right now")
-                        .font(.title).fontWeight(.bold).foregroundColor(Color.black)
+        ZStack {
+            Color.black.edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                ZStack {
+                    Circle()
+                        .fill(RadialGradient(
+                            gradient: Gradient(colors: [Color.orange, Color.clear]),
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: changeSize ? 70 : 100
+                        ))
+                        
+                    Circle()
+                        .fill(RadialGradient(
+                            gradient: Gradient(colors: [Color.orange, Color.clear]),
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: changeSize ? 30 : 50
+                        ))
+                        .offset(x:150, y:100)
+                    
+                    Circle()
+                        .fill(RadialGradient(
+                            gradient: Gradient(colors: [Color.orange, Color.clear]),
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: changeSize ? 70 : 100
+                        ))
+                        .offset(x:-200, y:80)
+                    
+                    Circle()
+                        .fill(RadialGradient(
+                            gradient: Gradient(colors: [Color.orange, Color.clear]),
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: changeSize ? 20 : 30
+                        ))
+                        .offset(x:-120, y:-70)
+                    
+                    Circle()
+                        .fill(RadialGradient(
+                            gradient: Gradient(colors: [Color.orange, Color.clear]),
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: changeSize ? 30 : 50
+                        ))
+                        .offset(x:200, y:-80)
                 }
-                .padding(.horizontal)
-                .padding(.top, 20)
-                .padding(.bottom, 12)
+                .offset(y:-80)
+                .onAppear{
+                    withAnimation(.easeInOut(duration: 3.0).repeatForever(autoreverses: true)){
+                        changeSize.toggle()
+                    }
+                }
                 
                 VStack {
-                    let keys = Array(feelings.keys)
-                    ForEach(keys, id: \.self) { key in
-                        let index = keys.firstIndex(of: key) ?? 0
-                        HStack {
-                            HStack {
-                                CheckBoxView(checked: self.$isChecked[index])
-                                Text(key)
-                                    .font(.body)
-                                    .fontWeight(.light)
-                            }
-                            Spacer()
-                            chevronView(checked: self.isSelected(key: key))
-                                .onTapGesture {
-                                    self.toggleSelection(for: key)
+                    Text("NOTICE AND NAME")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                    
+                    Text("How do you feel right now?")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                    
+                    
+                    ScrollView(.vertical) {
+                        ForEach(0..<feelings.count, id: \.self) { index in
+                            FeelingRow(
+                                index: index,
+                                feeling: feelings[index].key,
+                                description: feelings[index].value,
+                                isSelected: selectedKey == index,
+                                onSelect: {
+                                    selectedKey = selectedKey == index ? nil : index
                                 }
+                            )
+                            Divider()
+                                .background(.gray)
                         }
-                        if self.isSelected(key: key) {
-                            Text(self.feelings[key] ?? "")
-                                .font(.body)
-                                .foregroundColor(Color(red: 142/255, green: 142/255, blue: 147/255))
-                                .fontWeight(.light)
-                                .padding(.top, 6)
-                                .padding(.leading, 16)
-                                .overlay(
-                                    Divider()
-                                        .background(Color.gray),
-                                    alignment: .top
-                                )
-                                .padding(.top, 6)
-                                .padding(.horizontal, -1)
-                        }
-                        Spacer()
                     }
+                    .background(.darkGray)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .frame(minHeight: 400)
                 }
-                .padding(.horizontal)
-                .padding(.horizontal)
-                .padding(.leading, 10)
+                .offset(CGSize(width: 0, height: -110))
                 
-                HStack {
-                    NavigationLink( destination:
-                                        GroundingRefocusSightView()){
-                        Text("Back")
-                            .modifier(ButtonGray())
-                            .frame(maxWidth: 80)
-                    }
-                    
-                    //                Button("Next") {
-                    //                    print("Button pressed!")
-                    //                }
-                    //                .buttonStyle(BlackButton())
-                    NavigationLink( destination:
-                        GroundingSlowingDownFinishedView()){
-                        Text("Next")
-                            .modifier(ButtonGreen())
-                        
-                    }
-                    
+                NavigationLink(destination: GroundingSlowingDownInSessionView()){
+                    Text("Next")
+                        .fontWeight(.bold)
+                        .foregroundColor(.fillButton)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
                 }
                 .padding()
-                .navigationBarBackButtonHidden(true)
-                
-                Spacer()
-                Spacer()
-                Spacer()
+                .offset(CGSize(width: 0, height: -110.0))
             }
-            .ignoresSafeArea(.all)
         }
     }
-    
-    private func isChecked(for key: String) -> Binding<Bool> {
-         return Binding<Bool>(
-             get: { self.selectedKey == key },
-             set: { _ in self.toggleSelection(for: key) }
-         )
-     }
-     
-     private func isSelected(key: String) -> Bool {
-         return self.selectedKey == key
-     }
-     
-     private func toggleSelection(for key: String) {
-         if self.selectedKey == key {
-             self.selectedKey = nil
-         } else {
-             self.selectedKey = key
-         }
-     }
 }
 
-struct chevronView: View {
-    var checked: Bool
+struct FeelingRow: View {
+    let index: Int
+    let feeling: String
+    let description: String
+    let isSelected: Bool
+    let onSelect: () -> Void
     
     var body: some View {
-        Image(systemName: checked ? "chevron.down" : "info.circle")
-            .foregroundColor(Color(UIColor.systemBlue))
-            .font(.body)
-            .fontWeight(.bold)
+        Button(action: onSelect) {
+            HStack {
+                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                    .foregroundColor(.blue)
+                
+                Text(feeling)
+                    .foregroundColor(.white)
+                
+                Spacer()
+                
+                Image(systemName: "info.circle")
+                    .foregroundColor(.blue)
+            }
+            .padding()
+            
+        }
     }
 }
 
-#Preview {
-    GroundingEmotionEmptyView()
+struct GroundingEmotionEmptyView_Previews: PreviewProvider {
+    static var previews: some View {
+        GroundingEmotionEmptyView()
+    }
 }

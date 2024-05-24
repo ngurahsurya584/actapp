@@ -358,6 +358,16 @@ struct ButtonWhiteSmall : ViewModifier {
     
 }
 
+struct ButtonNext: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(.fillButton)
+            .padding().frame(maxWidth:350)
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
+
 #Preview {
     ButtonView()
 }

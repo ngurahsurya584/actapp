@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct JournalingMorningTransmission: View {
+    @State private var changeSize = false
     
     var body: some View {
         NavigationStack{
@@ -19,7 +20,18 @@ struct JournalingMorningTransmission: View {
                 .multilineTextAlignment(.center)
                 
                 Spacer()
-                Image("dummy")
+                Circle()
+                    .fill(RadialGradient(
+                        gradient: Gradient(colors: [.buttonAovStart,.buttonAovMiddle, .buttonAovStop, .clear]),
+                        center: .center,
+                        startRadius: 0,
+                        endRadius: changeSize ? 200 : 160
+                    ))
+                    .onAppear{
+                        withAnimation(.easeInOut(duration: 3.0).repeatForever(autoreverses: true)){
+                            changeSize.toggle()
+                        }
+                    }
                 Spacer()
                 
                 Text("Planning ahead will increase the likeliness of reaching your values.")
