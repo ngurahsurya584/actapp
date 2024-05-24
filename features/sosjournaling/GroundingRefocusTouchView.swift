@@ -111,8 +111,7 @@ struct GroundingRefocusTouchView: View {
                 Spacer()
                 
                 HStack {
-                    NavigationLink( destination:
-                                        GroundingAffirmationView()){
+                    NavigationLink( destination: GroundingSummaryView()){
                         Text("Finish")
                             .modifier(ButtonNext())
                         

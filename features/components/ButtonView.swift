@@ -112,6 +112,27 @@ struct LinearGrayButtonSmallTextPurple: ButtonStyle {
     }
 }
 
+struct LinearGrayButtonSmallTextGreen: ButtonStyle {
+    func makeBody(configuration:
+        
+        Configuration) -> some View {
+        configuration.label
+            .padding(.vertical)
+            .padding(.horizontal, 10)
+            .fontWeight(.medium)
+            .frame(height: 30)
+            .background(
+                LinearGradient(gradient: Gradient(stops: [
+                    .init(color: Color.white.opacity(0.5), location: 0),
+                    .init(color: Color.white.opacity(0.2), location: 1)
+                ]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            )
+            .foregroundStyle(Color(red: 0/255, green: 223/255, blue: 39/255))
+            .clipShape(RoundedRectangle(cornerRadius: 50))
+    }
+}
+
+
 struct PrimaryButtonSmall: ButtonStyle {
     func makeBody(configuration:
         
