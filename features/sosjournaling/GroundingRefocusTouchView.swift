@@ -110,7 +110,9 @@ struct GroundingRefocusTouchView: View {
                     NavigationLink( destination: GroundingSummaryView()){
                         Text("Finish")
                             .modifier(ButtonNext())
-                    }
+                    }.simultaneousGesture(TapGesture().onEnded {
+                       saveAndNavigate()
+                    })
                     
                 }
                 .padding()

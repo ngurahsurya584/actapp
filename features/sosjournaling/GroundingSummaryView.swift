@@ -1,36 +1,35 @@
-//
-//  GroundingSummaryView.swift
-//  actapp
-//
-//  Created by Channy Lim on 24/05/24.
-//
-
 import SwiftUI
+import CoreData
 
 struct GroundingSummaryView: View {
-    var feelings = "Anxiety"
-    var seenItems = "Water Bottle, ID Card, Food, Spoon, iPad"
-    var heardItems = "Wind, People, Keyboard"
-    var smeltItems = "Fried Chicken"
-    var feltItems = "Smooth"
+    @FetchRequest(
+        entity: Grounding.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \Grounding.date, ascending: false)],
+        predicate: nil,
+        animation: .default)
+    private var groundingEntries: FetchedResults<Grounding>
     
-    func strToArr(_ str: String) -> [String] {
-        return str.components(separatedBy: ",")
+    private func strToArr(_ str: String?) -> [String] {
+        return str?.components(separatedBy: ",") ?? []
+    }
+    
+    private var latestEntry: Grounding? {
+        return groundingEntries.first
     }
     
     var body: some View {
-        
-        NavigationStack{
-            VStack(spacing: 0){
+        NavigationStack {
+            VStack(spacing: 0) {
                 Text("I NOTICED THAT THESE DIFFICULT FEELINGS ARE APPEARING")
                     .font(.system(size: 14))
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
                     .padding(.bottom, 20)
-                VStack{
+                
+                VStack {
                     HStack(spacing: 12) {
-                        ForEach(strToArr(feelings), id: \.self) { value in
+                        ForEach(strToArr(latestEntry?.trigger), id: \.self) { value in
                             Button(value) {
                                 print("Button pressed!")
                             }
@@ -54,9 +53,10 @@ struct GroundingSummaryView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
                     .padding(.bottom, 20)
-                VStack{
+                
+                VStack {
                     WrappingHStack(horizontalSpacing: 12) {
-                        ForEach(strToArr(seenItems), id: \.self) { value in
+                        ForEach(strToArr(latestEntry?.seenItems), id: \.self) { value in
                             Button(value) {
                                 print("Button pressed!")
                             }
@@ -73,9 +73,10 @@ struct GroundingSummaryView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
                     .padding(.bottom, 20)
-                VStack{
+                
+                VStack {
                     HStack(spacing: 12) {
-                        ForEach(strToArr(heardItems), id: \.self) { value in
+                        ForEach(strToArr(latestEntry?.heardItems), id: \.self) { value in
                             Button(value) {
                                 print("Button pressed!")
                             }
@@ -92,9 +93,10 @@ struct GroundingSummaryView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
                     .padding(.bottom, 20)
-                VStack{
+                
+                VStack {
                     HStack(spacing: 12) {
-                        ForEach(strToArr(smeltItems), id: \.self) { value in
+                        ForEach(strToArr(latestEntry?.smeltItems), id: \.self) { value in
                             Button(value) {
                                 print("Button pressed!")
                             }
@@ -111,9 +113,10 @@ struct GroundingSummaryView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
                     .padding(.bottom, 20)
-                VStack{
+                
+                VStack {
                     HStack(spacing: 12) {
-                        ForEach(strToArr(feltItems), id: \.self) { value in
+                        ForEach(strToArr(latestEntry?.feltItems), id: \.self) { value in
                             Button(value) {
                                 print("Button pressed!")
                             }
@@ -126,7 +129,7 @@ struct GroundingSummaryView: View {
                 
                 Spacer()
                 
-                NavigationLink( destination: JournalingView()){
+                NavigationLink(destination: JournalingView()) {
                     Text("Finish")
                         .modifier(ButtonGreen())
                 }
@@ -147,7 +150,6 @@ struct GroundingSummaryView: View {
             }
         }
     }
-    
 }
 
 private struct WrappingHStack: Layout {
@@ -203,6 +205,8 @@ private struct WrappingHStack: Layout {
     }
 }
 
-#Preview {
-    GroundingSummaryView()
+struct GroundingSummaryView_Previews: PreviewProvider {
+    static var previews: some View {
+        GroundingSummaryView()
+    }
 }
