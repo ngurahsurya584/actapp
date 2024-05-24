@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A12368A2C00E3E800BAA4CF /* GroundingSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1236892C00E3E800BAA4CF /* GroundingSummaryView.swift */; };
 		0A38AD542BFF056B000436CF /* JournalingMorningSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38AD532BFF056B000436CF /* JournalingMorningSummaryView.swift */; };
 		0A38AD562BFF243D000436CF /* JournalingNightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38AD552BFF243D000436CF /* JournalingNightView.swift */; };
 		0A38AD582BFF2A54000436CF /* JournalingNightSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38AD572BFF2A54000436CF /* JournalingNightSummaryView.swift */; };
@@ -36,6 +37,9 @@
 		8A88EB982BFDC9760068A9A6 /* GroundingBreathingDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB972BFDC9760068A9A6 /* GroundingBreathingDownView.swift */; };
 		8A88EB9A2BFDF7740068A9A6 /* GroundingPushFeetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB992BFDF7740068A9A6 /* GroundingPushFeetView.swift */; };
 		8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF888D82BEA3B1600597EB9 /* ButtonView.swift */; };
+		9F01B6402C0037B30013F2A4 /* CobaInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01B63F2C0037B30013F2A4 /* CobaInsightsView.swift */; };
+		9F01B6422C006AE60013F2A4 /* CobaInsightsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01B6412C006AE60013F2A4 /* CobaInsightsDetailView.swift */; };
+		9F01B6442C0079040013F2A4 /* CobaInsightsDetailGroundingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01B6432C0079040013F2A4 /* CobaInsightsDetailGroundingView.swift */; };
 		9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA52BED349B0041D509 /* SplashScreenView.swift */; };
 		9F392EAA2BED387C0041D509 /* OnboardingIntroFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EA92BED387C0041D509 /* OnboardingIntroFirstView.swift */; };
 		9F392EAC2BED39150041D509 /* OnboardingIntroSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F392EAB2BED39150041D509 /* OnboardingIntroSecondView.swift */; };
@@ -66,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A1236892C00E3E800BAA4CF /* GroundingSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingSummaryView.swift; sourceTree = "<group>"; };
 		0A38AD532BFF056B000436CF /* JournalingMorningSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingMorningSummaryView.swift; sourceTree = "<group>"; };
 		0A38AD552BFF243D000436CF /* JournalingNightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingNightView.swift; sourceTree = "<group>"; };
 		0A38AD572BFF2A54000436CF /* JournalingNightSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingNightSummaryView.swift; sourceTree = "<group>"; };
@@ -98,6 +103,9 @@
 		8A88EB972BFDC9760068A9A6 /* GroundingBreathingDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingBreathingDownView.swift; sourceTree = "<group>"; };
 		8A88EB992BFDF7740068A9A6 /* GroundingPushFeetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingPushFeetView.swift; sourceTree = "<group>"; };
 		8AF888D82BEA3B1600597EB9 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		9F01B63F2C0037B30013F2A4 /* CobaInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CobaInsightsView.swift; sourceTree = "<group>"; };
+		9F01B6412C006AE60013F2A4 /* CobaInsightsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CobaInsightsDetailView.swift; sourceTree = "<group>"; };
+		9F01B6432C0079040013F2A4 /* CobaInsightsDetailGroundingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CobaInsightsDetailGroundingView.swift; sourceTree = "<group>"; };
 		9F392EA52BED349B0041D509 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		9F392EA92BED387C0041D509 /* OnboardingIntroFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroFirstView.swift; sourceTree = "<group>"; };
 		9F392EAB2BED39150041D509 /* OnboardingIntroSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroSecondView.swift; sourceTree = "<group>"; };
@@ -160,6 +168,7 @@
 				8A88EB992BFDF7740068A9A6 /* GroundingPushFeetView.swift */,
 				0A8417952BF28043001E707D /* GroundingRefocusSightView.swift */,
 				0A8417912BF27E10001E707D /* GroundingRefocusTouchView.swift */,
+				0A1236892C00E3E800BAA4CF /* GroundingSummaryView.swift */,
 				0A84178C2BF2779B001E707D /* GroundingAffirmationView.swift */,
 				8A88EB7F2BF7A5FD0068A9A6 /* MainView.swift */,
 			);
@@ -185,6 +194,9 @@
 			children = (
 				8A0404622BEB5952002202F0 /* InsightsView.swift */,
 				0A84179B2BF8FEE7001E707D /* InsightsDetailView.swift */,
+				9F01B63F2C0037B30013F2A4 /* CobaInsightsView.swift */,
+				9F01B6412C006AE60013F2A4 /* CobaInsightsDetailView.swift */,
+				9F01B6432C0079040013F2A4 /* CobaInsightsDetailGroundingView.swift */,
 			);
 			path = insights;
 			sourceTree = "<group>";
@@ -412,6 +424,7 @@
 				8A0404A12BF06AFB002202F0 /* CardsView.swift in Sources */,
 				8A88EB802BF7A5FD0068A9A6 /* MainView.swift in Sources */,
 				0A8417982BF36ABC001E707D /* GroundingEmotionEmptyView.swift in Sources */,
+				9F01B6422C006AE60013F2A4 /* CobaInsightsDetailView.swift in Sources */,
 				0A8417A02BFCEC53001E707D /* JournalingView.swift in Sources */,
 				8A1CC70F2C00680000DCC858 /* GrassData.xcdatamodeld in Sources */,
 				0A38AD5A2BFF2D2B000436CF /* JournalingNightCompletedView.swift in Sources */,
@@ -435,7 +448,9 @@
 				0A38AD562BFF243D000436CF /* JournalingNightView.swift in Sources */,
 				9F392EAC2BED39150041D509 /* OnboardingIntroSecondView.swift in Sources */,
 				8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */,
+				9F01B6402C0037B30013F2A4 /* CobaInsightsView.swift in Sources */,
 				9FDA84492BF97A2C009961DD /* GroundingSlowingDownInSessionView.swift in Sources */,
+				9F01B6442C0079040013F2A4 /* CobaInsightsDetailGroundingView.swift in Sources */,
 				9FDA84472BF90237009961DD /* StrikeView.swift in Sources */,
 				8A0404632BEB5952002202F0 /* InsightsView.swift in Sources */,
 				0A84179C2BF8FEE7001E707D /* InsightsDetailView.swift in Sources */,
@@ -444,6 +459,7 @@
 				9F392EA62BED349B0041D509 /* SplashScreenView.swift in Sources */,
 				0A38AD542BFF056B000436CF /* JournalingMorningSummaryView.swift in Sources */,
 				0A38AD582BFF2A54000436CF /* JournalingNightSummaryView.swift in Sources */,
+				0A12368A2C00E3E800BAA4CF /* GroundingSummaryView.swift in Sources */,
 				9F392EAA2BED387C0041D509 /* OnboardingIntroFirstView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
