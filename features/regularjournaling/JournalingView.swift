@@ -19,6 +19,7 @@ struct JournalingView: View {
 }
 
 struct TodaysFocusView: View {
+    @State private var changeSize = false
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
@@ -37,9 +38,21 @@ struct TodaysFocusView: View {
                     .frame(width: UIScreen.main.bounds.width * 0.3, alignment: .leading)
             }
             .zIndex(2)
-            Image("dummy")
-                .zIndex(1)
+            Circle()
+                .fill(RadialGradient(
+                    gradient: Gradient(colors: [.buttonAovStart,.buttonAovMiddle, .buttonAovStop, .clear]),
+                    center: .center,
+                    startRadius: 0,
+                    endRadius: changeSize ? 200 : 160
+                ))
+                .onAppear{
+                    withAnimation(.easeInOut(duration: 3.0).repeatForever(autoreverses: true)){
+                        changeSize.toggle()
+                    }
+                }
+            
         }
+        
     }
 }
 
