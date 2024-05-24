@@ -23,10 +23,7 @@ struct JournalingNightSummaryView: View {
                 VStack{
                     HStack(spacing: 12) {
                         ForEach(chosenThreeValues, id: \.self) { value in
-                            Button(value) {
-                                print("Button pressed!")
-                            }
-                            .buttonStyle(LinearGrayButtonSmallTextPurple())
+                            Text(value).modifier(LinearGrayButtonSmallTextPurple())
                         }
                     }
                     .font(.callout)

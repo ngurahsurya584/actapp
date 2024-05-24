@@ -35,10 +35,7 @@ struct JournalingNightView: View {
                     VStack{
                         WrappingHStack(horizontalSpacing: 12, verticalSpacing: 12) {
                             ForEach(chosenFiveValues, id: \.self) { value in
-                                Button(value) {
-                                    print("Button pressed!")
-                                }
-                                .buttonStyle(LinearGrayButtonSmallTextPurple())
+                                Text(value).modifier(LinearGrayButtonSmallTextPurple())
                             }
                             
                         }
