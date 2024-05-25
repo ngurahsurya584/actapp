@@ -11,7 +11,7 @@ struct CobaInsightsView: View {
     let chosenFiveValues = ["Kindness", "Patience", "Supportive", "Creativity", "Hard work"]
     let chosenoneValue = ["Kindness"]
 
-    
+    @State private var showModal = false
     
     var body: some View {
         NavigationStack{
@@ -25,45 +25,62 @@ struct CobaInsightsView: View {
                     VStack{
                         ZStack{
                             Rectangle()
-                                .fill(RadialGradient(
+                                .fill(LinearGradient(
                                     gradient: Gradient(colors: [
-                                        Color(red: 0/255, green: 77/255, blue: 0/255),
-                                        Color(red: 105/255, green: 210/255, blue: 152/255)
+                                        Color(red: 182/255, green: 182/255, blue: 182/255),
+                                        Color(red: 128/255, green: 128/255, blue: 128/255),
+                                        Color(red: 169/255, green: 169/255, blue: 169/255),
+                                        Color(red: 128/255, green: 128/255, blue: 128/255)
                                     ]),
-                                    center: .leading,
-                                    startRadius: 0,
-                                    endRadius: 293))
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing))
                                 .frame(width: 393, height: 233)
+
+
                             VStack{
                                 Text("You've spent")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundStyle(.white)
-                                    .frame(width: 361, alignment: .leading)
                                 StrokeText(text: "100", width: 0.5, color: .green)
                                     .font(.system(size: 48))
                                     .fontWeight(.bold)
                                     .foregroundStyle(.white)
-                                    .frame(width: 361, alignment: .leading)
                                 Text("days practicing")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundStyle(.white)
-                                    .frame(width: 361, alignment: .leading)
                                 VStack{
-                                    WrappingHStack(horizontalSpacing: 12, verticalSpacing: 12) {
+                                    WrappingHStack(horizontalSpacing: 8, verticalSpacing: 5) {
                                         ForEach(chosenFiveValues, id: \.self) { value in
                                             Text(value).modifier(LinearWhiteButtonSmall())
                                         }
                                         
                                     }
                                     .font(.callout)
-                                    .padding(.horizontal)
+                                    .padding(.horizontal, 43)
+                                }
+                                HStack{
+                                    Image(systemName: "pencil")
+                                        .font(.callout)
+                                        .fontWeight(.light)
+                                        .foregroundStyle(.white)
+                                    Text("Edit values")
+                                        .font(.callout)
+                                        .fontWeight(.light)
+                                        .foregroundStyle(.white)
+                                }
+                                .onTapGesture {
+                                    showModal = true
+                                }
+                                .sheet(isPresented: $showModal) {
+                                    EditValuesView(showModal: $showModal)
                                     
                                 }
                                 
                             }
                         }
+                        
                     }
                     VStack{
                         HStack {
@@ -295,28 +312,207 @@ struct CobaInsightsView: View {
         }
     }
 
-struct ModalView: View {
-    let feelings: [String: String]
+struct EditValuesView: View {
+    @Binding var showModal: Bool
+    
+    @State private var isChecked = Array(repeating: false, count: 58)
+    @State private var selectedKey: String? = nil
+    
+    let feelings: [String: String] = [
+        "Acceptance": "to be open to and accepting of myself, others, and life.",
+        "Adventure": "to be adventurous; to actively seek, create, or explore novel or stimulating experiences.",
+        "Assertiveness": "to respectfully stand up for my rights and request what I want",
+        "Authenticity": "to be authentic, genuine, real; to be true to myself.",
+        "Beauty": "to appreciate, create, nurture, or cultivate beauty in myself, others, and the environment.",
+        "Caring": "to be caring towards myself, others, and the environment.",
+        "Challenge": "to keep challenging myself to grow, learn, and improve.",
+        "Compassion": "to act with kindness towards those who are suffering.",
+        "Connection": "to engage fully in whatever I am doing and be fully present with others.",
+        "Contribution": "to contribute, help, assist, or make a positive difference to myself or others.",
+        "Conformity": "to be respectful and obedient of rules and obligations.",
+        "Cooperation": "to be cooperative and collaborative with others.",
+        "Courage": "to be courageous or brave; to persist in the face of fear, threat, or difficulty.",
+        "Creativity": "to be creative or innovative.",
+        "Curiosity": "to be curious, open-minded, and interested; to explore and discover.",
+        "Encouragement": "to encourage and reward behavior that I value in myself or others.",
+        "Equality": "to treat others as equal to myself.",
+        "Excitement": "to seek, create, and engage in activities that are exciting, stimulating, or thrilling.",
+        "Fairness": "to be fair to myself or others.",
+        "Fitness": "to maintain or improve my fitness; to look after my physical and mental health and well-being.",
+        "Flexibility": "to adjust and adapt readily to changing circumstances.",
+        "Freedom": "to live freely; to choose how I live and behave, or help others do likewise.",
+        "Friendliness": "to be friendly, companionable, or agreeable towards others.",
+        "Forgiveness": "to be forgiving towards myself or others.",
+        "Fun": "to be fun-loving; to seek, create, and engage in fun-filled activities.",
+        "Generosity": "to be generous, sharing, and giving to myself or others.",
+        "Gratitude": "to be grateful for and appreciative of the positive aspects of myself, others, and life.",
+        "Honesty": "to be honest, truthful, and sincere with myself and others.",
+        "Humor": "to see and appreciate the humorous side of life.",
+        "Humility": "to be humble or modest; to let my achievements speak for themselves.",
+        "Industry": "to be industrious, hard-working, and dedicated.",
+        "Independence": "to be self-supportive and choose my own way of doing things.",
+        "Intimacy": "to open up, reveal, and share myself- emotionally or physically in my close personal relationships.",
+        "Justice": "to uphold justice and fairness.",
+        "Kindness": "to be kind, compassionate, considerate, nurturing, or caring towards myself or others.",
+        "Love": "to act lovingly or affectionately towards myself or others.",
+        "Mindfulness": "to be conscious of, open to, and curious about my here-and-now experience.",
+        "Order": "to be orderly and organized.",
+        "Open-mindedness": "to think things through, see things from others’ points of view and weigh evidence fairly.",
+        "Patience": "to wait calmly for what I want.",
+        "Persistence": "to continue resolutely, despite problems or difficulties.",
+        "Pleasure": "to create and give pleasure to myself or others.",
+        "Power": "to strongly influence or wield authority over others, e.g. taking charge, leading, and organizing.",
+        "Reciprocity": "to build relationships in which there is a fair balance of giving and taking.",
+        "Respect:": "to be respectful towards myself or others; to be polite, considerate and show positive regard.",
+        "Responsibility": "to be responsible and accountable for my actions.",
+        "Romance": "to be romantic; to display and express love or strong affection.",
+        "Safety": "to secure, protect, or ensure safety of myself or others.",
+        "Self-awareness": "to be aware of my own thoughts, feelings, and actions.",
+        "Self-care": "to look after my health and well-being and get my needs met.",
+        "Self-development": "to keep growing, advancing, or improving in knowledge, skills, character or life experience.",
+        "Self-control": "to act in accordance with my own ideals.",
+        "Sensuality": "to create, explore, and enjoy experiences that stimulate the five senses.",
+        "Sexuality": "to explore or express my sexuality.",
+        "Spirituality": "to connect with things bigger than myself.",
+        "Skillfulness": "to continually practice and improve my skills and apply myself fully when using them.",
+        "Supportiveness": "to be supportive, helpful, encouraging, and available to myself or others",
+        "Trust": "to be trustworthy; to be loyal, faithful, sincere, and reliable."
+    ]
     
     var body: some View {
-        VStack {
-            // Looping melalui daftar emosi dan deskripsinya
-            ForEach(feelings.sorted(by: <), id: \.key) { key, value in
+            ScrollView {
                 VStack {
-                    // Tampilkan emosi dan deskripsi dalam modal
-                    Text(key)
-                        .font(.headline)
-                        .padding()
-                    Text(value)
-                        .padding()
+                    HStack {
+                        Button(action: {
+                            showModal = false
+                        }) {
+                            Text("Close")
+                                .foregroundStyle(.blue)
+                        }
+                        Spacer()
+                        Text("Edit Values")
+                            .font(.body)
+                            .fontWeight(.bold)
+                        Spacer()
+                        // Placeholder to balance the HStack
+                        Button(action: {
+                            showModal = false
+                        }) {
+                            Text("Save")
+                                .foregroundStyle(.blue)
+                        }
+                    }
+                    .padding()
+                    ZStack {
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack(spacing: 10) {
+                                Image(systemName: "magnifyingglass")
+                                    
+                                Text("Search")
+                                    .font(.body)
+                                    .fontWeight(.light)
+                                    
+                                Spacer()
+                                Image(systemName: "mic.fill")
+                                    
+                            }
+                        }
+                        .padding(.vertical, 10)
+                        .padding(.horizontal)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(
+                            LinearGradient(
+                                gradient: Gradient(colors: [Color.gray.opacity(0.2), Color.gray.opacity(0.2)]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                            .cornerRadius(10)
+                        )
+                    }
+                    .padding()
+                    VStack {
+                        let keys = Array(feelings.keys)
+                        ForEach(keys, id: \.self) { key in
+                            let index = keys.firstIndex(of: key) ?? 0
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    CheckBoxView(checked: self.$isChecked[index])
+                                    Text(key)
+                                        .font(.body)
+                                        .fontWeight(.light)
+                                    Spacer()
+                                    chevronView(checked: self.isSelected(key: key))
+                                        .onTapGesture {
+                                            self.toggleSelection(for: key)
+                                        }
+                                }
+                                if self.isSelected(key: key) {
+                                    Text(self.feelings[key] ?? "")
+                                        .font(.body)
+                                        .foregroundColor(Color(red: 142/255, green: 142/255, blue: 147/255))
+                                        .fontWeight(.light)
+                                        .padding(.top, 6)
+                                        .padding(.leading, 16)
+                                        .overlay(
+                                            Divider()
+                                                .background(Color(red: 28/255, green: 28/255, blue: 30/255))
+                                                .opacity(13),
+                                            alignment: .top
+                                        )
+                                        .padding(.top, 6)
+                                        .padding(.horizontal, -1)
+                                }
+                            }
+                            .padding(10)
+                            .background(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(Color(red: 28/255, green: 28/255, blue: 30/255))
+                                    .opacity(13)
+                            )
+                        }
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.leading, 10)
+                    
+                    Spacer()
                 }
-                .padding()
+            }
+            .foregroundColor(.white)
+            .background(.black)
+        }
+        
+        private func isChecked(for key: String) -> Binding<Bool> {
+            return Binding<Bool>(
+                get: { self.selectedKey == key },
+                set: { _ in self.toggleSelection(for: key) }
+            )
+        }
+        
+        private func isSelected(key: String) -> Bool {
+            return self.selectedKey == key
+        }
+        
+        private func toggleSelection(for key: String) {
+            if self.selectedKey == key {
+                self.selectedKey = nil
+            } else {
+                self.selectedKey = key
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.white)
+        
+    }
+
+struct chevronView: View {
+    var checked: Bool
+    
+    var body: some View {
+        Image(systemName: checked ? "chevron.down" : "info.circle")
+            .foregroundColor(Color(UIColor.systemBlue))
+            .font(.body)
+            .fontWeight(.bold)
     }
 }
+
 
 struct StrokeText: View {
     let text: String
