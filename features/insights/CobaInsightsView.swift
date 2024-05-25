@@ -25,52 +25,62 @@ struct CobaInsightsView: View {
                     VStack{
                         ZStack{
                             Rectangle()
-                                .fill(RadialGradient(
+                                .fill(LinearGradient(
                                     gradient: Gradient(colors: [
-                                        Color(red: 0/255, green: 77/255, blue: 0/255),
-                                        Color(red: 105/255, green: 210/255, blue: 152/255)
+                                        Color(red: 182/255, green: 182/255, blue: 182/255),
+                                        Color(red: 128/255, green: 128/255, blue: 128/255),
+                                        Color(red: 169/255, green: 169/255, blue: 169/255),
+                                        Color(red: 128/255, green: 128/255, blue: 128/255)
                                     ]),
-                                    center: .leading,
-                                    startRadius: 0,
-                                    endRadius: 293))
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing))
                                 .frame(width: 393, height: 233)
+
+
                             VStack{
                                 Text("You've spent")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundStyle(.white)
-                                    .frame(width: 361, alignment: .leading)
                                 StrokeText(text: "100", width: 0.5, color: .green)
                                     .font(.system(size: 48))
                                     .fontWeight(.bold)
                                     .foregroundStyle(.white)
-                                    .frame(width: 361, alignment: .leading)
                                 Text("days practicing")
                                     .font(.title2)
                                     .fontWeight(.bold)
                                     .foregroundStyle(.white)
-                                    .frame(width: 361, alignment: .leading)
                                 VStack{
-                                    WrappingHStack(horizontalSpacing: 12, verticalSpacing: 12) {
+                                    WrappingHStack(horizontalSpacing: 8, verticalSpacing: 5) {
                                         ForEach(chosenFiveValues, id: \.self) { value in
                                             Text(value).modifier(LinearWhiteButtonSmall())
                                         }
                                         
                                     }
                                     .font(.callout)
-                                    .padding(.horizontal)
+                                    .padding(.horizontal, 43)
+                                }
+                                HStack{
+                                    Image(systemName: "pencil")
+                                        .font(.callout)
+                                        .fontWeight(.light)
+                                        .foregroundStyle(.white)
+                                    Text("Edit values")
+                                        .font(.callout)
+                                        .fontWeight(.light)
+                                        .foregroundStyle(.white)
+                                }
+                                .onTapGesture {
+                                    showModal = true
+                                }
+                                .sheet(isPresented: $showModal) {
+                                    EditValuesView(showModal: $showModal)
                                     
                                 }
                                 
                             }
                         }
-                        .onTapGesture {
-                            showModal = true
-                        }
-                        .sheet(isPresented: $showModal) {
-                            EditValuesView(showModal: $showModal)
-                            
-                        }
+                        
                     }
                     VStack{
                         HStack {
