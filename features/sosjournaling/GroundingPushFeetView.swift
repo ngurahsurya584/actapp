@@ -2,6 +2,7 @@ import SwiftUI
 
 struct GroundingPushFeetView: View {
     @State private var gradientPhase: Int = 0
+    @State private var navigateToNextView = false
 
     var body: some View {
         NavigationStack {
@@ -15,6 +16,11 @@ struct GroundingPushFeetView: View {
                     Timer.scheduledTimer(withTimeInterval: 7.0, repeats: true) { _ in
                         gradientPhase = (gradientPhase + 1) % 4
                     }
+                    
+                    Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { _ in
+                        navigateToNextView = true
+                    }
+                    
                 }
                 .ignoresSafeArea()
 
@@ -28,8 +34,12 @@ struct GroundingPushFeetView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding()
-                .navigationBarBackButtonHidden(true)
+               
             }
+            .navigationDestination(isPresented: $navigateToNextView){
+                GroundingRefocusSightView()
+            }
+            .navigationBarBackButtonHidden(true)
         }
     }
 

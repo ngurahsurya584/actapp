@@ -3,17 +3,32 @@ import CoreData
 
 struct GroundingEmotionEmptyView: View {
     let feelings: [(key: String, value: String)] = [
-        ("Stressed", "When you feel light-headed and it's hard to breathe because everything feels like crushing you."),
-        ("Frustrated", "When you feel light-headed and it's hard to breathe because everything feels like crushing you"),
-        ("Anxious", "When you feel light-headed and it's hard to breathe because everything feels like crushing you 2"),
-        ("Disappointed", "When you feel light-headed and it's hard to breathe because everything feels like crushing you 4"),
-        ("Insecure", "When you feel light-headed and it's hard to breathe because everything feels like crushing you 5"),
-        ("Ashamed", "When you feel light-headed and it's hard to breathe because everything feels like crushing you 10"),
-        ("Annoyed", "When you feel light-headed and it's hard to breathe because everything feels like crushing you"),
-        ("Creativity", "When you feel light-headed and it's hard to breathe because everything feels like crushing youwqw"),
-        ("Troubled", "When you feel light-headed and it's hard to breathe because everything feels like crushing youweq"),
-        ("Pressured", "When you feel light-headed and it's hard to breathe because everything feels like crushing you")
+        ("Anger", "A strong feeling of annoyance, displeasure, or hostility."),
+        ("Annoyance", "A feeling of slight anger, irritation due to disturbance or unpleasant deeds."),
+        ("Contempt", "A feeling that a person is beneath consideration, worthless, or deserving scorn."),
+        ("Disgust", "A feeling of revulsion or strong disapproval aroused by something unpleasant or offensive."),
+        ("Irritation", "The state of feeling annoyed, impatient, or slightly angry."),
+        ("Anxiety", "A feeling of worry, nervousness, or unease, typically about an imminent event or something with an uncertain outcome."),
+        ("Embarrassment", "A feeling of self-consciousness, shame, or awkwardness."),
+        ("Fear", "An unpleasant emotion caused by the belief that someone or something is dangerous, likely to cause pain, or a threat."),
+        ("Helplessness", "The feeling or state of being unable to do anything to help yourself or anyone else."),
+        ("Powerlessness", "The state or character of being powerless; absence or lack of power."),
+        ("Worry", "A state of anxiety and uncertainty over actual or potential problems."),
+        ("Doubt", "A feeling of uncertainty or lack of conviction."),
+        ("Envy", "To feel resentful and unhappy because someone else possesses, or has achieved, what one wishes oneself to possess, or to have achieved."),
+        ("Frustration", "The feeling of being upset or annoyed, especially because of inability to change or achieve something."),
+        ("Guilt", "A feeling of worry or unhappiness that you have because you have done something wrong, such as causing harm to another person."),
+        ("Shame", "A painful feeling of humiliation or distress caused by the consciousness of wrong or foolish behavior."),
+        ("Boredom", "The feeling of being bored or uninterested in what you're doing."),
+        ("Despair", "The complete loss or absence of hope."),
+        ("Disappointment", "Sadness or displeasure caused by the nonfulfillment of one's hopes or expectations."),
+        ("Hurt", "Unhappiness or sadness caused by someone's words or actions."),
+        ("Sadness", "The feeling of being unhappy, especially because something bad has happened."),
+        ("Stress", "A state of mental or emotional strain or tension resulting from adverse or very demanding circumstances."),
+        ("Shock", "A sudden upsetting or surprising event or experience."),
+        ("Tension", "The feeling that is produced in a situation when people are anxious and do not trust each other, and when there is a possibility of sudden violence or conflict.")
     ]
+
     
     @State private var changeSize = false
     @State private var selectedKeys: [Int] = []
