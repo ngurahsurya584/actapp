@@ -377,20 +377,19 @@ struct EditValuesView: View {
                             showModal = false
                         }) {
                             Text("Close")
-                                .foregroundColor(Color.blue)
+                                .foregroundStyle(.blue)
                         }
                         Spacer()
                         Text("Edit Values")
                             .font(.body)
                             .fontWeight(.bold)
-                            .foregroundColor(Color.black)
                         Spacer()
                         // Placeholder to balance the HStack
                         Button(action: {
                             showModal = false
                         }) {
                             Text("Save")
-                                .foregroundColor(Color.blue)
+                                .foregroundStyle(.blue)
                         }
                     }
                     .padding()
@@ -398,14 +397,14 @@ struct EditValuesView: View {
                         VStack(alignment: .leading, spacing: 10) {
                             HStack(spacing: 10) {
                                 Image(systemName: "magnifyingglass")
-                                    .foregroundColor(Color.black)
+                                    
                                 Text("Search")
                                     .font(.body)
                                     .fontWeight(.light)
-                                    .foregroundColor(Color.black)
+                                    
                                 Spacer()
                                 Image(systemName: "mic.fill")
-                                    .foregroundColor(Color.black)
+                                    
                             }
                         }
                         .padding(.vertical, 10)
@@ -431,7 +430,6 @@ struct EditValuesView: View {
                                     Text(key)
                                         .font(.body)
                                         .fontWeight(.light)
-                                        .foregroundColor(Color.black)
                                     Spacer()
                                     chevronView(checked: self.isSelected(key: key))
                                         .onTapGesture {
@@ -447,8 +445,8 @@ struct EditValuesView: View {
                                         .padding(.leading, 16)
                                         .overlay(
                                             Divider()
-                                                .background(Color(red: 84/255, green: 84/255, blue: 88/255))
-                                                .opacity(0.65),
+                                                .background(Color(red: 28/255, green: 28/255, blue: 30/255))
+                                                .opacity(13),
                                             alignment: .top
                                         )
                                         .padding(.top, 6)
@@ -459,7 +457,7 @@ struct EditValuesView: View {
                             .background(
                                 RoundedRectangle(cornerRadius: 12)
                                     .fill(Color(red: 28/255, green: 28/255, blue: 30/255))
-                                    .opacity(0.28)
+                                    .opacity(13)
                             )
                         }
                     }
@@ -469,6 +467,8 @@ struct EditValuesView: View {
                     Spacer()
                 }
             }
+            .foregroundColor(.white)
+            .background(.black)
         }
         
         private func isChecked(for key: String) -> Binding<Bool> {
@@ -489,6 +489,7 @@ struct EditValuesView: View {
                 self.selectedKey = key
             }
         }
+        
     }
 
 struct chevronView: View {
