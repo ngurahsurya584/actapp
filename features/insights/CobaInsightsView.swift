@@ -467,7 +467,7 @@ struct EditValuesView: View {
                             .background(
                                 RoundedRectangle(cornerRadius: 12)
                                     .fill(Color(red: 28/255, green: 28/255, blue: 30/255))
-                                    .opacity(13)
+                                    .opacity(0.28)
                             )
                         }
                     }
