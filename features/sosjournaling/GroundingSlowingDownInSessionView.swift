@@ -12,6 +12,11 @@ struct GroundingSlowingDownInSessionView: View {
                 )
                 .animation(.easeInOut(duration: 7.0), value: gradientPhase)
                 .onAppear {
+                    if AudioManager.shared.audioPlayer == nil {
+                        AudioManager.shared.playSound(sound: "grounding", type: "mp3")
+                    } else {
+                        AudioManager.shared.play()
+                    }
                     Timer.scheduledTimer(withTimeInterval: 7.0, repeats: true) { _ in
                         gradientPhase = (gradientPhase + 1) % 4
                     }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A09896F2C036DC50011DADC /* grounding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A09896E2C036DC50011DADC /* grounding.mp3 */; };
+		0A0989722C036F510011DADC /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0989712C036F510011DADC /* PlaySound.swift */; };
 		0A12368A2C00E3E800BAA4CF /* GroundingSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1236892C00E3E800BAA4CF /* GroundingSummaryView.swift */; };
 		0A38AD542BFF056B000436CF /* JournalingMorningSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38AD532BFF056B000436CF /* JournalingMorningSummaryView.swift */; };
 		0A38AD562BFF243D000436CF /* JournalingNightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A38AD552BFF243D000436CF /* JournalingNightView.swift */; };
@@ -68,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A09896E2C036DC50011DADC /* grounding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = grounding.mp3; sourceTree = "<group>"; };
+		0A0989712C036F510011DADC /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		0A1236892C00E3E800BAA4CF /* GroundingSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingSummaryView.swift; sourceTree = "<group>"; };
 		0A38AD532BFF056B000436CF /* JournalingMorningSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingMorningSummaryView.swift; sourceTree = "<group>"; };
 		0A38AD552BFF243D000436CF /* JournalingNightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingNightView.swift; sourceTree = "<group>"; };
@@ -139,6 +143,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A0989702C036F140011DADC /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0A0989712C036F510011DADC /* PlaySound.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		0AE5BC5B2C036C4200EE1EF5 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				0A09896E2C036DC50011DADC /* grounding.mp3 */,
+			);
+			path = sound;
+			sourceTree = "<group>";
+		};
 		8A04045A2BEB1326002202F0 /* openingview */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +276,8 @@
 		8A88EB7C2BF74EAE0068A9A6 /* features */ = {
 			isa = PBXGroup;
 			children = (
+				0AE5BC5B2C036C4200EE1EF5 /* sound */,
+				0A0989702C036F140011DADC /* helpers */,
 				8A88EB832BF851970068A9A6 /* models */,
 				8AF888D72BEA2C9600597EB9 /* components */,
 				8A0404612BEB58F7002202F0 /* insights */,
@@ -390,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A30987E2BE8D4A200F27593 /* Preview Assets.xcassets in Resources */,
+				0A09896F2C036DC50011DADC /* grounding.mp3 in Resources */,
 				8A30987B2BE8D4A200F27593 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +475,7 @@
 				0A38AD542BFF056B000436CF /* JournalingMorningSummaryView.swift in Sources */,
 				0A38AD582BFF2A54000436CF /* JournalingNightSummaryView.swift in Sources */,
 				0A12368A2C00E3E800BAA4CF /* GroundingSummaryView.swift in Sources */,
+				0A0989722C036F510011DADC /* PlaySound.swift in Sources */,
 				9F392EAA2BED387C0041D509 /* OnboardingIntroFirstView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,6 +35,7 @@ struct GroundingBreathingDownView: View {
                 .ignoresSafeArea()
             )
             .onAppear {
+                AudioManager.shared.play()
                 Timer.scheduledTimer(withTimeInterval: 4.0, repeats: true) { _ in
                     withAnimation(.easeInOut(duration: 4.0)) {
                         changePosition.toggle()
