@@ -8,7 +8,7 @@ struct OnboardingReminderSettingView: View {
     
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             VStack {
                 VStack(alignment: .center) {
                     Text("Commit to your ")
@@ -60,10 +60,12 @@ struct OnboardingReminderSettingView: View {
                 }
                 
             }
+            .navigationBarBackButtonHidden()
             .padding()
             .padding(.top, 20)
             .background(Color(red: 17/255, green: 17/255, blue: 17/255))
             .foregroundColor(.white)
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

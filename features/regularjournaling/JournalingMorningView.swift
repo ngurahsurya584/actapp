@@ -1,20 +1,25 @@
-//
-//  ActingOnYourValues - Default.swift
-//  actapp
-//
-//  Created by Pedro Nicolas Cristiansen Hutabarat on 15/05/24.
-//
-
 import SwiftUI
 
 struct JournalingMorningView: View {
     @State private var text: String = ""
     @FocusState private var isFocused: Bool
+    @Environment(\.managedObjectContext) var moc
     
-    let chosenFiveValues = ["Kindness", "Patience", "Supportive", "Creativity", "Hard work"]
+    // State to keep track of selected values
+    @State private var selectedValues: [Bool]
+    @State private var selectedCount: Int = 0
+    
+    // State to manage alert presentation
+    @State private var showAlert: Bool = false
+    
+    @EnvironmentObject var userValue: PersonValue
+    
+    init() {
+        // Initialize selectedValues with all false (unselected) initially
+        _selectedValues = State(initialValue: Array(repeating: false, count: 5))
+    }
     
     var body: some View {
-        
         NavigationStack{
             VStack(spacing: 0){
                 Text("Start your day")
@@ -32,35 +37,65 @@ struct JournalingMorningView: View {
                 .padding(.bottom, 18)
                 VStack{
                     WrappingHStack(horizontalSpacing: 12, verticalSpacing: 12) {
-                        ForEach(chosenFiveValues, id: \.self) { value in
-                            Button(value) {
-                                print("Button pressed!")
+                        ForEach(Array(userValue.values.enumerated().filter { userValue.isChecked[$0.offset] }.prefix(5)), id: \.offset) { index, value in
+                            let isSelected = selectedValues[index]
+                            let valueName = value.name // Access the "name" key
+                            if isSelected {
+                                Button(action: {
+                                    if selectedValues[index] {
+                                        selectedValues[index].toggle()
+                                        selectedCount -= 1
+                                    } else if selectedCount < 3 {
+                                        selectedValues[index].toggle()
+                                        selectedCount += 1
+                                    } else {
+                                        showAlert = true
+                                    }
+                                }) {
+                                    Text(valueName) // Display the value name here
+                                }
+                                .buttonStyle(MorningButtonCheckedSmall())
+                            } else {
+                                Button(action: {
+                                    if selectedValues[index] {
+                                        selectedValues[index].toggle()
+                                        selectedCount -= 1
+                                    } else if selectedCount < 3 {
+                                        selectedValues[index].toggle()
+                                        selectedCount += 1
+                                    } else {
+                                        showAlert = true
+                                    }
+                                }) {
+                                    Text(valueName) // Display the value name here
+                                }
+                                .buttonStyle(LinearGrayButtonSmall())
                             }
-                            .buttonStyle(LinearGrayButtonSmall())
                         }
-                        
                     }
                     .font(.callout)
                     .padding(.bottom, 20)
                     .padding(.leading, -20)
                     
                 }
+                .alert("You can only select up to 3 values.", isPresented: $showAlert) {
+                    Button("OK", role: .cancel) {}
+                }
                 
-                Text("Describe how you will demonstrate those values in detail, e. g. : Today, I will act on my values of being caring by checking on my collegues at least once a day.")
+                Text("Describe how you will demonstrate those values in detail, e. g. : Today, I will act on my values of being caring by checking on my colleagues at least once a day.")
                     .font(.subheadline)
                     .foregroundStyle(Color(red: 235/255, green: 235/255, blue: 245/255))
                     .opacity(0.6)
                     .padding(.bottom, 38)
                 
                 ZStack(alignment: .topLeading) {
-                    
                     TextEditor(text: $text)
                         .frame(width: 353, height: 301)
                         .padding(.horizontal, 3)
                         .padding(.vertical, 5)
                         .scrollContentBackground(.hidden)
                         .background(
-                            RoundedRectangle (cornerRadius: 10)
+                            RoundedRectangle(cornerRadius: 10)
                                 .fill(.white)
                                 .opacity(0.13)
                         )
@@ -73,22 +108,41 @@ struct JournalingMorningView: View {
                         .onTapGesture {
                             isFocused = true
                         }
-                    
                 }
                 .padding(.bottom, 18)
                 
-                NavigationLink( destination: JournalingMorningSummaryView()){
+                NavigationLink(destination: JournalingMorningSummaryView()) {
                     Text("Next")
                         .modifier(ButtonWhiteTextYellow())
                 }
-                
+                .simultaneousGesture(TapGesture().onEnded {
+                    saveJournalEntry()
+                })
             }
             .padding()
             .frame(maxWidth: UIScreen.main.bounds.width * 1, maxHeight: .infinity)
             .padding(.top, 20)
             .foregroundColor(.white)
             .background(Color(red: 17/255, green: 17/255, blue: 17/255))
-            
+        }
+    }
+    
+    private func saveJournalEntry() {
+        let selectedValuesStrings = selectedValues.enumerated()
+            .filter { $0.element }
+            .compactMap { $0.offset < 5 ? userValue.values[$0.offset].name : nil } // Access the "name" key
+            .joined(separator: ", ")
+        
+        let newEntry = MorningJournaling(context: moc)
+        newEntry.date = Date()
+        newEntry.planValue = selectedValuesStrings
+        newEntry.describeValue = text
+        
+        do {
+            try moc.save()
+            print("Journal entry saved.")
+        } catch {
+            print("Failed to save journal entry: \(error.localizedDescription)")
         }
     }
 }
@@ -170,6 +224,4 @@ private struct WrappingHStack: Layout {
     }
 }
 
-#Preview {
-    JournalingMorningView()
-}
+

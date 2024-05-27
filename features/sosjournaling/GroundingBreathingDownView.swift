@@ -3,13 +3,14 @@ import SwiftUI
 struct GroundingBreathingDownView: View {
     @State private var changePosition = false
     @State private var changeText = false
+    @State private var navigateToNextView = false
 
     var body: some View {
         NavigationStack {
             VStack {
                 VStack {
                     VStack(spacing: 10) {
-                        Text(changeText ? "Slowly breath in" : "Slowly breath out")
+                        Text(changeText ? "Slowly breathe in" : "Slowly breathe out")
                             .font(.title)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
@@ -44,7 +45,15 @@ struct GroundingBreathingDownView: View {
                         changeText.toggle()
                     }
                 }
+                
+                Timer.scheduledTimer(withTimeInterval: 64.0, repeats: false) { _ in
+                    navigateToNextView = true
+                }
             }
+            .navigationDestination(isPresented: $navigateToNextView) {
+                GroundingPushFeetView()
+            }
+            .navigationBarBackButtonHidden()
         }
     }
 }

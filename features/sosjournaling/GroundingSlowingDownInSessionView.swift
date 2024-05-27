@@ -2,6 +2,7 @@ import SwiftUI
 
 struct GroundingSlowingDownInSessionView: View {
     @State private var gradientPhase: Int = 0
+    @State private var navigateToNextView = false
 
     var body: some View {
         NavigationStack {
@@ -10,7 +11,7 @@ struct GroundingSlowingDownInSessionView: View {
                                startPoint: startPoint(for: gradientPhase),
                                endPoint: endPoint(for: gradientPhase)
                 )
-                .animation(.easeInOut(duration: 7.0), value: gradientPhase)
+                .animation(.easeInOut(duration: 5.0), value: gradientPhase)
                 .onAppear {
                     if AudioManager.shared.audioPlayer == nil {
                         AudioManager.shared.playSound(sound: "grounding", type: "mp3")
@@ -33,8 +34,17 @@ struct GroundingSlowingDownInSessionView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding()
-                .navigationBarBackButtonHidden(true)
+                .navigationDestination(isPresented: $navigateToNextView) {
+                    GroundingBreathingDownView()
+                }
             }
+            .onAppear {
+                Timer.scheduledTimer(withTimeInterval: 12, repeats: false) { _ in
+                    navigateToNextView = true
+                }
+            }
+            
+            .navigationBarBackButtonHidden()
         }
     }
 

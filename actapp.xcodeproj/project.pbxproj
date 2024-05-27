@@ -24,6 +24,8 @@
 		8A04045D2BEB58D5002202F0 /* GroundingNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04045C2BEB58D5002202F0 /* GroundingNotice.swift */; };
 		8A0404632BEB5952002202F0 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404622BEB5952002202F0 /* InsightsView.swift */; };
 		8A0404A12BF06AFB002202F0 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0404A02BF06AFB002202F0 /* CardsView.swift */; };
+		8A1CC70F2C00680000DCC858 /* GrassData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CC70D2C00680000DCC858 /* GrassData.xcdatamodeld */; };
+		8A1CC7112C0068B900DCC858 /* MorningJournalingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CC7102C0068B900DCC858 /* MorningJournalingModel.swift */; };
 		8A3098772BE8D4A000F27593 /* actappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3098762BE8D4A000F27593 /* actappApp.swift */; };
 		8A30987B2BE8D4A200F27593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A30987A2BE8D4A200F27593 /* Assets.xcassets */; };
 		8A30987E2BE8D4A200F27593 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A30987D2BE8D4A200F27593 /* Preview Assets.xcassets */; };
@@ -87,6 +89,8 @@
 		8A04045C2BEB58D5002202F0 /* GroundingNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundingNotice.swift; sourceTree = "<group>"; };
 		8A0404622BEB5952002202F0 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		8A0404A02BF06AFB002202F0 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+		8A1CC70E2C00680000DCC858 /* GrassData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GrassData.xcdatamodel; sourceTree = "<group>"; };
+		8A1CC7102C0068B900DCC858 /* MorningJournalingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningJournalingModel.swift; sourceTree = "<group>"; };
 		8A3098732BE8D4A000F27593 /* actapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = actapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A3098762BE8D4A000F27593 /* actappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actappApp.swift; sourceTree = "<group>"; };
 		8A30987A2BE8D4A200F27593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -292,6 +296,8 @@
 			isa = PBXGroup;
 			children = (
 				8A88EB842BF851B10068A9A6 /* ValueModel.swift */,
+				8A1CC70D2C00680000DCC858 /* GrassData.xcdatamodeld */,
+				8A1CC7102C0068B900DCC858 /* MorningJournalingModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				0A8417982BF36ABC001E707D /* GroundingEmotionEmptyView.swift in Sources */,
 				9F01B6422C006AE60013F2A4 /* CobaInsightsDetailView.swift in Sources */,
 				0A8417A02BFCEC53001E707D /* JournalingView.swift in Sources */,
+				8A1CC70F2C00680000DCC858 /* GrassData.xcdatamodeld in Sources */,
 				0A38AD5A2BFF2D2B000436CF /* JournalingNightCompletedView.swift in Sources */,
 				8A88EB982BFDC9760068A9A6 /* GroundingBreathingDownView.swift in Sources */,
 				0A6B54532BF0FCB8001E3F95 /* PracticeCardView.swift in Sources */,
@@ -457,6 +464,7 @@
 				9F392EB02BED48F50041D509 /* OnboardingValueSettingView.swift in Sources */,
 				8A88EB892BFA6A220068A9A6 /* OnboardingValueSettingNoBackView.swift in Sources */,
 				8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */,
+				8A1CC7112C0068B900DCC858 /* MorningJournalingModel.swift in Sources */,
 				8A04045D2BEB58D5002202F0 /* GroundingNotice.swift in Sources */,
 				0A8417962BF28043001E707D /* GroundingRefocusSightView.swift in Sources */,
 				9F392EB22BED492B0041D509 /* OnboardingReminderSettingView.swift in Sources */,
@@ -640,6 +648,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"actapp/Preview Content\"";
+				DEVELOPMENT_TEAM = P5G5Z7L546;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -668,6 +677,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"actapp/Preview Content\"";
+				DEVELOPMENT_TEAM = P5G5Z7L546;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -800,6 +810,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8A1CC70D2C00680000DCC858 /* GrassData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8A1CC70E2C00680000DCC858 /* GrassData.xcdatamodel */,
+			);
+			currentVersion = 8A1CC70E2C00680000DCC858 /* GrassData.xcdatamodel */;
+			name = GrassData.xcdatamodeld;
+			path = /Users/ngurahgusti584/Documents/Academy/MC1/actapp/actapp/features/models/GrassData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8A30986B2BE8D4A000F27593 /* Project object */;
 }

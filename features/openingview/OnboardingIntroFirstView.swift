@@ -13,11 +13,11 @@ struct OnboardingIntroFirstView: View {
         NavigationStack{
             VStack {
                 VStack(alignment: .center) {
-                    Text("Learn")
+                    Text("Co-exist")
                         .font(.title).bold().italic()
                         .fontDesign( .serif)
                     +
-                    Text(" to live with stress")
+                    Text(" with your stress")
                         .font(.title).bold()
                     Text("Stress can happen to anyone and you are not alone. With grass, you will learn and practice the skills for dealing with stress.")
                         .font(.body)
@@ -29,7 +29,7 @@ struct OnboardingIntroFirstView: View {
                 Spacer()
                 Circle()
                     .fill(RadialGradient(
-                        gradient: Gradient(colors: [.buttonAovStart,.buttonAovMiddle, .buttonAovStop, .clear]),
+                        gradient: Gradient(colors: [.onboard1Opening,.onboard2Opening, .onboard3Opening]),
                         center: .center,
                         startRadius: 0,
                         endRadius: changeSize ? 200 : 160

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Grounding" representedClassName="Grounding" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="describe" optional="YES" attributeType="String"/>
+        <attribute name="feltItems" optional="YES" attributeType="String"/>
+        <attribute name="heardItems" optional="YES" attributeType="String"/>
+        <attribute name="seenItems" optional="YES" attributeType="String"/>
+        <attribute name="smeltItems" optional="YES" attributeType="String"/>
+        <attribute name="trigger" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="MorningJournaling" representedClassName="MorningJournaling" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="describeValue" optional="YES" attributeType="String"/>
+        <attribute name="planValue" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="NightJournaling" representedClassName="NightJournaling" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="reflectDescribe" optional="YES" attributeType="String"/>
+        <attribute name="reflectValue" optional="YES" attributeType="String"/>
+    </entity>
+</model>

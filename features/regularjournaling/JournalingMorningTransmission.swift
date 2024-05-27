@@ -41,7 +41,7 @@ struct JournalingMorningTransmission: View {
                     .padding(.bottom, 40)
                     .multilineTextAlignment(.center)
                 
-                NavigationLink( destination:JournalingView()){
+                NavigationLink( destination:MainView()){
                     Text("Close")
                         .modifier(ButtonWhiteTextBlack())   
                 }

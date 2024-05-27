@@ -32,7 +32,7 @@ struct OnboardingAllSetView: View {
                 Spacer()
                 Circle()
                     .fill(RadialGradient(
-                        gradient: Gradient(colors: [.buttonAovStart,.buttonAovMiddle, .buttonAovStop, .clear]),
+                        gradient: Gradient(colors: [.onboard7Opening,.onboard8Opening, .onboard3Opening]),
                         center: .center,
                         startRadius: 0,
                         endRadius: changeSize ? 200 : 160
@@ -59,6 +59,7 @@ struct OnboardingAllSetView: View {
             .padding(.top, 20)
             .foregroundColor(.white)
             .background(Color(red: 17/255, green: 17/255, blue: 17/255))
+            .navigationBarBackButtonHidden()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

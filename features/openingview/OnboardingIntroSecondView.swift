@@ -29,7 +29,7 @@ struct OnboardingIntroSecondView: View {
                 Spacer()
                 Circle()
                     .fill(RadialGradient(
-                        gradient: Gradient(colors: [.buttonAovStart,.buttonAovMiddle, .buttonAovStop, .clear]),
+                        gradient: Gradient(colors: [.onboard4Opening,.onboard5Opening, .onboard3Opening]),
                         center: .center,
                         startRadius: 0,
                         endRadius: changeSize ? 200 : 160
@@ -50,6 +50,7 @@ struct OnboardingIntroSecondView: View {
             .padding(.top, 20)
             .background(Color(red: 17/255, green: 17/255, blue: 17/255))
             .foregroundColor(.white)
+            .navigationBarBackButtonHidden()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
