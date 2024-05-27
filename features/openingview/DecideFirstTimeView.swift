@@ -11,16 +11,18 @@ struct DecideFirstTimeView: View {
     @AppStorage("isWelcomeScreenOver") var isWelcomeScreenOver = false
     @State var checkWelcomeScreen: Bool = false
     var body: some View {
+        
+//        GroundingSlowingDownInSessionView()
         VStack {
-                    if checkWelcomeScreen {
-                        MainView()
-                    } else {
-                        OnboardingIntroFirstView()
-                    }
-                }
-                .onAppear {
-                    checkWelcomeScreen = isWelcomeScreenOver
-                }
+            if checkWelcomeScreen {
+                MainView()
+            } else {
+                OnboardingIntroFirstView()
+            }
+        }
+        .onAppear {
+            checkWelcomeScreen = isWelcomeScreenOver
+        }
     }
 }
 

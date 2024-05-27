@@ -18,7 +18,7 @@ struct GroundingSlowingDownInSessionView: View {
                     } else {
                         AudioManager.shared.play()
                     }
-                    Timer.scheduledTimer(withTimeInterval: 7.0, repeats: true) { _ in
+                    Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { _ in
                         gradientPhase = (gradientPhase + 1) % 4
                     }
                 }

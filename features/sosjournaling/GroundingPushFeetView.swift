@@ -14,7 +14,7 @@ struct GroundingPushFeetView: View {
                 .animation(.easeInOut(duration: 5.0), value: gradientPhase)
                 .onAppear {
                     AudioManager.shared.play()
-                    Timer.scheduledTimer(withTimeInterval: 7.0, repeats: true) { _ in
+                    Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { _ in
                         gradientPhase = (gradientPhase + 1) % 4
                     }
              
