@@ -5,6 +5,7 @@ struct OnboardingValueSettingView: View {
     @State private var showAlert = false
     @State private var selectedDescription: String?
     @State private var selectedValueIndex: Int?
+    @State private var shouldNavigate = false
 
     var body: some View {
         NavigationStack {
@@ -15,7 +16,7 @@ struct OnboardingValueSettingView: View {
                     + Text("matters")
                         .font(.title).bold().italic()
                         .fontDesign(.serif)
-                    Text("Values are what you want to stand for as a human being. Choose 3-5 values that are most important to you.")
+                    Text("Values are what you want to stand for as a human being. Choose 5 values that are most important to you.")
                         .font(.body)
                         .fontWeight(.semibold).padding(.top, 10)
                 }
@@ -29,7 +30,7 @@ struct OnboardingValueSettingView: View {
                                 HStack {
                                     HStack {
                                         Button(action: {
-                                            if personValue.isChecked[index] || personValue.isChecked.filter({ $0 }).count < 5 {
+                                            if personValue.isChecked[index] || personValue.isChecked.filter({ $0 }).count < 5{
                                                 personValue.toggleChecked(at: index)
                                             } else {
                                                 showAlert = true
@@ -85,10 +86,20 @@ struct OnboardingValueSettingView: View {
 
                 Spacer()
                 Spacer()
-                NavigationLink(destination: OnboardingReminderSettingView()) {
-                    Text("Next")
-                        .modifier(ButtonWhite())
-                }
+                NavigationLink(destination: OnboardingReminderSettingView(), isActive: $shouldNavigate) {
+                                    EmptyView()
+                                }
+                                Button(action: {
+                                    let selectedCount = personValue.isChecked.filter({ $0 }).count
+                                    if selectedCount >= 5 && selectedCount <= 5 {
+                                        shouldNavigate = true
+                                    } else {
+                                        showAlert = true
+                                    }
+                                }) {
+                                    Text("Next")
+                                        .modifier(ButtonWhite())
+                                }
             }
             .padding()
             .padding(.top, 20)
@@ -100,7 +111,7 @@ struct OnboardingValueSettingView: View {
         .alert(isPresented: $showAlert) {
             Alert(
                 title: Text("Error"),
-                message: Text("You can only choose up to 5 values."),
+                message: Text("You Have to Choose 5 Values"),
                 dismissButton: .default(Text("OK"))
             )
         }
