@@ -39,6 +39,7 @@
 		8A88EB982BFDC9760068A9A6 /* GroundingBreathingDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB972BFDC9760068A9A6 /* GroundingBreathingDownView.swift */; };
 		8A88EB9A2BFDF7740068A9A6 /* GroundingPushFeetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88EB992BFDF7740068A9A6 /* GroundingPushFeetView.swift */; };
 		8AF888D92BEA3B1600597EB9 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF888D82BEA3B1600597EB9 /* ButtonView.swift */; };
+		9F01B6382BFB31C10013F2A4 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01B6372BFB31C10013F2A4 /* NotificationHandler.swift */; };
 		9F01B6402C0037B30013F2A4 /* CobaInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01B63F2C0037B30013F2A4 /* CobaInsightsView.swift */; };
 		9F01B6422C006AE60013F2A4 /* CobaInsightsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01B6412C006AE60013F2A4 /* CobaInsightsDetailView.swift */; };
 		9F01B6442C0079040013F2A4 /* CobaInsightsDetailGroundingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01B6432C0079040013F2A4 /* CobaInsightsDetailGroundingView.swift */; };
@@ -313,6 +314,14 @@
 			path = components;
 			sourceTree = "<group>";
 		};
+		9F01B6362BFB31990013F2A4 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				9F01B6372BFB31C10013F2A4 /* NotificationHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -457,6 +466,7 @@
 				9FDA84412BF49196009961DD /* JournalingMorningView.swift in Sources */,
 				8A88EB9A2BFDF7740068A9A6 /* GroundingPushFeetView.swift in Sources */,
 				0A8417922BF27E10001E707D /* GroundingRefocusTouchView.swift in Sources */,
+				9F01B6382BFB31C10013F2A4 /* NotificationHandler.swift in Sources */,
 				8A88EB852BF851B10068A9A6 /* ValueModel.swift in Sources */,
 				9F392EAE2BED46140041D509 /* OnboardingAllSetView.swift in Sources */,
 				9FDA84452BF8F021009961DD /* JournalingMorningTransmission.swift in Sources */,
