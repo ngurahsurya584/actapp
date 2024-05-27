@@ -16,12 +16,12 @@ struct CobaInsightsDetailGroundingView: View {
     
     let DiffucultFeeling = ["Anxiety"]
     let ICanSee = ["Water Bottle", "ID card", "Food","Spoon", "Ipad"]
-    let ICanHear = ["Water Bottle", "ID card", "Food"]
+    let ICanHear = ["ID card", "Food","Spoon", "Ipad"]
     let IcanSmell = ["Fried Chicken"]
     let IFelt = ["Smooth"]
     
     var body: some View {
-//        NavigationStack {
+        NavigationStack {
             ScrollView {
                 VStack {
                     Text("☀️ Morning.")
@@ -282,7 +282,7 @@ struct CobaInsightsDetailGroundingView: View {
                         .foregroundColor(.white)
                 }
             }
-//        }
+        }
     }
 }
 

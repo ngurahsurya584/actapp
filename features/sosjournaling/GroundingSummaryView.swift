@@ -10,8 +10,7 @@ import SwiftUI
 struct GroundingSummaryView: View {
     var feelings = "Anxiety"
     var seenItems = "Water Bottle, ID Card, Food, Spoon, iPad"
-    var heardItems = "Water Bottle, ID Card, Food"
-//    var heardItems = "Wind, People, Keyboard"
+    var heardItems = "Wind, People, Keyboard"
     var smeltItems = "Fried Chicken"
     var feltItems = "Smooth"
     

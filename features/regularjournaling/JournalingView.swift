@@ -60,11 +60,11 @@ struct MorningEveningLinksView: View {
     var body: some View {
         HStack {
             NavigationLink(destination: JournalingMorningView()) {
-                JournalLinkView(title: "Start your day", emoji: "☀️", color: Color(red: 255/255, green: 199/255, blue: 61/255))
+                JournalLinkView(title: "Start your day", desc:"Plan how you will act on your values", emoji: "☀️", color: Color(red: 255/255, green: 199/255, blue: 61/255))
             }
             .layoutPriority(1)
             NavigationLink(destination: JournalingNightView()) {
-                JournalLinkView(title: "Evening reflection", emoji: "🌙", color: Color(red: 178/255, green: 219/255, blue: 255/255))
+                JournalLinkView(title: "Evening reflection", desc: "Sum up your day", emoji: "🌙", color: Color(red: 178/255, green: 219/255, blue: 255/255))
             }
             .layoutPriority(1)
         }
@@ -88,6 +88,7 @@ struct GroundingNoticeView: View {
 
 struct JournalLinkView: View {
     let title: String
+    let desc: String
     let emoji: String
     let color: Color
     
@@ -97,7 +98,8 @@ struct JournalLinkView: View {
                 .font(.title3)
                 .fontWeight(.bold)
                 .foregroundColor(color)
-            Text("Plan how you will act on your values\n")
+                .fontDesign(.serif)
+            Text("\(desc)\n")
                 .font(.subheadline)
             Text(emoji)
                 .font(.system(size: 48))
@@ -129,6 +131,7 @@ struct GroundingLinkView: View {
                     .foregroundColor(Color(red: 0/255, green: 222/255, blue: 39/255))
                     .fontWeight(.bold)
                     .padding(.bottom, 2)
+                    .fontDesign(.serif)
                 Text("Practice to slow down and engage with the world.")
                     .font(.caption)
                     .multilineTextAlignment(.leading)
