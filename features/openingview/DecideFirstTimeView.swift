@@ -13,7 +13,7 @@ struct DecideFirstTimeView: View {
     var body: some View {
         VStack {
                     if checkWelcomeScreen {
-                        JournalingView()
+                        MainView()
                     } else {
                         OnboardingIntroFirstView()
                     }

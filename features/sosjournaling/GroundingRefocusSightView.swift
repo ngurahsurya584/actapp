@@ -5,9 +5,9 @@ struct GroundingRefocusSightView: View {
     @State private var heardItems: [String] = Array(repeating: "", count: 3)
     @State private var smeltItem: String = ""
     @State private var feltItem: String = ""
-    @FocusState private var isFocused: Bool
     
     @Environment(\.managedObjectContext) private var moc
+    @EnvironmentObject private var groundingData: GroundingData
     
     var body: some View {
         NavigationStack {
@@ -16,7 +16,7 @@ struct GroundingRefocusSightView: View {
                 VStack {
                     ScrollView {
                         VStack(spacing: 20) {
-                            Text("Now, let’s refocus and engage with the world around you")
+                            Text("Now, let's refocus and engage with the world around you")
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
@@ -30,34 +30,28 @@ struct GroundingRefocusSightView: View {
                                     .foregroundStyle(.white)
                                 
                                 ForEach(0..<5, id: \.self) { index in
-                                    ZStack(alignment: .topLeading) {
-                                        if seenItems[index].isEmpty {
+                                    TextField("", text: $seenItems[index])
+                                        .padding(.horizontal)
+                                        .padding(.vertical, 10)
+                                        .foregroundColor(.white)
+                                        .placeholder(when: seenItems[index].isEmpty) {
                                             Text("Item \(index + 1)")
                                                 .foregroundColor(.gray)
-                                                .padding(.horizontal, 8)
-                                                .padding(.vertical, 12)
-                                                .zIndex(1)
+                                                .padding()
                                         }
-                                        
-                                        TextEditor(text: $seenItems[index])
-                                            .padding(.horizontal, 3)
-                                            .padding(.vertical, 5)
-                                            .frame(width: 345, height: 41)
-                                            .cornerRadius(10)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(LinearGradient(
-                                                        gradient: Gradient(colors: [.white, .middleGradient, .strokeGradient]),
-                                                        startPoint: .topLeading,
-                                                        endPoint: .bottomTrailing), lineWidth: 1)
-                                                    .fill(.fillTextEditor)
-                                            )
-                                            .focused($isFocused)
-                                            .onTapGesture {
-                                                isFocused = true
-                                            }
-                                    }
-                                    .frame(width: 345, height: 41)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(.white)
+                                                .opacity(0.13)
+                                        )
+                                        .cornerRadius(10)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(LinearGradient(
+                                                    gradient: Gradient(colors: [.white, .middleGradient, .strokeGradient]),
+                                                    startPoint: .topLeading,
+                                                    endPoint: .bottomTrailing), lineWidth: 1)
+                                        )
                                 }
                             }
                             
@@ -68,34 +62,26 @@ struct GroundingRefocusSightView: View {
                                     .foregroundStyle(.white)
                                 
                                 ForEach(0..<3, id: \.self) { index in
-                                    ZStack(alignment: .topLeading) {
-                                        if heardItems[index].isEmpty {
+                                    TextField("", text: $heardItems[index])
+                                        .padding(.horizontal)
+                                        .padding(.vertical, 10)
+                                        .foregroundColor(.white)
+                                        .placeholder(when: heardItems[index].isEmpty) {
                                             Text("Item \(index + 1)")
                                                 .foregroundColor(.gray)
-                                                .padding(.horizontal, 8)
-                                                .padding(.vertical, 12)
-                                                .zIndex(1)
+                                                .padding()
                                         }
-                                        
-                                        TextEditor(text: $heardItems[index])
-                                            .padding(.horizontal, 3)
-                                            .padding(.vertical, 5)
-                                            .frame(width: 345, height: 41)
-                                            .cornerRadius(10)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(LinearGradient(
-                                                        gradient: Gradient(colors: [.white, .middleGradient, .strokeGradient]),
-                                                        startPoint: .topLeading,
-                                                        endPoint: .bottomTrailing), lineWidth: 1)
-                                                    .fill(.fillTextEditor)
-                                            )
-                                            .focused($isFocused)
-                                            .onTapGesture {
-                                                isFocused = true
-                                            }
-                                    }
-                                    .frame(width: 345, height: 41)
+                                        .background(RoundedRectangle(cornerRadius: 10)
+                                            .fill(.white)
+                                            .opacity(0.13))
+                                        .cornerRadius(10)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(LinearGradient(
+                                                    gradient: Gradient(colors: [.white, .middleGradient, .strokeGradient]),
+                                                    startPoint: .topLeading,
+                                                    endPoint: .bottomTrailing), lineWidth: 1)
+                                        )
                                 }
                             }
                             
@@ -105,34 +91,26 @@ struct GroundingRefocusSightView: View {
                                     .fontWeight(.semibold)
                                     .foregroundStyle(.white)
                                 
-                                ZStack(alignment: .topLeading) {
-                                    if smeltItem.isEmpty {
+                                TextField("", text: $smeltItem)
+                                    .padding(.horizontal)
+                                    .padding(.vertical, 10)
+                                    .foregroundColor(.white)
+                                    .placeholder(when: smeltItem.isEmpty) {
                                         Text("Item 1")
                                             .foregroundColor(.gray)
-                                            .padding(.horizontal, 8)
-                                            .padding(.vertical, 12)
-                                            .zIndex(1)
+                                            .padding()
                                     }
-                                    
-                                    TextEditor(text: $smeltItem)
-                                        .padding(.horizontal, 3)
-                                        .padding(.vertical, 5)
-                                        .frame(width: 345, height: 41)
-                                        .cornerRadius(10)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .stroke(LinearGradient(
-                                                    gradient: Gradient(colors: [.white, .middleGradient, .strokeGradient]),
-                                                    startPoint: .topLeading,
-                                                    endPoint: .bottomTrailing), lineWidth: 1)
-                                                .fill(.fillTextEditor)
-                                        )
-                                        .focused($isFocused)
-                                        .onTapGesture {
-                                            isFocused = true
-                                        }
-                                }
-                                .frame(width: 345, height: 41)
+                                    .background(RoundedRectangle(cornerRadius: 10)
+                                        .fill(.white)
+                                        .opacity(0.13))
+                                    .cornerRadius(10)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(LinearGradient(
+                                                gradient: Gradient(colors: [.white, .middleGradient, .strokeGradient]),
+                                                startPoint: .topLeading,
+                                                endPoint: .bottomTrailing), lineWidth: 1)
+                                    )
                             }
                             
                             VStack(spacing: 10) {
@@ -142,46 +120,35 @@ struct GroundingRefocusSightView: View {
                                     .multilineTextAlignment(.center)
                                     .foregroundStyle(.white)
                                 
-                                ZStack(alignment: .topLeading) {
-                                    if feltItem.isEmpty {
+                                TextField("", text: $feltItem)
+                                    .padding(.horizontal)
+                                    .padding(.vertical, 10)
+                                    .foregroundColor(.white)
+                                    .placeholder(when: feltItem.isEmpty) {
                                         Text("Item 1")
                                             .foregroundColor(.gray)
-                                            .padding(.horizontal, 8)
-                                            .padding(.vertical, 12)
-                                            .zIndex(1)
+                                            .padding()
                                     }
-                                    
-                                    TextEditor(text: $feltItem)
-                                        .padding(.horizontal, 3)
-                                        .padding(.vertical, 5)
-                                        .frame(width: 345, height: 41)
-                                        .cornerRadius(10)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .stroke(LinearGradient(
-                                                    gradient: Gradient(colors: [.white, .middleGradient, .strokeGradient]),
-                                                    startPoint: .topLeading,
-                                                    endPoint: .bottomTrailing), lineWidth: 1)
-                                                .fill(.fillTextEditor)
-                                        )
-                                        .focused($isFocused)
-                                        .onTapGesture {
-                                            isFocused = true
-                                        }
-                                }
-                                .frame(width: 345, height: 41)
+                                    .background(RoundedRectangle(cornerRadius: 10)
+                                        .fill(.white)
+                                        .opacity(0.13))
+                                    .cornerRadius(10)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(LinearGradient(
+                                                gradient: Gradient(colors: [.white, .middleGradient, .strokeGradient]),
+                                                startPoint: .topLeading,
+                                                endPoint: .bottomTrailing), lineWidth: 1)
+                                    )
                             }
                         }
                         .padding()
                     }
                     HStack {
                         Spacer()
-                        Button(action: saveGroundingData) {
+                        NavigationLink(destination: GroundingRefocusTouchView()) {
                             Text("Next")
                                 .modifier(ButtonNext())
-                        }
-                        NavigationLink(destination: GroundingRefocusTouchView()) {
-                            EmptyView()
                         }.simultaneousGesture(TapGesture().onEnded {
                             saveGroundingData()
                         })
@@ -194,26 +161,18 @@ struct GroundingRefocusSightView: View {
             .toolbarBackground(.visible, for: .navigationBar)
             .navigationTitle("‎‎ ")
             .navigationBarTitleDisplayMode(.inline)
-            
         }
     }
     
     private func saveGroundingData() {
-        let seenItemsString = seenItems.joined(separator: ", ")
-        let heardItemsString = heardItems.joined(separator: ", ")
-        
-        let newGrounding = Grounding(context: moc)
-        newGrounding.seenItems = seenItemsString
-        newGrounding.heardItems = heardItemsString
-        newGrounding.smeltItems = smeltItem
-        newGrounding.feltItems = feltItem
-        
-        do {
-            try moc.save()
-        } catch {
-            print("Failed to save context: \(error)")
+            let seenItemsString = seenItems.joined(separator: ", ")
+            let heardItemsString = heardItems.joined(separator: ", ")
+            
+            groundingData.seenItems = seenItemsString
+            groundingData.heardItems = heardItemsString
+            groundingData.smeltItems = smeltItem
+            groundingData.feltItems = feltItem
         }
-    }
 }
 
 struct GroundingRefocusSightView_Previews: PreviewProvider {
@@ -221,4 +180,17 @@ struct GroundingRefocusSightView_Previews: PreviewProvider {
         GroundingRefocusSightView()
             .environment(\.managedObjectContext, MorningJournalingDataController().container.viewContext)
     }
+}
+
+extension View {
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+            
+            ZStack(alignment: alignment) {
+                placeholder().opacity(shouldShow ? 1 : 0)
+                self
+            }
+        }
 }

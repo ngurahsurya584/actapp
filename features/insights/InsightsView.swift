@@ -62,14 +62,14 @@ struct InsightsView: View {
                             .font(.caption)
                             .foregroundColor(Color(red: 60/255, green: 60/355, blue: 67/255).opacity(0.6))
                         
-                        WrappingHStack(horizontalSpacing: 5) {
-                            ForEach(Array(userValue.values.enumerated()), id: \.offset) { index, value in
-                                let isChecked = userValue.isChecked[index]
-                                Text(value)
-                                .modifier(ConditionalContentStyle(isChecked: isChecked))
-                            }
-                        }
-                        .font(.callout)
+//                        WrappingHStack(horizontalSpacing: 5) {
+//                            ForEach(Array(userValue.values.enumerated()), id: \.offset) { index, value in
+//                                let isChecked = userValue.isChecked[index]
+//                                Text(value)
+//                                .modifier(ConditionalContentStyle(isChecked: isChecked))
+//                            }
+//                        }
+//                        .font(.callout)
                     }
                     .padding(.top, 20)
                     

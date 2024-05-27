@@ -1,217 +1,138 @@
-//
-//  CobaInsightsView.swift
-//  actapp
-//
-//  Created by Pedro Nicolas Cristiansen Hutabarat on 24/05/24.
-//
-
 import SwiftUI
 
 struct CobaInsightsView: View {
-    let chosenFiveValues = ["Kindness", "Patience", "Supportive", "Creativity", "Hard work"]
-    let chosenoneValue = ["Kindness"]
-
+    @EnvironmentObject var personValue: PersonValue
+    @EnvironmentObject var dataController: MorningJournalingDataController
+    @State private var selectedMonth = Date()
     @State private var showModal = false
-    
+
     var body: some View {
-        NavigationStack{
-            ScrollView{
+        NavigationStack {
+            ZStack {
+                Color.black.ignoresSafeArea()
+                ScrollView {
+                    VStack {
+                        headerView
+                        monthSelectionView
+                        journalEntriesView
+                        Spacer()
+                    }
+                    .navigationBarBackButtonHidden(true)
+                    .padding()
+                    .frame(
+                        minWidth: 0,
+                        maxWidth: .infinity,
+                        minHeight: 0,
+                        maxHeight: .infinity
+                    )
+                    .foregroundColor(.white)
+                }
+            }
+            .toolbarBackground(Color.darkGray, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .navigationTitle("Insight")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+
+    private var headerView: some View {
+        VStack {
+            ZStack {
+                Rectangle()
+                    .fill(LinearGradient(
+                        gradient: Gradient(colors: [
+                            Color(red: 182/255, green: 182/255, blue: 182/255),
+                            Color(red: 128/255, green: 128/255, blue: 128/255),
+                            Color(red: 169/255, green: 169/255, blue: 169/255),
+                            Color(red: 128/255, green: 128/255, blue: 128/255)
+                        ]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing))
+                    .frame(width: 393, height: 265)
+
                 VStack {
-                    Text("Insights")
-                        .font(.largeTitle)
+                    Text("You've spent")
+                        .font(.title2)
                         .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.top, 70)
-                    VStack{
-                        ZStack{
-                            Rectangle()
-                                .fill(LinearGradient(
-                                    gradient: Gradient(colors: [
-                                        Color(red: 182/255, green: 182/255, blue: 182/255),
-                                        Color(red: 128/255, green: 128/255, blue: 128/255),
-                                        Color(red: 169/255, green: 169/255, blue: 169/255),
-                                        Color(red: 128/255, green: 128/255, blue: 128/255)
-                                    ]),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing))
-                                .frame(width: 393, height: 233)
-
-
-                            VStack{
-                                Text("You've spent")
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.white)
-                                StrokeText(text: "100", width: 0.5, color: .green)
-                                    .font(.system(size: 48))
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.white)
-                                Text("days practicing")
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.white)
-                                VStack{
-                                    WrappingHStack(horizontalSpacing: 8, verticalSpacing: 5) {
-                                        ForEach(chosenFiveValues, id: \.self) { value in
-                                            Text(value).modifier(LinearWhiteButtonSmall())
-                                        }
-                                        
-                                    }
-                                    .font(.callout)
-                                    .padding(.horizontal, 43)
-                                }
-                                HStack{
-                                    Image(systemName: "pencil")
-                                        .font(.callout)
-                                        .fontWeight(.light)
-                                        .foregroundStyle(.white)
-                                    Text("Edit values")
-                                        .font(.callout)
-                                        .fontWeight(.light)
-                                        .foregroundStyle(.white)
-                                }
-                                .onTapGesture {
-                                    showModal = true
-                                }
-                                .sheet(isPresented: $showModal) {
-                                    EditValuesView(showModal: $showModal)
-                                    
-                                }
-                                
+                        .foregroundStyle(.white)
+                    StrokeText(text: "\(personValue.daysPracticing)", width: 0.5, color: .green)
+                        .font(.system(size: 48))
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white)
+                    Text("days practicing")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white)
+                    VStack {
+                        WrappingHStack(horizontalSpacing: 8, verticalSpacing: 5) {
+                            ForEach(Array(personValue.values.enumerated().filter { personValue.isChecked[$0.offset] }.prefix(5)), id: \.offset) { index, value in
+                                Text(value.name).modifier(LinearWhiteButtonSmall())
                             }
                         }
-                        
+                        .font(.callout)
+                        .padding(.horizontal, 43)
                     }
-                    VStack{
-                        HStack {
-                            Image(systemName: "chevron.left")
-                                .font(.system(size: 12))
-                                .foregroundColor(Color(red: 142/255, green: 142/255, blue: 147/255))
-                            Text("May 2024")
-                                .font(.body)
-                            Image(systemName: "chevron.right")
-                                .font(.system(size: 12))
-                                .foregroundColor(Color(red: 142/255, green: 142/255, blue: 147/255))
+                    HStack {
+                        Image(systemName: "pencil")
+                            .font(.callout)
+                            .fontWeight(.light)
+                            .foregroundStyle(.white)
+                        Text("Edit values")
+                            .font(.callout)
+                            .fontWeight(.light)
+                            .foregroundStyle(.white)
+                    }
+                    .onTapGesture {
+                        showModal = true
+                    }
+                    .sheet(isPresented: $showModal) {
+                            EditValuesView(showModal: $showModal, personValue: personValue) // Pass personValue here
                         }
-                        .fontWeight(.semibold)
-                        .padding()
+                }
+            }
+        }
+    }
+
+    private var monthSelectionView: some View {
+        VStack {
+            HStack {
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 12))
+                    .foregroundColor(Color(red: 142/255, green: 142/255, blue: 147/255))
+                    .onTapGesture {
+                        selectedMonth = Calendar.current.date(byAdding: .month, value: -1, to: selectedMonth)!
                     }
-                    Text("Today, 20 May")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.top, 10)
-                    NavigationLink(destination: CobaInsightsDetailGroundingView()){
-                        
-                        ZStack{
-                            VStack(alignment: .leading, spacing: 10) {
-                                HStack(spacing: 10) {
-                                    Text("☀️")
-                                        .font(.system(size: 25))
-                                    VStack(alignment: .leading) {
-                                        Text("MORNING PLAN")
-                                            .font(.headline)
-                                            .foregroundColor(Color(red: 255/255, green: 199/255, blue: 61/255))
-                                            .fontWeight(.bold)
-                                            .padding(.bottom, 2)
-                                        HStack {
-                                            Text("Focused value:")
-                                                .font(.caption)
-                                                .multilineTextAlignment(.leading)
-                                            Text("Patience, kindness, caring")
-                                                .font(.caption)
-                                                .multilineTextAlignment(.leading)
-                                        }
-                                    }
-                                }
-                                HStack(spacing: 10) {
-                                    Text("🌙")
-                                        .font(.system(size: 25))
-                                    VStack(alignment: .leading) {
-                                        Text("NIGHT REFLECTION")
-                                            .font(.headline)
-                                            .foregroundColor(Color(red: 178/255, green: 219/255, blue: 255/255))
-                                            .fontWeight(.bold)
-                                            .padding(.bottom, 2)
-                                        HStack {
-                                            Text("Demonstrated value:")
-                                                .font(.caption)
-                                                .multilineTextAlignment(.leading)
-                                            Text("Attentiveness")
-                                                .font(.caption)
-                                                .multilineTextAlignment(.leading)
-                                        }
-                                    }
-                                }
-                                VStack{
-                                    WrappingHStack(horizontalSpacing: 12, verticalSpacing: 12) {
-                                        ForEach(chosenoneValue, id: \.self) { value in
-                                            Text(value).modifier(LinearWhiteButtonSmall())
-                                        }
-                                        
-                                    }
-                                    .font(.callout)
-                                    
-                                }
-                            }
-                            .padding(.vertical)
-                            .padding(.horizontal)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(
-                                LinearGradient(
-                                    gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0.2)]),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                                .cornerRadius(10)
-                            )
-                        }
+                Text(selectedMonth.formatDate())
+                    .font(.body)
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 12))
+                    .foregroundColor(Color(red: 142/255, green: 142/255, blue: 147/255))
+                    .onTapGesture {
+                        selectedMonth = Calendar.current.date(byAdding: .month, value: 1, to: selectedMonth)!
                     }
-                    Text("Yesterday, 19 May")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    NavigationLink(destination: CobaInsightsDetailView()){
+            }
+            .fontWeight(.semibold)
+            .padding()
+        }
+    }
+
+    private var journalEntriesView: some View {
+        ForEach(groupedJournalEntries(for: selectedMonth), id: \.date) { entry in
+            VStack {
+                Text(entry.date.formatDate())
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 10)
+
+                NavigationLink(destination: CobaInsightsDetailGroundingView()) {
+                    ZStack {
                         VStack(alignment: .leading, spacing: 10) {
-                            HStack(spacing: 10) {
-                                Text("☀️")
-                                    .font(.system(size: 25))
-                                VStack(alignment: .leading) {
-                                    Text("MORNING PLAN")
-                                        .font(.headline)
-                                        .foregroundColor(Color(red: 255/255, green: 199/255, blue: 61/255))
-                                        .fontWeight(.bold)
-                                        .padding(.bottom, 2)
-                                    HStack {
-                                        Text("Focused value:")
-                                            .font(.caption)
-                                            .multilineTextAlignment(.leading)
-                                        Text("Patience, kindness, caring")
-                                            .font(.caption)
-                                            .multilineTextAlignment(.leading)
-                                    }
-                                }
+                            entryView(icon: "☀️", title: "MORNING PLAN", value: entry.morningPlanValue, color: Color(red: 255/255, green: 199/255, blue: 61/255))
+                            entryView(icon: "🌙", title: "NIGHT REFLECTION", value: entry.nightReflectValue, color: Color(red: 178/255, green: 219/255, blue: 255/255))
+                            if hasGroundingData(for: entry.date) {
+                                Text("Grounding").modifier(LinearWhiteButtonSmall())
                             }
-                            HStack(spacing: 10) {
-                                Text("🌙")
-                                    .font(.system(size: 25))
-                                VStack(alignment: .leading) {
-                                    Text("NIGHT REFLECTION")
-                                        .font(.headline)
-                                        .foregroundColor(Color(red: 178/255, green: 219/255, blue: 255/255))
-                                        .fontWeight(.bold)
-                                        .padding(.bottom, 2)
-                                    HStack {
-                                        Text("Demonstrated value:")
-                                            .font(.caption)
-                                            .multilineTextAlignment(.leading)
-                                        Text("Attentiveness")
-                                            .font(.caption)
-                                            .multilineTextAlignment(.leading)
-                                    }
-                                }
-                            }
-                            
                         }
                         .padding(.vertical)
                         .padding(.horizontal)
@@ -225,286 +146,248 @@ struct CobaInsightsView: View {
                             .cornerRadius(10)
                         )
                     }
-                    Text("Sunday, 20 May")
-                        .font(.title)
+                }
+            }
+        }
+    }
+
+    private func entryView(icon: String, title: String, value: String?, color: Color) -> some View {
+        HStack(spacing: 10) {
+            Text(icon)
+                .font(.system(size: 25))
+            VStack(alignment: .leading) {
+                Text(title)
+                    .font(.headline)
+                    .foregroundColor(color)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 2)
+                HStack {
+                    Text(title.contains("MORNING") ? "Focused value:" : "Demonstrated value:")
+                        .font(.caption)
+                        .multilineTextAlignment(.leading)
+                    Text(value ?? "")
+                        .font(.caption)
+                        .multilineTextAlignment(.leading)
+                }
+            }
+        }
+    }
+
+    private func groupedJournalEntries(for month: Date) -> [(date: Date, morningPlanValue: String?, nightReflectValue: String?)] {
+        let calendar = Calendar.current
+        let startOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: month))!
+        let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth)!
+
+        let morningEntries = dataController.getMorningJournalEntries(from: startOfMonth, to: endOfMonth)
+        let nightEntries = dataController.getNightJournalEntries(from: startOfMonth, to: endOfMonth)
+
+        var groupedEntries: [(date: Date, morningPlanValue: String?, nightReflectValue: String?)] = []
+
+        for date in calendar.generateDates(inside: DateInterval(start: startOfMonth, end: endOfMonth)) {
+            let morningEntry = morningEntries.first(where: { calendar.isDate($0.date ?? Date(), inSameDayAs: date) })
+            let nightEntry = nightEntries.first(where: { calendar.isDate($0.date ?? Date(), inSameDayAs: date) })
+
+            groupedEntries.append((
+                date: date,
+                morningPlanValue: morningEntry?.planValue,
+                nightReflectValue: nightEntry?.reflectValue
+            ))
+        }
+
+        return groupedEntries
+    }
+
+    private func hasGroundingData(for date: Date) -> Bool {
+        let groundingEntries = dataController.getGroundingEntries(for: date)
+        return !groundingEntries.isEmpty
+    }
+}
+
+extension Date {
+    func formatDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM yyyy"
+        return dateFormatter.string(from: self)
+    }
+}
+
+extension Calendar {
+    func generateDates(inside interval: DateInterval) -> [Date] {
+        var dates: [Date] = []
+        var currentDate = interval.start
+
+        while currentDate <= interval.end {
+            dates.append(currentDate)
+            currentDate = self.date(byAdding: .day, value: 1, to: currentDate)!
+        }
+
+        return dates
+    }
+}
+
+struct EditValuesView: View {
+    @Binding var showModal: Bool
+    @State var tempChecked: [Bool] = []
+    @State private var selectedKey: String? = nil
+    @State private var showAlert = false
+    @State private var selectedDescription: String?
+    @State private var selectedValueIndex: Int?
+    var personValue: PersonValue
+
+    init(showModal: Binding<Bool>, personValue: PersonValue) {
+        self._showModal = showModal
+        self.tempChecked = personValue.isChecked
+        self.personValue = personValue
+    }
+
+    var body: some View {
+        ScrollView {
+            VStack {
+                HStack {
+                    Button(action: {
+                        showModal = false
+                    }) {
+                        Text("Close")
+                            .foregroundStyle(.blue)
+                    }
+                    Spacer()
+                    Text("Edit Values")
+                        .font(.body)
                         .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Spacer()
+                    Button(action: {
+                        saveSelections()
+                        showModal = false
+                    }) {
+                        Text("Save")
+                            .foregroundStyle(.blue)
+                    }
+                }
+                .padding()
+                ZStack {
                     VStack(alignment: .leading, spacing: 10) {
                         HStack(spacing: 10) {
-                            Text("☀️")
-                                .font(.system(size: 25))
-                            VStack(alignment: .leading) {
-                                Text("MORNING PLAN")
-                                    .font(.headline)
-                                    .foregroundColor(Color(red: 255/255, green: 199/255, blue: 61/255))
-                                    .fontWeight(.bold)
-                                    .padding(.bottom, 2)
-                                HStack {
-                                    Text("Focused value:")
-                                        .font(.caption)
-                                        .multilineTextAlignment(.leading)
-                                    Text("Patience, kindness, caring")
-                                        .font(.caption)
-                                        .multilineTextAlignment(.leading)
-                                }
-                            }
-                        }
-                        HStack(spacing: 10) {
-                            Text("🌙")
-                                .font(.system(size: 25))
-                            VStack(alignment: .leading) {
-                                Text("NIGHT REFLECTION")
-                                    .font(.headline)
-                                    .foregroundColor(Color(red: 178/255, green: 219/255, blue: 255/255))
-                                    .fontWeight(.bold)
-                                    .padding(.bottom, 2)
-                                HStack {
-                                    Text("Demonstrated value:")
-                                        .font(.caption)
-                                        .multilineTextAlignment(.leading)
-                                    Text("Attentiveness")
-                                        .font(.caption)
-                                        .multilineTextAlignment(.leading)
-                                }
-                            }
-                        }
-                        VStack{
-                            WrappingHStack(horizontalSpacing: 12, verticalSpacing: 12) {
-                                ForEach(chosenoneValue, id: \.self) { value in
-                                    Text(value).modifier(LinearWhiteButtonSmall())
-                                }
-                                
-                            }
-                            .font(.callout)
-                            
+                            Image(systemName: "magnifyingglass")
+                            Text("Search")
+                                .font(.body)
+                                .fontWeight(.light)
+                            Spacer()
+                            Image(systemName: "mic.fill")
                         }
                     }
-                    .padding(.vertical)
+                    .padding(.vertical, 10)
                     .padding(.horizontal)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(
                         LinearGradient(
-                            gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0.2)]),
+                            gradient: Gradient(colors: [Color.gray.opacity(0.2), Color.gray.opacity(0.2)]),
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         )
                         .cornerRadius(10)
                     )
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    Spacer()
                 }
-                .navigationBarBackButtonHidden(true)
                 .padding()
-                .frame(
-                    minWidth: 0,
-                    maxWidth: .infinity,
-                    minHeight: 0,
-                    maxHeight: .infinity
-                )
-                .foregroundColor(.white)
-                .background(.black)
-            }
-            .ignoresSafeArea(.all)
-            
-        }
-        }
-    }
-
-struct EditValuesView: View {
-    @Binding var showModal: Bool
-    
-    @State private var isChecked = Array(repeating: false, count: 58)
-    @State private var selectedKey: String? = nil
-    
-    let feelings: [String: String] = [
-        "Acceptance": "to be open to and accepting of myself, others, and life.",
-        "Adventure": "to be adventurous; to actively seek, create, or explore novel or stimulating experiences.",
-        "Assertiveness": "to respectfully stand up for my rights and request what I want",
-        "Authenticity": "to be authentic, genuine, real; to be true to myself.",
-        "Beauty": "to appreciate, create, nurture, or cultivate beauty in myself, others, and the environment.",
-        "Caring": "to be caring towards myself, others, and the environment.",
-        "Challenge": "to keep challenging myself to grow, learn, and improve.",
-        "Compassion": "to act with kindness towards those who are suffering.",
-        "Connection": "to engage fully in whatever I am doing and be fully present with others.",
-        "Contribution": "to contribute, help, assist, or make a positive difference to myself or others.",
-        "Conformity": "to be respectful and obedient of rules and obligations.",
-        "Cooperation": "to be cooperative and collaborative with others.",
-        "Courage": "to be courageous or brave; to persist in the face of fear, threat, or difficulty.",
-        "Creativity": "to be creative or innovative.",
-        "Curiosity": "to be curious, open-minded, and interested; to explore and discover.",
-        "Encouragement": "to encourage and reward behavior that I value in myself or others.",
-        "Equality": "to treat others as equal to myself.",
-        "Excitement": "to seek, create, and engage in activities that are exciting, stimulating, or thrilling.",
-        "Fairness": "to be fair to myself or others.",
-        "Fitness": "to maintain or improve my fitness; to look after my physical and mental health and well-being.",
-        "Flexibility": "to adjust and adapt readily to changing circumstances.",
-        "Freedom": "to live freely; to choose how I live and behave, or help others do likewise.",
-        "Friendliness": "to be friendly, companionable, or agreeable towards others.",
-        "Forgiveness": "to be forgiving towards myself or others.",
-        "Fun": "to be fun-loving; to seek, create, and engage in fun-filled activities.",
-        "Generosity": "to be generous, sharing, and giving to myself or others.",
-        "Gratitude": "to be grateful for and appreciative of the positive aspects of myself, others, and life.",
-        "Honesty": "to be honest, truthful, and sincere with myself and others.",
-        "Humor": "to see and appreciate the humorous side of life.",
-        "Humility": "to be humble or modest; to let my achievements speak for themselves.",
-        "Industry": "to be industrious, hard-working, and dedicated.",
-        "Independence": "to be self-supportive and choose my own way of doing things.",
-        "Intimacy": "to open up, reveal, and share myself- emotionally or physically in my close personal relationships.",
-        "Justice": "to uphold justice and fairness.",
-        "Kindness": "to be kind, compassionate, considerate, nurturing, or caring towards myself or others.",
-        "Love": "to act lovingly or affectionately towards myself or others.",
-        "Mindfulness": "to be conscious of, open to, and curious about my here-and-now experience.",
-        "Order": "to be orderly and organized.",
-        "Open-mindedness": "to think things through, see things from others’ points of view and weigh evidence fairly.",
-        "Patience": "to wait calmly for what I want.",
-        "Persistence": "to continue resolutely, despite problems or difficulties.",
-        "Pleasure": "to create and give pleasure to myself or others.",
-        "Power": "to strongly influence or wield authority over others, e.g. taking charge, leading, and organizing.",
-        "Reciprocity": "to build relationships in which there is a fair balance of giving and taking.",
-        "Respect:": "to be respectful towards myself or others; to be polite, considerate and show positive regard.",
-        "Responsibility": "to be responsible and accountable for my actions.",
-        "Romance": "to be romantic; to display and express love or strong affection.",
-        "Safety": "to secure, protect, or ensure safety of myself or others.",
-        "Self-awareness": "to be aware of my own thoughts, feelings, and actions.",
-        "Self-care": "to look after my health and well-being and get my needs met.",
-        "Self-development": "to keep growing, advancing, or improving in knowledge, skills, character or life experience.",
-        "Self-control": "to act in accordance with my own ideals.",
-        "Sensuality": "to create, explore, and enjoy experiences that stimulate the five senses.",
-        "Sexuality": "to explore or express my sexuality.",
-        "Spirituality": "to connect with things bigger than myself.",
-        "Skillfulness": "to continually practice and improve my skills and apply myself fully when using them.",
-        "Supportiveness": "to be supportive, helpful, encouraging, and available to myself or others",
-        "Trust": "to be trustworthy; to be loyal, faithful, sincere, and reliable."
-    ]
-    
-    var body: some View {
-            ScrollView {
                 VStack {
-                    HStack {
-                        Button(action: {
-                            showModal = false
-                        }) {
-                            Text("Close")
-                                .foregroundStyle(.blue)
-                        }
-                        Spacer()
-                        Text("Edit Values")
-                            .font(.body)
-                            .fontWeight(.bold)
-                        Spacer()
-                        // Placeholder to balance the HStack
-                        Button(action: {
-                            showModal = false
-                        }) {
-                            Text("Save")
-                                .foregroundStyle(.blue)
-                        }
-                    }
-                    .padding()
-                    ZStack {
-                        VStack(alignment: .leading, spacing: 10) {
-                            HStack(spacing: 10) {
-                                Image(systemName: "magnifyingglass")
-                                    
-                                Text("Search")
-                                    .font(.body)
-                                    .fontWeight(.light)
-                                    
-                                Spacer()
-                                Image(systemName: "mic.fill")
-                                    
-                            }
-                        }
-                        .padding(.vertical, 10)
-                        .padding(.horizontal)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(
-                            LinearGradient(
-                                gradient: Gradient(colors: [Color.gray.opacity(0.2), Color.gray.opacity(0.2)]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                            .cornerRadius(10)
-                        )
-                    }
-                    .padding()
-                    VStack {
-                        let keys = Array(feelings.keys)
-                        ForEach(keys, id: \.self) { key in
-                            let index = keys.firstIndex(of: key) ?? 0
-                            VStack(alignment: .leading) {
+                    ForEach(personValue.values.indices, id: \.self) { index in
+                        VStack {
+                            HStack {
                                 HStack {
-                                    CheckBoxView(checked: self.$isChecked[index])
-                                    Text(key)
+                                    Button(action: {
+                                        if personValue.isChecked[index] || personValue.isChecked.filter({ $0 }).count < 5 {
+                                            personValue.toggleChecked(at: index)
+                                        } else {
+                                            showAlert = true
+                                        }
+                                    }) {
+                                        Image(systemName: personValue.isChecked[index] ? "checkmark.circle.fill" : "circle")
+                                            .foregroundColor(personValue.isChecked[index] ? Color(UIColor.systemBlue) : Color(red: 72/255, green: 72/255, blue: 74/255))
+                                            .imageScale(.large)
+                                    }
+                                    Text(personValue.values[index].name)
                                         .font(.body)
                                         .fontWeight(.light)
                                     Spacer()
-                                    chevronView(checked: self.isSelected(key: key))
-                                        .onTapGesture {
-                                            self.toggleSelection(for: key)
+                                    Button(action: {
+                                        if selectedValueIndex == index {
+                                            selectedValueIndex = nil
+                                        } else {
+                                            selectedValueIndex = index
+                                            selectedDescription = personValue.values[index].describe
                                         }
+                                    }) {
+                                        Image(systemName: "info.circle")
+                                            .foregroundColor(.blue)
+                                            .imageScale(.large)
+                                            .padding(.trailing, 10)
+                                    }
+                                    .padding(.all, 5)
+                                    .contentShape(Rectangle())
                                 }
-                                if self.isSelected(key: key) {
-                                    Text(self.feelings[key] ?? "")
-                                        .font(.body)
-                                        .foregroundColor(Color(red: 142/255, green: 142/255, blue: 147/255))
-                                        .fontWeight(.light)
-                                        .padding(.top, 6)
-                                        .padding(.leading, 16)
-                                        .overlay(
-                                            Divider()
-                                                .background(Color(red: 28/255, green: 28/255, blue: 30/255))
-                                                .opacity(13),
-                                            alignment: .top
-                                        )
-                                        .padding(.top, 6)
-                                        .padding(.horizontal, -1)
-                                }
+                                Spacer()
                             }
-                            .padding(10)
-                            .background(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .fill(Color(red: 28/255, green: 28/255, blue: 30/255))
-                                    .opacity(13)
-                            )
+                            if selectedValueIndex == index {
+                                Text(personValue.values[index].describe)
+                                    .padding(.leading, 40)
+                                    .padding(.bottom, 5)
+                                    .font(.footnote)
+                                    .foregroundColor(.gray)
+                            }
                         }
+                        Divider()
+                            .background(Color(red: 84/255, green: 84/255, blue: 88/255))
+                            .opacity(0.65)
+                        Spacer()
                     }
-                    .padding(.horizontal, 10)
-                    .padding(.leading, 10)
-                    
-                    Spacer()
                 }
-            }
-            .foregroundColor(.white)
-            .background(.black)
-        }
-        
-        private func isChecked(for key: String) -> Binding<Bool> {
-            return Binding<Bool>(
-                get: { self.selectedKey == key },
-                set: { _ in self.toggleSelection(for: key) }
-            )
-        }
-        
-        private func isSelected(key: String) -> Bool {
-            return self.selectedKey == key
-        }
-        
-        private func toggleSelection(for key: String) {
-            if self.selectedKey == key {
-                self.selectedKey = nil
-            } else {
-                self.selectedKey = key
+                .padding(.horizontal, 10)
+                .padding(.leading, 10)
+
+                Spacer()
             }
         }
-        
+        .foregroundColor(.white)
+        .background(.black)
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Selection Limit"),
+                  message: Text("You can only select up to 5 values."),
+                  dismissButton: .default(Text("OK")))
+        }
+        .onAppear {
+            tempChecked = personValue.isChecked
+            if tempChecked.count != personValue.values.count {
+                tempChecked = Array(repeating: false, count: personValue.values.count)
+            }
+        }
     }
+
+    private func toggleTempSelection(at index: Int) {
+        guard index < tempChecked.count else { return }
+        if tempChecked[index] {
+            tempChecked[index].toggle()
+        } else {
+            if tempChecked.filter({ $0 }).count < 5 {
+                tempChecked[index].toggle()
+            } else {
+                showAlert = true
+            }
+        }
+    }
+
+    private func toggleSelection(for key: String) {
+        selectedKey = selectedKey == key ? nil : key
+    }
+
+    private func saveSelections() {
+        personValue.isChecked = tempChecked
+    }
+}
+
+
 
 struct chevronView: View {
     var checked: Bool
-    
+
     var body: some View {
         Image(systemName: checked ? "chevron.down" : "info.circle")
             .foregroundColor(Color(UIColor.systemBlue))
@@ -513,19 +396,18 @@ struct chevronView: View {
     }
 }
 
-
 struct StrokeText: View {
     let text: String
     let width: CGFloat
     let color: Color
 
     var body: some View {
-        ZStack{
-            ZStack{
-                Text(text).offset(x:  width, y:  width)
+        ZStack {
+            ZStack {
+                Text(text).offset(x: width, y: width)
                 Text(text).offset(x: -width, y: -width)
-                Text(text).offset(x: -width, y:  width)
-                Text(text).offset(x:  width, y: -width)
+                Text(text).offset(x: -width, y: width)
+                Text(text).offset(x: width, y: -width)
             }
             .foregroundColor(color)
             Text(text)
@@ -540,12 +422,12 @@ private struct WrappingHStack: Layout {
         self.horizontalSpacing = horizontalSpacing
         self.verticalSpacing = verticalSpacing ?? horizontalSpacing
     }
-    
+
     public func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache _: inout ()) -> CGSize {
         guard !subviews.isEmpty else { return .zero }
-        
+
         let height = subviews.map { $0.sizeThatFits(proposal).height }.max() ?? 0
-        
+
         var rowWidths = [CGFloat]()
         var currentRowWidth: CGFloat = 0
         subviews.forEach { subview in
@@ -557,11 +439,11 @@ private struct WrappingHStack: Layout {
             }
         }
         rowWidths.append(currentRowWidth)
-        
+
         let rowCount = CGFloat(rowWidths.count)
         return CGSize(width: max(rowWidths.max() ?? 0, proposal.width ?? 0), height: rowCount * height + (rowCount - 1) * verticalSpacing)
     }
-    
+
     public func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
         let height = subviews.map { $0.dimensions(in: proposal).height }.max() ?? 0
         guard !subviews.isEmpty else { return }
@@ -588,7 +470,8 @@ private struct WrappingHStack: Layout {
 
 #Preview {
     CobaInsightsView()
+        .environmentObject(PersonValue())
+        .environmentObject(MorningJournalingDataController())
 }
-
 
 

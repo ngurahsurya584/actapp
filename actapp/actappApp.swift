@@ -15,6 +15,8 @@ struct actappApp: App {
             DecideFirstTimeView()
                 .environmentObject(PersonValue())
                 .environment(\.managedObjectContext, dataController.container.viewContext)
+                .environmentObject(dataController.groundingData)
+                .environmentObject(dataController)
               
         }
     }

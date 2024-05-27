@@ -8,30 +8,47 @@
 import SwiftUI
 
 struct MainView: View {
+    init() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.darkGray
+
+        let itemAppearance = UITabBarItemAppearance()
+        itemAppearance.normal.iconColor = .white
+        itemAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+        itemAppearance.selected.iconColor = .yellow
+        itemAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.yellow]
+
+        appearance.stackedLayoutAppearance = itemAppearance
+
+        UITabBar.appearance().standardAppearance = appearance
+        if #available(iOS 15.0, *) {
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+    }
+
     var body: some View {
         NavigationStack{
-            TabView(){
+            TabView {
                 JournalingView()
-                    .tabItem{
+                    .tabItem {
                         Label("Home", systemImage: "leaf.fill")
                     }
-                
-//              InsightsView()
-//                    .tabItem{
-//                        Label("Insights", systemImage: "heart.text.square.fill")
-//                    }
-                    
-                
+
+                CobaInsightsView()
+                    .tabItem {
+                        Label("Insights", systemImage: "tree.fill")
+                    }
             }
+            .navigationBarBackButtonHidden()
         }
-        .navigationBarBackButtonHidden()
        
-        
-        
-        
     }
 }
 
 #Preview {
     MainView()
+        .environmentObject(PersonValue())
+        .environmentObject(MorningJournalingDataController())
+        
 }

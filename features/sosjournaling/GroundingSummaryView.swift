@@ -10,7 +10,7 @@ struct GroundingSummaryView: View {
     private var groundingEntries: FetchedResults<Grounding>
     
     private func strToArr(_ str: String?) -> [String] {
-        return str?.components(separatedBy: ",") ?? []
+        return str?.components(separatedBy: ", ") ?? []
     }
     
     private var latestEntry: Grounding? {
@@ -19,133 +19,149 @@ struct GroundingSummaryView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
-                Text("I NOTICED THAT THESE DIFFICULT FEELINGS ARE APPEARING")
-                    .font(.system(size: 14))
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
-                    .padding(.bottom, 20)
-                
-                VStack {
-                    HStack(spacing: 12) {
-                        ForEach(strToArr(latestEntry?.trigger), id: \.self) { value in
-                            Button(value) {
-                                print("Button pressed!")
+            ZStack{
+                Color.black.ignoresSafeArea()
+                VStack{
+                    ZStack{
+                        ScrollView(.vertical){
+                            VStack(spacing: 0) {
+                                Text("I NOTICED THAT THESE DIFFICULT FEELINGS ARE APPEARING")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.bold)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
+                                    .padding(.bottom, 20)
+                                
+                                VStack {
+                                    WrappingHStack(horizontalSpacing: 12) {
+                                        ForEach(strToArr(latestEntry?.trigger), id: \.self) { value in
+                                            Button(value) {
+                                                print("Button pressed!")
+                                            }
+                                            .buttonStyle(LinearGrayButtonSmallTextGreen())
+                                        }
+                                    }
+                                    .font(.callout)
+                                    .padding(.bottom, 24)
+                                }
+                                
+                                Text("BUT I ALSO REALIZE THAT THERE IS A WORLD AROUND ME WHERE I COULD BE PRESENT AND BE GROUNDED ON")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.bold)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
+                                    .padding(.bottom, 20)
+                                
+                                Text("I CAN SEE 👀")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.bold)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
+                                    .padding(.bottom, 20)
+                                
+                                VStack {
+                                    WrappingHStack(horizontalSpacing: 12) {
+                                        ForEach(strToArr(latestEntry?.seenItems), id: \.self) { value in
+                                            Button(value) {
+                                                print("Button pressed!")
+                                            }
+                                            .buttonStyle(LinearGrayButtonSmallTextGreen())
+                                        }
+                                    }
+                                    .font(.callout)
+                                    .padding(.bottom, 24)
+                                }
+                                
+                                Text("I CAN HEAR 👂")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.bold)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
+                                    .padding(.bottom, 20)
+                                
+                                VStack {
+                                    WrappingHStack(horizontalSpacing: 12) {
+                                        ForEach(strToArr(latestEntry?.heardItems), id: \.self) { value in
+                                            Button(value) {
+                                                print("Button pressed!")
+                                            }
+                                            .buttonStyle(LinearGrayButtonSmallTextGreen())
+                                        }
+                                    }
+                                    .font(.callout)
+                                    .padding(.bottom, 24)
+                                }
+                                
+                                Text("I CAN SMELL 👃")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.bold)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
+                                    .padding(.bottom, 20)
+                                
+                                VStack {
+                                    WrappingHStack(horizontalSpacing: 12) {
+                                        ForEach(strToArr(latestEntry?.smeltItems), id: \.self) { value in
+                                            Button(value) {
+                                                print("Button pressed!")
+                                            }
+                                            .buttonStyle(LinearGrayButtonSmallTextGreen())
+                                        }
+                                    }
+                                    .font(.callout)
+                                    .padding(.bottom, 24)
+                                }
+                                
+                                Text("I FELT SOMETHING 👐")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.bold)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
+                                    .padding(.bottom, 20)
+                                
+                                VStack {
+                                    WrappingHStack(horizontalSpacing: 12) {
+                                        ForEach(strToArr(latestEntry?.feltItems), id: \.self) { value in
+                                            Button(value) {
+                                                print("Button pressed!")
+                                            }
+                                            .buttonStyle(LinearGrayButtonSmallTextGreen())
+                                        }
+                                    }
+                                    .font(.callout)
+                                    .padding(.bottom, 24)
+                                }
+                                
+                                Text("AND I DECIDE TO REFOCUS ON")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.bold)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
+                                    .padding(.bottom, 20)
+                                
+                                Text(latestEntry?.describe ?? "")
+                                    .font(.body)
+                                    .fontWeight(.semibold)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(.white)
+                                    .padding(.bottom, 24)
+                                
+                                Spacer()
                             }
-                            .buttonStyle(LinearGrayButtonSmallTextGreen())
-                        }
+                            .padding(.horizontal)
+                            .padding(.top, 30)
+                            .frame(maxWidth: UIScreen.main.bounds.width * 1, maxHeight: .infinity)
+                            .foregroundColor(.white)
+                            .toolbarBackground(Color.black, for: .navigationBar)
+                            .toolbarBackground(.visible, for: .navigationBar)
+                            .navigationTitle("‎‎ ")
+                            .navigationBarTitleDisplayMode(.inline)                        }
                     }
-                    .font(.callout)
-                    .padding(.bottom, 24)
-                }
-                
-                Text("BUT I ALSO REALIZE THAT THERE IS A WORLD AROUND ME WHERE I COULD BE PRESENT AND BE GROUNDED ON")
-                    .font(.system(size: 14))
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
-                    .padding(.bottom, 20)
-                
-                Text("I CAN SEE 👀")
-                    .font(.system(size: 14))
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
-                    .padding(.bottom, 20)
-                
-                VStack {
-                    WrappingHStack(horizontalSpacing: 12) {
-                        ForEach(strToArr(latestEntry?.seenItems), id: \.self) { value in
-                            Button(value) {
-                                print("Button pressed!")
-                            }
-                            .buttonStyle(LinearGrayButtonSmallTextGreen())
-                        }
+                    Spacer()
+                    NavigationLink(destination: JournalingView()) {
+                        Text("Finish")
+                            .modifier(ButtonGreen())
                     }
-                    .font(.callout)
-                    .padding(.bottom, 24)
-                }
-                
-                Text("I CAN HEAR 👂")
-                    .font(.system(size: 14))
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
-                    .padding(.bottom, 20)
-                
-                VStack {
-                    HStack(spacing: 12) {
-                        ForEach(strToArr(latestEntry?.heardItems), id: \.self) { value in
-                            Button(value) {
-                                print("Button pressed!")
-                            }
-                            .buttonStyle(LinearGrayButtonSmallTextGreen())
-                        }
-                    }
-                    .font(.callout)
-                    .padding(.bottom, 24)
-                }
-                
-                Text("I CAN SMELL 👃")
-                    .font(.system(size: 14))
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
-                    .padding(.bottom, 20)
-                
-                VStack {
-                    HStack(spacing: 12) {
-                        ForEach(strToArr(latestEntry?.smeltItems), id: \.self) { value in
-                            Button(value) {
-                                print("Button pressed!")
-                            }
-                            .buttonStyle(LinearGrayButtonSmallTextGreen())
-                        }
-                    }
-                    .font(.callout)
-                    .padding(.bottom, 24)
-                }
-                
-                Text("I FELT SOMETHING 👐")
-                    .font(.system(size: 14))
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
-                    .padding(.bottom, 20)
-                
-                VStack {
-                    HStack(spacing: 12) {
-                        ForEach(strToArr(latestEntry?.feltItems), id: \.self) { value in
-                            Button(value) {
-                                print("Button pressed!")
-                            }
-                            .buttonStyle(LinearGrayButtonSmallTextGreen())
-                        }
-                    }
-                    .font(.callout)
-                    .padding(.bottom, 24)
-                }
-                
-                Spacer()
-                
-                NavigationLink(destination: JournalingView()) {
-                    Text("Finish")
-                        .modifier(ButtonGreen())
-                }
-                
-            }
-            .padding(.horizontal)
-            .padding(.top, 30)
-            .frame(maxWidth: UIScreen.main.bounds.width * 1, maxHeight: .infinity)
-            .foregroundColor(.white)
-            .background(Color(red: 17/255, green: 17/255, blue: 17/255))
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Summary")
-                        .font(.body)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
                 }
             }
         }

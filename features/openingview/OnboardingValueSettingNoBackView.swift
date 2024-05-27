@@ -1,15 +1,8 @@
-//
-//  OnboardingValueSettingNoBackView.swift
-//  actapp
-//
-//  Created by I Gusti Ngurah Surya Ardika Dinataputra on 20/05/24.
-//
-
 import SwiftUI
 
 struct OnboardingValueSettingNoBackView: View {
     @EnvironmentObject var personValue: PersonValue
-  
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -25,21 +18,22 @@ struct OnboardingValueSettingNoBackView: View {
                 }
                 .padding(.bottom, 30)
                 .multilineTextAlignment(.center)
-                
+
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
-                        ForEach(0..<personValue.values.count, id: \.self) { index in
+                        ForEach(personValue.values.indices, id: \.self) { index in
                             VStack {
                                 HStack {
                                     HStack {
                                         Button(action: {
                                             personValue.toggleChecked(at: index)
+                                            
                                         }) {
                                             Image(systemName: personValue.isChecked[index] ? "checkmark.circle.fill" : "circle")
                                                 .foregroundColor(personValue.isChecked[index] ? Color(UIColor.systemBlue) : Color(red: 72/255, green: 72/255, blue: 74/255))
                                                 .imageScale(.large)
                                         }
-                                        Text(personValue.values[index])
+                                        Text(personValue.values[index].name)
                                             .font(.body)
                                             .fontWeight(.light)
                                     }
@@ -62,7 +56,7 @@ struct OnboardingValueSettingNoBackView: View {
 
                 Spacer()
                 Spacer()
-                NavigationLink(destination: InsightsView()) {
+                NavigationLink(destination: OnboardingReminderSettingView()) {
                     Text("Next")
                         .modifier(ButtonWhite())
                 }
@@ -73,12 +67,13 @@ struct OnboardingValueSettingNoBackView: View {
             .foregroundColor(.white)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .navigationBarBackButtonHidden()
     }
 }
 
-#Preview {
-    OnboardingValueSettingNoBackView()
-        .environmentObject(PersonValue())
-       
+
+struct OnboardingValueSettingNoBackView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnboardingValueSettingNoBackView()
+            .environmentObject(PersonValue())
+    }
 }

@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct JournalingNightSummaryView: View {
-    let chosenThreeValues = ["Patience", "Creativity", "Hard Work"]
-    let todo = "1. I offered assistance to my colleagues with their work, especially the interns. \n2. I strived for perfection in all of my work. \n3. I came up with new solutions for each problem I’ve encountered today."
+    @EnvironmentObject var personValue: PersonValue
     
     @Environment(\.managedObjectContext) private var moc
     @FetchRequest(
-        entity: MorningJournaling.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \MorningJournaling.date, ascending: false)],
+        entity: NightJournaling.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \NightJournaling.date, ascending: false)],
         predicate: nil
-    ) private var journalEntries: FetchedResults<MorningJournaling>
+    ) private var journalEntries: FetchedResults<NightJournaling>
     
-    private var latestEntry: MorningJournaling? {
+    private var latestEntry: NightJournaling? {
         journalEntries.first
     }
     
@@ -32,7 +31,7 @@ struct JournalingNightSummaryView: View {
                     .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
                     .padding(.bottom, 20)
                 if let latestEntry = latestEntry {
-                    let valuesArray = latestEntry.planValue?.components(separatedBy: ", ") ?? []
+                    let valuesArray = latestEntry.reflectValue?.components(separatedBy: ", ") ?? []
                     
                     VStack {
                         HStack(spacing: 12) {
@@ -40,7 +39,7 @@ struct JournalingNightSummaryView: View {
                                 Button(value) {
                                     print("Button pressed!")
                                 }
-                                .buttonStyle(LinearGrayButtonSmall())
+                                .buttonStyle(LinearGrayButtonSmallTextPurple())
                             }
                         }
                         .font(.callout)
@@ -54,7 +53,7 @@ struct JournalingNightSummaryView: View {
                         .foregroundColor(Color(red: 174/255, green: 174/255, blue: 178/255))
                         .padding(.bottom, 20)
                     
-                    Text(latestEntry.describeValue ?? "")
+                    Text(latestEntry.reflectDescribe ?? "")
                         .foregroundColor(.white)
                 } else {
                     Text("No journal entry found.")
@@ -67,7 +66,9 @@ struct JournalingNightSummaryView: View {
                 NavigationLink( destination: JournalingNightCompletedView()){
                     Text("Finish")
                         .modifier(ButtonPurple())
-                }
+                } .simultaneousGesture(TapGesture().onEnded {
+                    personValue.incrementDaysPracticing()
+                })
                 
             }
             .padding(.horizontal)

@@ -2,6 +2,7 @@ import SwiftUI
 import CoreData
 
 struct GroundingEmotionEmptyView: View {
+    @EnvironmentObject private var groundingData: GroundingData
     let feelings: [(key: String, value: String)] = [
         ("Anger", "A strong feeling of annoyance, displeasure, or hostility."),
         ("Annoyance", "A feeling of slight anger, irritation due to disturbance or unpleasant deeds."),
@@ -145,7 +146,7 @@ struct GroundingEmotionEmptyView: View {
                 }
                 .offset(CGSize(width: 0, height: -110))
                 
-                NavigationLink(destination: GroundingRefocusSightView()){
+                NavigationLink(destination: GroundingSlowingDownInSessionView()){
                     Text("Next")
                         .fontWeight(.bold)
                         .foregroundColor(.fillButton)
@@ -157,23 +158,15 @@ struct GroundingEmotionEmptyView: View {
                     saveSelectedKeys()
                 })
                 .padding()
-                .offset(CGSize(width: 0, height: -110.0))
+                .offset(CGSize(width: 0, height: -140.0))
             }
         }
     }
     
     private func saveSelectedKeys() {
-        let selectedFeelings = selectedKeys.map { feelings[$0].key }.joined(separator: ", ")
-        
-        let newGrounding = Grounding(context: moc)
-        newGrounding.trigger = selectedFeelings
-        
-        do {
-            try moc.save()
-        } catch {
-            print("Failed to save context: \(error)")
+            let selectedFeelings = selectedKeys.map { feelings[$0].key }.joined(separator: ", ")
+            groundingData.trigger = selectedFeelings
         }
-    }
 }
 
 struct FeelingRow: View {

@@ -1,15 +1,10 @@
-//
-//  Onboarding-ValueSetting.swift
-//  actapp
-//
-//  Created by Pedro Nicolas Cristiansen Hutabarat on 10/05/24.
-//
-
 import SwiftUI
 
 struct OnboardingValueSettingView: View {
     @EnvironmentObject var personValue: PersonValue
-
+    @State private var showAlert = false
+    @State private var selectedDescription: String?
+    @State private var selectedValueIndex: Int?
 
     var body: some View {
         NavigationStack {
@@ -20,7 +15,7 @@ struct OnboardingValueSettingView: View {
                     + Text("matters")
                         .font(.title).bold().italic()
                         .fontDesign(.serif)
-                    Text("Values are what you want to stand for as a human being. Choose at least 3 values that are most important to you.")
+                    Text("Values are what you want to stand for as a human being. Choose 3-5 values that are most important to you.")
                         .font(.body)
                         .fontWeight(.semibold).padding(.top, 10)
                 }
@@ -29,23 +24,49 @@ struct OnboardingValueSettingView: View {
 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
-                        ForEach(0..<personValue.values.count, id: \.self) { index in
+                        ForEach(personValue.values.indices, id: \.self) { index in
                             VStack {
                                 HStack {
                                     HStack {
                                         Button(action: {
-                                            personValue.toggleChecked(at: index)
-                                            
+                                            if personValue.isChecked[index] || personValue.isChecked.filter({ $0 }).count < 5 {
+                                                personValue.toggleChecked(at: index)
+                                            } else {
+                                                showAlert = true
+                                            }
                                         }) {
                                             Image(systemName: personValue.isChecked[index] ? "checkmark.circle.fill" : "circle")
                                                 .foregroundColor(personValue.isChecked[index] ? Color(UIColor.systemBlue) : Color(red: 72/255, green: 72/255, blue: 74/255))
                                                 .imageScale(.large)
                                         }
-                                        Text(personValue.values[index])
+                                        Text(personValue.values[index].name)
                                             .font(.body)
                                             .fontWeight(.light)
+                                        Spacer()
+                                        Button(action: {
+                                            if selectedValueIndex == index {
+                                                selectedValueIndex = nil
+                                            } else {
+                                                selectedValueIndex = index
+                                                selectedDescription = personValue.values[index].describe
+                                            }
+                                        }) {
+                                            Image(systemName: "info.circle")
+                                                .foregroundColor(.blue)
+                                                .imageScale(.large)
+                                                .padding(.trailing, 10)
+                                        }
+                                        .padding(.all, 5)
+                                        .contentShape(Rectangle())
                                     }
                                     Spacer()
+                                }
+                                if selectedValueIndex == index {
+                                    Text(personValue.values[index].describe)
+                                        .padding(.leading, 40)
+                                        .padding(.bottom, 5)
+                                        .font(.footnote)
+                                        .foregroundColor(.gray)
                                 }
                             }
                             Divider()
@@ -73,8 +94,16 @@ struct OnboardingValueSettingView: View {
             .padding(.top, 20)
             .background(Color(red: 17/255, green: 17/255, blue: 17/255))
             .foregroundColor(.white)
+            .navigationBarBackButtonHidden()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Error"),
+                message: Text("You can only choose up to 5 values."),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
 
@@ -91,10 +120,9 @@ struct CheckBoxView: View {
     }
 }
 
-#Preview {
+struct OnboardingValueSettingView_Previews: PreviewProvider {
+    static var previews: some View {
         OnboardingValueSettingView()
             .environmentObject(PersonValue())
-           
     }
-
-
+}

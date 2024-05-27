@@ -7,6 +7,7 @@ struct GroundingRefocusTouchView: View {
     @State private var changeSize = false
     
     @Environment(\.managedObjectContext) private var moc
+    @EnvironmentObject private var groundingData: GroundingData
     
     var body: some View {
         ZStack {
@@ -84,22 +85,25 @@ struct GroundingRefocusTouchView: View {
                     }
                     
                     TextEditor(text: $text)
+                        .frame(width: 353, height: 301)
                         .padding(.horizontal, 3)
                         .padding(.vertical, 5)
-                        .frame(width: 352, height: 300)
+                        .scrollContentBackground(.hidden)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(.white)
+                                .opacity(0.13)
+                        )
                         .cornerRadius(10)
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(LinearGradient(
-                                    gradient: Gradient(colors: [.white, .middleGradient, .strokeGradient]),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing), lineWidth: 1)
-                                .fill(.fillTextEditor)
+                                .stroke(Color.gray, lineWidth: 1)
                         )
                         .focused($isFocused)
                         .onTapGesture {
                             isFocused = true
                         }
+                        .foregroundColor(.white) // Add this line to set the text color to white
                     
                 }
                 .frame(width: 352, height: 300)
@@ -111,7 +115,7 @@ struct GroundingRefocusTouchView: View {
                         Text("Finish")
                             .modifier(ButtonNext())
                     }.simultaneousGesture(TapGesture().onEnded {
-                       saveAndNavigate()
+                        saveAndNavigate()
                     })
                     
                 }
@@ -123,19 +127,24 @@ struct GroundingRefocusTouchView: View {
     }
     
     private func saveAndNavigate() {
+        groundingData.describe = text
+        
         let newGrounding = Grounding(context: moc)
-        newGrounding.describe = text
-        newGrounding.date = Date()
+        newGrounding.date = groundingData.date
+        newGrounding.trigger = groundingData.trigger
+        newGrounding.seenItems = groundingData.seenItems
+        newGrounding.heardItems = groundingData.heardItems
+        newGrounding.smeltItems = groundingData.smeltItems
+        newGrounding.feltItems = groundingData.feltItems
+        newGrounding.describe = groundingData.describe
         
         do {
             try moc.save()
+            print("saved")
         } catch {
             print("Failed to save context: \(error)")
         }
-        
-        // Add navigation logic here if needed
-    }
-}
+    }}
 
 struct GroundingRefocusTouchView_Previews: PreviewProvider {
     static var previews: some View {
